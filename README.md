@@ -1,5 +1,6 @@
 # RoguePlateform
 
-Alfred BRISAC
+Alfred 
 Rachid
 Nathan
+Loic
