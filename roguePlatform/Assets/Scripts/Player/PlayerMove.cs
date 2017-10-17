@@ -5,7 +5,7 @@ using UnityEngine;
 namespace RoguePlateformer {
     public class PlayerMove : MonoBehaviour {
         [SerializeField]
-        private float speed;
+        private float speed = 10f;
         [SerializeField]
         private float speedJump;
         [SerializeField]
@@ -26,7 +26,6 @@ namespace RoguePlateformer {
        
 
         public void Start() {
-            speed = 10f;
             rigidBody = GetComponent<Rigidbody2D>();
             isFlying = false;
             facingRight = true; 
@@ -60,13 +59,6 @@ namespace RoguePlateformer {
                 rigidBody.AddForce(new Vector2(speed*100 , 0));
             }
 
-        }
-        
-        private void Update() {
-            
-
-         
-            
         }
 
         public void JumpCheck() {
