@@ -11,49 +11,74 @@ namespace RoguePlateformer {
         private Rigidbody2D rigidBody;
         private bool isFlying;
         private int nbJump;
-
+        private Animator anim;
+        private bool facingRight;
+        public Transform groundCheck;
+        private float groundRadius = 0.2f;
+        public LayerMask whatIsGround; 
 
         public void Start() {
-            speed = 4f;
+            speed = 10f;
             rigidBody = GetComponent<Rigidbody2D>();
             isFlying = false;
+            facingRight = true; 
             nbJump = 0;
-
+            anim = GetComponent<Animator>(); 
         }
 
         public void FixedUpdate() {
-            float horizontalSpeed = 0;
+            
+            //Check if is on the ground 
+            isFlying = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+            anim.SetBool("Ground", isFlying);
 
-            horizontalSpeed += speed * Input.GetAxisRaw("Horizontal");
+            //Jump Animation 
+            anim.SetFloat("vSpeed", rigidBody.velocity.y); 
 
-            Vector2 newVelocity = rigidBody.velocity;
-
-            if (Input.GetButtonDown("Jump")) {
-                if (nbJump < 2) {
-                    newVelocity.y = speedJump;
-                    isFlying = true;
-                    nbJump++;
-                }
+            //Adjust the velocity
+            float move = Input.GetAxis("Horizontal");
+            rigidBody.velocity = new Vector2(move * speed, rigidBody.velocity.y);
+            anim.SetFloat("Speed", Mathf.Abs(move));
+            //Change Face Direction 
+            if (move > 0 && !facingRight)
+            {
+                Flip();
             }
-
-            newVelocity.x = horizontalSpeed;
-            rigidBody.velocity = newVelocity;
-
+            else if (move < 0 && facingRight)
+            {
+                Flip();
+            }
+            
         }
-
-        void OnCollisionEnter2D(Collision2D collisionInfo) {
-            foreach (ContactPoint2D contact in collisionInfo.contacts) {
-                if (contact.normal.y == 1f) {
-                    isFlying = false;
-                    nbJump = 0;
-                }
+        
+        private void Update()
+        {
+            //Jump 
+            if (isFlying && Input.GetButtonDown("Jump"))
+            {
+                anim.SetBool("Ground", false);
+                rigidBody.AddForce(new Vector2(0, speedJump)); 
+            }
+            // Double Jump
+            else if (!isFlying && Input.GetButtonDown("Jump") && nbJump<1)
+            {
+                rigidBody.AddForce(new Vector2(0, speedJump));
+                nbJump++; 
+            }
+            // Reinitialize Jump
+            if (isFlying == true)
+            {
+                nbJump = 0; 
             }
         }
 
-        void OnCollisionExit2D(Collision2D collisionInfo) {
-            isFlying = true;
-            if (nbJump == 0) {  nbJump = 1;   }
+        private void Flip()
+        {
+            facingRight = !facingRight;
+            Vector3 theScale = transform.localScale;
+            theScale.x *= -1;
+            transform.localScale = theScale;
         }
-
+        
     }
 }
