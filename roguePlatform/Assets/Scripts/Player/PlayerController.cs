@@ -4,15 +4,22 @@ using UnityEngine;
 using System;
 
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
+
+    LifeController lifeController;
 
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void FixedUpdate () {
-       
+    void Start()
+    {
+
+        lifeController = gameObject.GetComponent<LifeController>();
+
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+
     }
 }
