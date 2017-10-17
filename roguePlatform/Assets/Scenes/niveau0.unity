@@ -360,9 +360,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9181a20484005f14e8c95213d9c05e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.08
+  speed: 10
   speedJump: 750
   groundRadius: 0.2
+  jumpNdVelocity: -12
+  speedDash: 5000
   groundCheck: {fileID: 1889613372}
   whatIsGround:
     serializedVersion: 2

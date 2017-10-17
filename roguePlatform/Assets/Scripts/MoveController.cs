@@ -74,27 +74,6 @@ public class MoveController : MonoBehaviour {
 
     }
 
-    public void JumpCheck()
-    {
-        ////Jump 
-        //if (isFlying && Input.GetButtonDown("Jump"))
-        //{
-        //    anim.SetBool("Ground", false);
-        //    rigidBody.AddForce(new Vector2(0, speedJump));
-        //}
-        //// Double Jump
-        //else if (!isFlying && Input.GetButtonDown("Jump") && nbJump < 1)
-        //{
-        //    rigidBody.AddForce(new Vector2(0, speedJump));
-        //    nbJump++;
-        //}
-        //// Reinitialize Jump
-        //if (isFlying == true)
-        //{
-        //    nbJump = 0;
-        //}
-    }
-
     private void Flip()
     {
         facingRight = !facingRight;
