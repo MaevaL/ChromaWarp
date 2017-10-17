@@ -179,6 +179,22 @@ Prefab:
       propertyPath: m_Name
       value: Platform04x01
       objectReference: {fileID: 0}
+    - target: {fileID: 4531964091440194, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531964091440194, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 5.061908
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531964091440194, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531964091440194, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.0165267
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
   m_IsPrefabParent: 0
@@ -329,7 +345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9181a20484005f14e8c95213d9c05e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 0.08
+  speedJump: 10
 --- !u!50 &1603228685
 Rigidbody2D:
   serializedVersion: 4
