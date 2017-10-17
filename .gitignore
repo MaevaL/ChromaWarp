@@ -4,10 +4,7 @@
 Temp/
 Obj/
 UnityGenerated/
-/roguePlateform/Library/*
-roguePlateform/Library/
-roguePlateform/Library/*
-/roguePlatform/.vs/
+roguePlatform/.vs/
 /Library/*
 Assets/AssetStoreTools*
 
