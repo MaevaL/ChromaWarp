@@ -25,6 +25,11 @@ ExportedObj/
 
 # Unity3D generated meta files
 *.pidb.meta
+roguePlatform/.vs/roguePlatform/v15/sqlite3/storage.ide
+roguePlatform/Library/ScriptAssemblies/Assembly-CSharp.dll
+roguePlatform/Library/ScriptAssemblies/Assembly-CSharp.dll.mdb
+roguePlatform/Library/assetDatabase3
+roguePlatform/Library/metadata/dc/dc9b5558d32dc444fb69696fc6af3bf0
 
 # Unity3D Generated File On Crash Reports
 sysinfo.txt

@@ -2,5 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PeonEnemy : Enemy {
+public class BonusManager : MonoBehaviour {
+    private List<Bonus> _bonus;
 }
