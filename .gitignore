@@ -4,8 +4,8 @@
 Temp/
 Obj/
 UnityGenerated/
-/RoguePlateform/Library/
-/Library/
+roguePlatform/.vs/
+/Library/*
 Assets/AssetStoreTools*
 
 # ===================================== #
@@ -33,3 +33,5 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
+
+roguePlatform/Library/
