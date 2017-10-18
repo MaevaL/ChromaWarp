@@ -3,9 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class goldBonus {
+public class GoldBonus : MonoBehaviour {
 
-    //public override void SetBonus(object arg) {
-    //    throw new NotImplementedException();
-    //}
+    private GameObject player;
+
+    private void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+    public void SetBonus(int arg)
+    {
+        player.GetComponent<GoldController>().GainGold(arg);
+    }
 }
