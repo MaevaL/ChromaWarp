@@ -7,8 +7,6 @@ public class MoveController : MonoBehaviour {
     [SerializeField]
     private float speed =2f;
     [SerializeField]
-    private float speedJump;
-    [SerializeField]
     private float groundRadius;// 0.2f;
     [SerializeField]
     private bool facingRight = true; 
@@ -35,10 +33,9 @@ public class MoveController : MonoBehaviour {
 
     public void FixedUpdate()
     {
-
         //Check if is on the ground 
         isFlying = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        anim.SetBool("Ground", !isFlying);
+        anim.SetBool("Ground", isFlying);
 
         //Velocity Animation ... Idle, Walking, Running
         anim.SetFloat("vSpeed", rigidBody.velocity.y);
@@ -52,7 +49,6 @@ public class MoveController : MonoBehaviour {
         Debug.Log(move); 
         if (move > 0 && !facingRight) { Flip(); }
         else if (move < 0 && facingRight) { Flip(); }
-
     }
 
     //Flip animation 
