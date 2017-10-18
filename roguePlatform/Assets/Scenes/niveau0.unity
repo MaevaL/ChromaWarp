@@ -351,7 +351,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -399,6 +399,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthText: {fileID: 2011950932}
+  healthBonus: {fileID: 1289321663581958, guid: a10fb469ed963554dbbc770347bd4a57,
+    type: 2}
 --- !u!50 &1603228685
 Rigidbody2D:
   serializedVersion: 4
@@ -524,6 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 3
+  _lifeMax: 10
 --- !u!1001 &1750796017
 Prefab:
   m_ObjectHideFlags: 0
@@ -617,8 +620,34 @@ Prefab:
       value: 
       objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000,
         type: 0}
+    - target: {fileID: 114108459451885056, guid: 3097d4326aabed54ba134877a8b90ba1,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
+      propertyPath: m_Offset.x
+      value: 0.03892851
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
+      propertyPath: m_Size.x
+      value: 0.9351436
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
+      propertyPath: m_Offset.y
+      value: 0.08953595
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
+      propertyPath: m_Size.y
+      value: 0.85907197
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 114108459451885056, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1889613371
