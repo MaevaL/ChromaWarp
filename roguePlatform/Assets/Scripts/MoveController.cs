@@ -47,6 +47,7 @@ public class MoveController : MonoBehaviour {
 
         //Change Face Direction 
         //Debug.Log(move); 
+
         if (move > 0 && !facingRight) { Flip(); }
         else if (move < 0 && facingRight) { Flip(); }
     }

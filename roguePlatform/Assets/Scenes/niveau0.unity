@@ -245,6 +245,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &685157001 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400000, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
+  m_PrefabInternal: {fileID: 1750796017}
 --- !u!1 &889956127
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,6 +262,7 @@ GameObject:
   - component: {fileID: 889956129}
   - component: {fileID: 889956128}
   - component: {fileID: 889956133}
+  - component: {fileID: 889956134}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -347,21 +352,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1603228681}
+<<<<<<< HEAD
 --- !u!1 &1583972484 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
   m_PrefabInternal: {fileID: 1750796017}
 --- !u!114 &1583972493
+=======
+--- !u!114 &889956134
+>>>>>>> 811c3492c45293c477ac2655f2721e20df373187
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 1583972484}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03c79e06a2be0cd44b9820923f142073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+  m_GameObject: {fileID: 889956127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fddfe5a144e67b542bb8d6cb3a82ae3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 133658, guid: 29fc7eec629b3f94c9a66c7eb35b79ec, type: 2}
+  soundManager: {fileID: 109316, guid: 95dcbf14cf489ba48af50e8d7b70e06b, type: 2}
+>>>>>>> 811c3492c45293c477ac2655f2721e20df373187
 --- !u!1 &1603228681
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +631,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 21200000, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
       propertyPath: m_FlipX
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114108459451885056, guid: 3097d4326aabed54ba134877a8b90ba1,
         type: 2}
@@ -631,13 +651,13 @@ Prefab:
     - target: {fileID: 114108459451885056, guid: 3097d4326aabed54ba134877a8b90ba1,
         type: 2}
       propertyPath: whatIsGround.m_Bits
-      value: 55
+      value: 4294966527
       objectReference: {fileID: 0}
     - target: {fileID: 114108459451885056, guid: 3097d4326aabed54ba134877a8b90ba1,
         type: 2}
       propertyPath: groundCheck
       value: 
-      objectReference: {fileID: 1889613372}
+      objectReference: {fileID: 685157001}
     - target: {fileID: 9500000, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
       propertyPath: m_UpdateMode
       value: 0
@@ -700,8 +720,12 @@ Prefab:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
+<<<<<<< HEAD
     - {fileID: 11400002, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
     - {fileID: 114108459451885056, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
+=======
+    - {fileID: 0}
+>>>>>>> 811c3492c45293c477ac2655f2721e20df373187
   m_ParentPrefab: {fileID: 100100000, guid: 3097d4326aabed54ba134877a8b90ba1, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1889613371

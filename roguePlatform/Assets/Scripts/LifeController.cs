@@ -7,15 +7,26 @@ public class LifeController : MonoBehaviour
 
     [SerializeField]
     private int _life = 1;
+    private int _lifeMax = 1;
 
     public int GetLife()
     {
         return _life;
     }
 
+    public int GetLifeMax()
+    {
+        return _lifeMax;
+    }
+
     public void GainLife(int gain)
     {
         _life += gain;
+
+        if (_life > _lifeMax)
+        {
+            _life = _lifeMax;
+        }
     }
 
     public bool LoseLife(int loss)
