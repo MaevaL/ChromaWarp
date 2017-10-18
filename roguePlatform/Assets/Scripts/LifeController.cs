@@ -7,6 +7,7 @@ public class LifeController : MonoBehaviour
 
     [SerializeField]
     private int _life = 1;
+    [SerializeField]
     private int _lifeMax = 1;
 
     public int GetLife()

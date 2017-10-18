@@ -7,7 +7,4 @@ public class Enemy : MonoBehaviour {
     
     LifeController lifeController;
     MoveController moveController;
-    Bonus bonus;
-    
-  
     }

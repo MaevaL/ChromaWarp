@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour {
 
     LifeController lifeController;
     public Text healthText;
-    public GameObject bonusHealth;
+    public GameObject healthBonus;
 
     // Use this for initialization
     void Start() {
@@ -33,12 +33,15 @@ public class PlayerController : MonoBehaviour {
         if (collider == null) { return; }
 
         if (collider.CompareTag("Enemy")) {
-            Instantiate(bonusHealth , transform.position + new Vector3(1,0,0) , Quaternion.identity);
+            Instantiate(healthBonus , transform.position + new Vector3(1,0,0) , Quaternion.identity);
             Destroy(collider.gameObject);
         }
 
         if (collider.CompareTag("HealthBonus")) {
-            collider.gameObject.GetComponent<Bonus>().SetBonus(1);
+
+            collider.gameObject.GetComponent<HealthBonus>().SetBonus(1);
+            Destroy(collider.gameObject);
+            
         }
 
         /*

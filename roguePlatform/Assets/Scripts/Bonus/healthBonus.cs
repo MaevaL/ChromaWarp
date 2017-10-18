@@ -2,14 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBonus : Bonus {
+public class HealthBonus : MonoBehaviour {
+    private GameObject player;
 
     private void Awake() {
-        player = FindObjectOfType<PlayerController>().gameObject;
-        Debug.Log(player.name);
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
-    public override void SetBonus(int arg) {
+    public void SetBonus(int arg) {
         player.GetComponent<LifeController>().GainLife(arg);
     }
 }
