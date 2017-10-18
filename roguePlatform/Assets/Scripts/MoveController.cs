@@ -14,7 +14,6 @@ public class MoveController : MonoBehaviour {
 
     private bool isFlying;
     
-
     private int nbJump;
 
     private Animator anim;
@@ -23,12 +22,18 @@ public class MoveController : MonoBehaviour {
     public LayerMask whatIsGround;
     private Vector3 _prevPos;
 
+    private Transform transfMove;
+    float widthEnemy;
+
 
     public void Start()
     { 
         rigidBody = GetComponent<Rigidbody2D>();
         isFlying = false;
         anim = GetComponent<Animator>();
+
+        transfMove = this.transform;
+        widthEnemy = this.GetComponent<SpriteRenderer>().bounds.extents.x;
     }
 
     public void FixedUpdate()
