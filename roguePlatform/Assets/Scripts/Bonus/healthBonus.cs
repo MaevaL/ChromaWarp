@@ -2,9 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class healthBonus : Bonus {
-    public override void setBonus(params object[] args) {
-        throw new System.NotImplementedException();
+public class HealthBonus : MonoBehaviour {
+    private GameObject player;
 
+    private void Awake() {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+    public void SetBonus(int arg) {
+        player.GetComponent<LifeController>().GainLife(arg);
     }
 }

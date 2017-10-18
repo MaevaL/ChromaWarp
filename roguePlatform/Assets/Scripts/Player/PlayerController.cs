@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
 
     LifeController lifeController;
     public Text healthText;
+    public GameObject healthBonus;
 
     // Use this for initialization
     void Start() {
@@ -21,9 +22,32 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (Input.GetButtonDown("Jump")) {
-            healthText.text = ": " + (lifeController.GetLife());
+        healthText.text = ": " + (lifeController.GetLife());
+    }
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        /*
+         * without that asteroid is destroyed at the very 1st frame
+         * by boundary's which declench our triggerEnter
+         */
+        if (collider == null) { return; }
+
+        if (collider.CompareTag("Enemy")) {
+            Instantiate(healthBonus , transform.position + new Vector3(1,0,0) , Quaternion.identity);
+            Destroy(collider.gameObject);
         }
+
+        if (collider.CompareTag("HealthBonus")) {
+
+            collider.gameObject.GetComponent<HealthBonus>().SetBonus(1);
+            Destroy(collider.gameObject);
+            
+        }
+
+        /*
+         * Destroy gameobject's script attach and his children
+         */
+        
     }
 
 }

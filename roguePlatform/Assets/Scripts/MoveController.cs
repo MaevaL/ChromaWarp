@@ -51,6 +51,8 @@ public class MoveController : MonoBehaviour {
         anim.SetFloat("Speed", Mathf.Abs(move));
 
         //Change Face Direction 
+        //Debug.Log(move); 
+
         if (move > 0 && !facingRight) { Flip(); }
         else if (move < 0 && facingRight) { Flip(); }
     }
