@@ -4,6 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Bonus : MonoBehaviour {
-
-    public abstract void setBonus(params object[] args);    
+    protected GameObject player;
+    public abstract void SetBonus(int arg);    
 }
