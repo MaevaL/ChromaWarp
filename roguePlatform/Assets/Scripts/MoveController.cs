@@ -51,6 +51,7 @@ public class MoveController : MonoBehaviour {
             Vector2 lineCastPos = transfMove.position - transfMove.right * widthEnemy;
             bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos - Vector2.up, whatIsGround);
             Debug.DrawLine(lineCastPos, lineCastPos + Vector2.down);
+            Debug.DrawRay(lineCastPos, lineCastPos + Vector2.down);
             Vector2 transfMoveRight = transfMove.right * 0.02f;
             bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos - transfMoveRight, whatIsGround);
 

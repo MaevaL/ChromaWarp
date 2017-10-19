@@ -35,7 +35,7 @@ namespace RoguePlateformer {
             isFlying = false;
             facingRight = true; 
             nbJump = 0;
-            anim = GetComponent<Animator>(); 
+            anim = GetComponent<Animator>();
         }
 
         public void FixedUpdate() {
@@ -58,11 +58,11 @@ namespace RoguePlateformer {
 
             JumpCheck();
 
-            dashCheck(); 
+            DashCheck(); 
 
         }
         
-        public void dashCheck()
+        public void DashCheck()
         {
             // dash 
             if (Input.GetButtonDown("Dash"))
