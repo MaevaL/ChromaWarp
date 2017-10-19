@@ -44,7 +44,6 @@ public class PlayerController : MonoBehaviour {
 
             float rnd = UnityEngine.Random.Range(0, 2);
             
-            Debug.Log(rnd); 
             if (rnd == 1) {
                 Instantiate(healthBonus, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
             }
@@ -59,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 
             collider.gameObject.GetComponent<HealthBonus>().SetBonus(1);
             Destroy(collider.gameObject);
-            
+    
         }
 
         if (collider.CompareTag("GoldBonus"))
