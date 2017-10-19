@@ -17,7 +17,7 @@ public class Enemy : MonoBehaviour {
             Instantiate(explosion , transform.position , Quaternion.identity);
             Destroy(gameObject);
 
-            float rnd = UnityEngine.Random.Range(0 , 2);
+            float rnd = UnityEngine.Random.Range(0 , 10);
 
             if (rnd == 1) {
                 Instantiate(healthBonus , transform.position + new Vector3(1 , 0 , 0) , Quaternion.identity);
