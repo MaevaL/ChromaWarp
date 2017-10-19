@@ -5,7 +5,7 @@ using UnityEngine;
 public class ColorController : MonoBehaviour {
 
     [SerializeField]
-    private int _color = 1;
+    private int _color = 2;
 
     public int GetColor() {
         return _color;
