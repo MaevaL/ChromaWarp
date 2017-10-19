@@ -9,12 +9,13 @@ public class MoveController : MonoBehaviour {
     [SerializeField]
     private float groundRadius;// 0.2f;
     [SerializeField]
-    private bool facingRight = true; 
+    private bool facingRight = true;
+    [SerializeField]
+    private float type=0;
     private Rigidbody2D rigidBody;
 
     private bool isFlying;
     
-
     private int nbJump;
 
     private Animator anim;
@@ -23,12 +24,18 @@ public class MoveController : MonoBehaviour {
     public LayerMask whatIsGround;
     private Vector3 _prevPos;
 
+    private Transform transfMove;
+    float widthEnemy;
+
 
     public void Start()
     { 
         rigidBody = GetComponent<Rigidbody2D>();
         isFlying = false;
         anim = GetComponent<Animator>();
+
+        transfMove = this.transform;
+        widthEnemy = this.GetComponent<SpriteRenderer>().bounds.extents.x;
     }
 
     public void FixedUpdate()
@@ -40,16 +47,43 @@ public class MoveController : MonoBehaviour {
         //Velocity Animation ... Idle, Walking, Running
         anim.SetFloat("vSpeed", rigidBody.velocity.y);
 
-        //Adjust the velocity
-        float move = -1;
-        rigidBody.velocity = new Vector2(move * speed, rigidBody.velocity.y);
-        anim.SetFloat("Speed", Mathf.Abs(move));
+        if (type == 0)
+        {
+            Vector2 lineCastPos = transfMove.position - transfMove.right * widthEnemy;
+            bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos - Vector2.up, whatIsGround);
+            Debug.DrawLine(lineCastPos, lineCastPos + Vector2.down);
+            Vector2 transfMoveRight = transfMove.right * 0.02f;
+            bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos - transfMoveRight, whatIsGround);
 
-        //Change Face Direction 
-        //Debug.Log(move); 
+            if (isGrounded)
+            {
+                Vector3 currRotate = transfMove.eulerAngles;
+                currRotate.y += 180;
+                transfMove.eulerAngles = currRotate;
+            }
 
-        if (move > 0 && !facingRight) { Flip(); }
-        else if (move < 0 && facingRight) { Flip(); }
+           
+            rigidBody.velocity = new Vector2(transfMove.right.x * speed, rigidBody.velocity.y);
+
+
+        }
+        else
+        {
+            //Adjust the velocity
+            float move = -1;
+            rigidBody.velocity = new Vector2(move * speed, rigidBody.velocity.y);
+            anim.SetFloat("Speed", Mathf.Abs(move));
+
+            //Change Face Direction 
+            //Debug.Log(move); 
+
+            if (move > 0 && !facingRight) { Flip(); }
+            else if (move < 0 && facingRight) { Flip(); }
+
+        }
+
+
+        
     }
 
     //Flip animation 

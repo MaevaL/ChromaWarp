@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 
     LifeController lifeController;
     public Text healthText;
+    GoldController goldController;
+    public Text CoinText;
     public GameObject healthBonus;
 
     // Use this for initialization
@@ -18,11 +20,16 @@ public class PlayerController : MonoBehaviour {
         healthText = GameObject.Find("HealthText").GetComponent<Text>();
         healthText.text = ": "+ lifeController.GetLife();
 
+        goldController = gameObject.GetComponent<GoldController>();
+        CoinText = GameObject.Find("CoinText").GetComponent<Text>();
+        CoinText.text = ": " + goldController.GetGold();
+
     }
 
     // Update is called once per frame
     void Update() {
         healthText.text = ": " + (lifeController.GetLife());
+        CoinText.text = ": " + goldController.GetGold();
     }
 
     void OnTriggerEnter2D(Collider2D collider) {
@@ -44,10 +51,18 @@ public class PlayerController : MonoBehaviour {
             
         }
 
+        if (collider.CompareTag("GoldBonus"))
+        {
+
+            collider.gameObject.GetComponent<GoldBonus>().SetBonus(1);
+            Destroy(collider.gameObject);
+
+        }
+
         /*
          * Destroy gameobject's script attach and his children
          */
-        
+
     }
 
 }
