@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
     GoldController goldController;
     public Text CoinText;
     public GameObject healthBonus;
+    public GameObject goldBonus; 
 
     // Use this for initialization
     void Start() {
@@ -38,9 +39,18 @@ public class PlayerController : MonoBehaviour {
          * by boundary's which declench our triggerEnter
          */
         if (collider == null) { return; }
-
+        //TODO : Resolve Collision Problem (spawn two element, detect two collision sometimes  ) 
         if (collider.CompareTag("Enemy")) {
-            Instantiate(healthBonus , transform.position + new Vector3(1,0,0) , Quaternion.identity);
+
+            float rnd = UnityEngine.Random.Range(0, 2);
+            
+            if (rnd == 1) {
+                Instantiate(healthBonus, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+            }
+            else {
+                Instantiate(goldBonus, transform.position + new Vector3(3, 0, 0), Quaternion.identity);
+            }
+          
             Destroy(collider.gameObject);
         }
 
@@ -48,7 +58,7 @@ public class PlayerController : MonoBehaviour {
 
             collider.gameObject.GetComponent<HealthBonus>().SetBonus(1);
             Destroy(collider.gameObject);
-            
+    
         }
 
         if (collider.CompareTag("GoldBonus"))
