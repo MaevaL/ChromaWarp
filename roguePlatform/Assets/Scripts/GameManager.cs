@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     //public float levelStartDelay = 2f;                      //Time to wait before starting level, in seconds.
-    public float timer = 0f;                                //Timer of the player
+    public float timerSecond = 0f;                                //Timer of the player
+    public float timerMinute = 0f;
+    public Text timerText;
     public static GameManager instance = null;              //Static instance of GameManager which allows it to be accessed by any other script.
 
 
@@ -92,9 +94,25 @@ public class GameManager : MonoBehaviour
         //Clear any Enemy objects in our List to prepare for next level.
         enemies.Clear();
 
+        timerText = GameObject.Find("TimerText").GetComponent<Text>();
+        timerText.text = "0:0";
+
+        InvokeRepeating("IncrTimer", 0.0f, 1.0f);
         //Call the SetupScene function of the BoardManager script, pass it current level number.
         //boardScript.SetupScene(level);
 
+    }
+
+    void IncrTimer()
+    {
+        timerSecond++;
+
+        if (timerSecond == 60)
+        {
+            timerSecond = 0;
+            timerMinute++;
+        }
+        timerText.text = timerMinute + ":" + timerSecond;
     }
 
 
@@ -111,7 +129,7 @@ public class GameManager : MonoBehaviour
     //Update is called every frame.
     void Update()
     {
-            
+        
 
     }
 
