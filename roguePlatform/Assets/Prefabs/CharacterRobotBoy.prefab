@@ -28,10 +28,12 @@ GameObject:
   - component: {fileID: 5800000}
   - component: {fileID: 5000000}
   - component: {fileID: 6100000}
-  - component: {fileID: 114243345145394118}
-  - component: {fileID: 114657818337254656}
-  - component: {fileID: 114885814345853282}
-  - component: {fileID: 114582365946957628}
+  - component: {fileID: 114886628848011692}
+  - component: {fileID: 114708611508262948}
+  - component: {fileID: 114605707648165882}
+  - component: {fileID: 114441118870586116}
+  - component: {fileID: 114781377774457272}
+  - component: {fileID: 114016179346895676}
   m_Layer: 8
   m_Name: CharacterRobotBoy
   m_TagString: Player
@@ -225,7 +227,74 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 100002}
   m_IsPrefabParent: 1
---- !u!114 &114243345145394118
+--- !u!114 &114016179346895676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb501978a82daa2419ccb39c6da2c820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpeed: 5
+  projectile: {fileID: 1532059272686752, guid: 0c2120ed435eea742a40b1f89a0255bd, type: 2}
+  Emitter: {fileID: 100002}
+--- !u!114 &114441118870586116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e560caade396f34d867451bbfab0760, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gold: 0
+  _goldMax: 10
+--- !u!114 &114605707648165882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c47d9777d31e74aae4ad245ed28ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthText: {fileID: 0}
+  CoinText: {fileID: 0}
+  healthBonus: {fileID: 1289321663581958, guid: a10fb469ed963554dbbc770347bd4a57,
+    type: 2}
+--- !u!114 &114708611508262948
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc9b5558d32dc444fb69696fc6af3bf0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _life: 3
+  _lifeMax: 10
+--- !u!114 &114781377774457272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a991356677e285f4ab4d9173691e4d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _color: 2
+--- !u!114 &114886628848011692
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -245,45 +314,3 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294966527
---- !u!114 &114582365946957628
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e560caade396f34d867451bbfab0760, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gold: 0
-  _goldMax: 10
---- !u!114 &114657818337254656
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc9b5558d32dc444fb69696fc6af3bf0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _life: 3
-  _lifeMax: 10
---- !u!114 &114885814345853282
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6c47d9777d31e74aae4ad245ed28ede, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthText: {fileID: 0}
-  CoinText: {fileID: 0}
-  healthBonus: {fileID: 1289321663581958, guid: a10fb469ed963554dbbc770347bd4a57,
-    type: 2}
-  goldBonus: {fileID: 1540556330271670, guid: 6c388bb3117861f4788350ec0db95c69, type: 2}
