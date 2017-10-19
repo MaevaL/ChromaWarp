@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public Text healthText;
     GoldController goldController;
     public Text CoinText;
+
     public GameObject healthBonus;
     ColorController colorController;
 
@@ -56,40 +57,8 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        /*
-         * without that asteroid is destroyed at the very 1st frame
-         * by boundary's which declench our triggerEnter
-         */
+
+    void OnTriggerEnter2D(Collider2D collider) {
         if (collider == null) { return; }
-
-        if (collider.CompareTag("Enemy"))
-        {
-            Instantiate(healthBonus, transform.position + new Vector3(1, 0, 0), Quaternion.identity);
-            Destroy(collider.gameObject);
-        }
-
-        if (collider.CompareTag("HealthBonus"))
-        {
-
-            collider.gameObject.GetComponent<HealthBonus>().SetBonus(1);
-            Destroy(collider.gameObject);
-
-        }
-
-        if (collider.CompareTag("GoldBonus"))
-        {
-
-            collider.gameObject.GetComponent<GoldBonus>().SetBonus(1);
-            Destroy(collider.gameObject);
-
-        }
-
-        /*
-         * Destroy gameobject's script attach and his children
-         */
-
     }
-
 }
