@@ -60,5 +60,16 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (collider == null) { return; }
+   
+        //TODO : ajuster le tag après l'implémentation des projectiles)
+        if (collider.CompareTag("ProjectileEnemy"))
+        {
+            lifeController.LoseLife(1);
+            if (lifeController.GetLife() <= 0)
+            {       
+                Destroy(gameObject);
+            }
+        }
     }
+
 }

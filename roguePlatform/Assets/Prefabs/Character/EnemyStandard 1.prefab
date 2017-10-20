@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 114222628089869776}
   - component: {fileID: 114997016427367226}
   - component: {fileID: 114942480608605382}
+  - component: {fileID: 114323101414798946}
   m_Layer: 9
   m_Name: EnemyStandard 1
   m_TagString: Enemy
@@ -98,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1294640987096492}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.29, y: 0.15, z: 0}
+  m_LocalPosition: {x: 5.8, y: -1.15, z: 0}
   m_LocalScale: {x: 1.7715329, y: 1.7715304, z: 1}
   m_Children:
   - {fileID: 4161742989016348}
@@ -194,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d79d70388f830246a3fffc3c4050aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 0.3
   groundRadius: 0
   facingRight: 1
   type: 1
@@ -202,6 +203,22 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294966527
+--- !u!114 &114323101414798946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1294640987096492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57d67987edbd6b444b6b5cf7632bb1d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1740691952530410, guid: c22e6117ffb512b4895e5e4a6e41fe84, type: 2}
+  velocity: {x: 1, y: 0}
+  offset: {x: 0.4, y: 0.1}
+  fireRate: 1
+  delay: 1
 --- !u!114 &114443874506822234
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -213,8 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9b5558d32dc444fb69696fc6af3bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _life: 1
-  _lifeMax: 1
+  _life: 3
+  _lifeMax: 3
 --- !u!114 &114942480608605382
 MonoBehaviour:
   m_ObjectHideFlags: 1

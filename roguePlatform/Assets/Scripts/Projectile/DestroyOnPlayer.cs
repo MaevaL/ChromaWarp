@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DestroyOnCollision : MonoBehaviour
-{
+public class DestroyOnPlayer : MonoBehaviour {
 
     // Use this for initialization
     void Start()
@@ -19,7 +18,7 @@ public class DestroyOnCollision : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (!collider.CompareTag("Player") && !collider.CompareTag("GoldBonus") && !collider.CompareTag("HealthBonus") && !collider.CompareTag("Projectile"))
+        if (!collider.CompareTag("Enemy") && !collider.CompareTag("GoldBonus") && !collider.CompareTag("HealthBonus") && !collider.CompareTag("Projectile"))
         {
             Destroy(gameObject);
         }
