@@ -238,9 +238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb501978a82daa2419ccb39c6da2c820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 5
   projectile: {fileID: 1532059272686752, guid: 0c2120ed435eea742a40b1f89a0255bd, type: 2}
-  Emitter: {fileID: 100002}
+  velocity: {x: 0, y: 0}
+  offset: {x: 0.4, y: 0.1}
+  cooldown: 1
 --- !u!114 &114441118870586116
 MonoBehaviour:
   m_ObjectHideFlags: 1

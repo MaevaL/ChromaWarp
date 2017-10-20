@@ -6,12 +6,11 @@ public class Enemy : MonoBehaviour {
 
     
     LifeController lifeController;
+    ColorController colorController; 
     MoveController moveController;
     public GameObject explosion;
     public GameObject healthBonus;
     public GameObject goldBonus;
-
-    ColorController colorController;
 
     void Start() {
         colorController = gameObject.GetComponent<ColorController>();

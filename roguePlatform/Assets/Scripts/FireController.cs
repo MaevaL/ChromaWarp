@@ -36,12 +36,7 @@ public class FireController : MonoBehaviour {
         canShoot = true;
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("collision Projectile");
-        GameObject.Destroy(projectile);
-    }
-
+    
 
 
 }
