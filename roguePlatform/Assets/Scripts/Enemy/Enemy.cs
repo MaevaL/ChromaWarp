@@ -26,7 +26,7 @@ public class Enemy : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collider) {
         //TODO : ajuster le tag après l'implémentation des projectiles)
-        if (collider.CompareTag("Player")) {
+        if (collider.CompareTag("Projectile")) {
             Instantiate(explosion , transform.position , Quaternion.identity);
             Destroy(gameObject);
 

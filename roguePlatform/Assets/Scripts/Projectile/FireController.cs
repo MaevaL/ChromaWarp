@@ -23,11 +23,9 @@ public class FireController : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire") && canShoot)
         {
-
             GameObject go = (GameObject) Instantiate(projectile, (Vector2)transform.position + offset * transform.localScale.x, Quaternion.identity);
             go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * transform.localScale.x, velocity.y);
             StartCoroutine(CanShoot());
-
         }
     }
 
@@ -37,5 +35,13 @@ public class FireController : MonoBehaviour {
         yield return new WaitForSeconds(cooldown);
         canShoot = true;
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("collision Projectile");
+        GameObject.Destroy(projectile);
+    }
+
+
 
 }
