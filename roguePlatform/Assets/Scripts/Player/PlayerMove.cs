@@ -107,13 +107,11 @@ namespace RoguePlateformer {
             transform.localScale = theScale;
         }
 
-        private void ResetYVelocity()
-        {
+        private void ResetYVelocity() {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0); 
         }
 
-        private void ResetXVelocity()
-        {
+        private void ResetXVelocity() {
             rigidBody.velocity = new Vector2(0, rigidBody.velocity.y); 
         }
 
