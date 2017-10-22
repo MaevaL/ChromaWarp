@@ -65,8 +65,7 @@ public class MoveController : MonoBehaviour {
             rigidBody.velocity = new Vector2(transfMove.right.x * speed, rigidBody.velocity.y);
 
 
-        }
-        else {
+        } else {
             //Adjust the velocity
             float move = -1;
             rigidBody.velocity = new Vector2(move * speed, rigidBody.velocity.y);
@@ -75,8 +74,7 @@ public class MoveController : MonoBehaviour {
             //Change Face Direction 
             //Debug.Log(move); 
 
-            if (move > 0 && !facingRight) { Flip(); }
-            else if (move < 0 && facingRight) { Flip(); }
+            if (move > 0 && !facingRight) { Flip(); } else if (move < 0 && facingRight) { Flip(); }
 
         }
 

@@ -58,7 +58,7 @@ namespace RoguePlateformer {
             //Velocity and animation
             float move = Input.GetAxis("Horizontal");
             rigidBody.velocity = new Vector2(move * speed, rigidBody.velocity.y);
-            
+
             anim.SetFloat("Speed", Mathf.Abs(move));
 
             //Change Face Direction 
@@ -71,19 +71,17 @@ namespace RoguePlateformer {
         }
 
         /// <summary>
-        /// Le AddForce marche mais c'est la merde a Tweak;
+        /// Lance une coroutine qui lance l'action du dash avec une certaine vitesse
         /// </summary>
         public void DashCheck() {
             // dash 
             if (Input.GetButtonDown("Dash")) {
                 if (facingRight) {
-                    //StartCoroutine(Dash(1));
-                    //rigidBody.AddForce(DashForceTestTweak);
                     StartCoroutine(DashTranslate(2.5f));
                 }
 
                 if (!facingRight) {
-                    StartCoroutine(Dash(-1));
+                    StartCoroutine(DashTranslate(-2.5f));
                 }
             }
         }
@@ -93,23 +91,24 @@ namespace RoguePlateformer {
         /// </summary>
         /// <param name="multiply"></param>
         /// <returns></returns>
-        IEnumerator Dash(float multiply) {
-            float timer = 0;
-            dashSpeed.preWrapMode = WrapMode.Loop;
-            dashSpeed.postWrapMode = WrapMode.Loop;
+        //IEnumerator Dash(float multiply) {
+        //    float timer = 0;
+        //    dashSpeed.preWrapMode = WrapMode.Loop;
+        //    dashSpeed.postWrapMode = WrapMode.Loop;
 
-            while (timer < animDashDuration) {
-                rigidBody.velocity = new Vector2(multiply * dashSpeed.Evaluate(timer), rigidBody.velocity.y);
-                Debug.Log(rigidBody.velocity);
-                timer += Time.deltaTime;
-                yield return new WaitForEndOfFrame();
-            }
-        }
+        //    while (timer < animDashDuration) {
+        //        rigidBody.velocity = new Vector2(multiply * dashSpeed.Evaluate(timer), rigidBody.velocity.y);
+        //        Debug.Log(rigidBody.velocity);
+        //        timer += Time.deltaTime;
+        //        yield return new WaitForEndOfFrame();
+        //    }
+        //}
 
         /// <summary>
-        /// Marche
+        /// Calcule toutes les positions qui vont être utilisé dans l'action du Dash via une courbe
+        /// jusqu'à la fin de la frame.
         /// </summary>
-        /// <param name="multiply"></param>
+        /// <param name="multiply">Permet de gerer la vitesse de l'action</param>
         /// <returns></returns>
         IEnumerator DashTranslate(float multiply) {
             float timer = 0;
@@ -124,6 +123,9 @@ namespace RoguePlateformer {
             }
         }
 
+        /// <summary>
+        /// Méthode gérant le saut et le double saut
+        /// </summary>
         public void JumpCheck() {
             //Jump 
             if (isFlying && Input.GetButtonDown("Jump")) {
@@ -143,6 +145,9 @@ namespace RoguePlateformer {
             }
         }
 
+        /// <summary>
+        /// Permet de faire se retourner le sprite du player lors d'un changement de sens
+        /// </summary>
         private void Flip() {
             facingRight = !facingRight;
 
@@ -151,10 +156,16 @@ namespace RoguePlateformer {
             transform.localScale = theScale;
         }
 
+        /// <summary>
+        /// Reset la velocité associé au rigidbody du player en x
+        /// </summary>
         private void ResetYVelocity() {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
         }
 
+        /// <summary>
+        /// Reset la velocité associé au rigidbody du player en y
+        /// </summary>
         private void ResetXVelocity() {
             rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
         }

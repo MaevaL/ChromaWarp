@@ -4,25 +4,29 @@ using UnityEngine;
 using RoguePlateformer;
 
 public class FireController : MonoBehaviour {
-    
+
     public GameObject projectile;
     public Vector2 velocity;
     bool canShoot = true;
     public Vector2 offset = new Vector2(0.4f, 0.1f);
     public float fireRate = 1f;
     private PlayerMove _move;
-   
+
 
     // Use this for initialization
-    void Start()
-    {
+    void Start() {
         _move = GetComponent<PlayerMove>();
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
+        Fire();
+    }
 
+    /// <summary>
+    /// Réalise l'action de tiré en fontion d'un input clavier et d'une direction de la souris
+    /// </summary>
+    private void Fire() {
         if (Input.GetButtonDown("Fire") && canShoot) {
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -42,12 +46,22 @@ public class FireController : MonoBehaviour {
         }
     }
 
-    IEnumerator RecoveryShot()
-    {
+    /// <summary>
+    /// Délai entre deux tirs
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator RecoveryShot() {
         yield return new WaitForSeconds(fireRate);
         canShoot = true;
     }
-    
+
+    /// <summary>
+    /// Retourne vrai si le joueur va a gauche et est tourné du côté gauche 
+    /// et inversement avec le côté droit 
+    /// sinon renvoi faux
+    /// </summary>
+    /// <param name="hit"></param>
+    /// <returns></returns>
     private bool MouseFrontOfPlayer(RaycastHit hit) {
         /*
         if(hit.point.x > transform.position.x && _move.facingRight) {

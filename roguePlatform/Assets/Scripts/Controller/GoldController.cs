@@ -9,35 +9,22 @@ public class GoldController : MonoBehaviour {
     [SerializeField]
     private int _goldMax = 1;
 
-    public int GetGold()
-    {
+    public int GetGold() {
         return _gold;
     }
 
-    public int GetGoldMax()
-    {
+    public int GetGoldMax() {
         return _goldMax;
     }
 
-    public void GainGold(int gain)
-    {
+    public void GainGold(int gain) {
         _gold += gain;
 
-        if (_gold > _goldMax)
-        {
-            _gold = _goldMax;
-        }
+        if (_gold > _goldMax) { _gold = _goldMax; }
     }
 
-    public bool LoseGold(int loss)
-    {
+    public bool LoseGold(int loss) {
         _gold -= loss;
-
-        if (_gold <= 0)
-        {
-            return false;
-        }
-
-        return true;
+        return (_gold <= 0) ? false : true;
     }
 }
