@@ -34,6 +34,7 @@ GameObject:
   - component: {fileID: 114441118870586116}
   - component: {fileID: 114781377774457272}
   - component: {fileID: 114348778257364524}
+  - component: {fileID: 114604280491849978}
   m_Layer: 8
   m_Name: CharacterRobotBoy
   m_TagString: Player
@@ -75,7 +76,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.7715329, y: 1.7715304, z: 1}
   m_Children:
@@ -123,7 +124,7 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -141,7 +142,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -155,7 +156,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.25, y: 0.68}
+  m_Size: {x: 0.52, y: 1.19}
   m_EdgeRadius: 0
 --- !u!95 &9500000
 Animator:
@@ -238,10 +239,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818687d383333d843990cb586ce6d44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1532059272686752, guid: 0c2120ed435eea742a40b1f89a0255bd, type: 2}
-  velocity: {x: 2, y: 0}
+  projectile: {fileID: 1532059272686752, guid: 8fe188e39e863714781a36bb95a44470, type: 2}
+  velocity: {x: 2, y: 2}
   offset: {x: 0.4, y: 0.1}
-  cooldown: 1
+  fireRate: 0.01
 --- !u!114 &114441118870586116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -255,6 +256,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _gold: 0
   _goldMax: 10
+--- !u!114 &114604280491849978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dcf2e7a663315342ac38f547aabaf1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DieFX: {fileID: 0}
 --- !u!114 &114605707648165882
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -311,7 +324,34 @@ MonoBehaviour:
   groundRadius: 0.2
   jumpNdVelocity: -12
   speedDash: 5000
+  facingRight: 0
   groundCheck: {fileID: 400000}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 4294966527
+  DashForceTestTweak: {x: 5000, y: 150}
+  dashSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0.002166748
+      inSlope: 1.880061
+      outSlope: 1.880061
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.50093263
+      value: 0.99157333
+      inSlope: 0.001192731
+      outSlope: 0.001192731
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.99920005
+      value: 0.0006720787
+      inSlope: -2.0060408
+      outSlope: -2.0060408
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  animDashDuration: 1

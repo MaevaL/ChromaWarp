@@ -22,8 +22,8 @@ GameObject:
   - component: {fileID: 212185439938701624}
   - component: {fileID: 50335894303048998}
   - component: {fileID: 58015269842326602}
-  - component: {fileID: 114779519803108188}
-  m_Layer: 0
+  - component: {fileID: 114002477562013622}
+  m_Layer: 13
   m_Name: ProjectileEnemy
   m_TagString: ProjectileEnemy
   m_Icon: {fileID: 0}
@@ -72,13 +72,13 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.00064284465, y: 0}
   serializedVersion: 2
   m_Radius: 0.048214164
---- !u!114 &114779519803108188
+--- !u!114 &114002477562013622
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,9 +86,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1740691952530410}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b6dd3f2611399f48ab83c86bbf5148b, type: 3}
+  m_Script: {fileID: 11500000, guid: e766501a34605544e9fe006221ec2ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Damages: 1
+  LifeTime: 10
 --- !u!212 &212185439938701624
 SpriteRenderer:
   m_ObjectHideFlags: 1

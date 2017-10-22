@@ -16,8 +16,8 @@ public class GoldBonus : MonoBehaviour {
         player.GetComponent<GoldController>().GainGold(arg);
     }
 
-    private void OnTriggerEnter2D(Collider2D collider) {
-        if (collider.CompareTag("Player")) {
+    private void OnCollisionEnter2D(Collision2D col) {
+        if (col.collider.CompareTag("Player")) {
             SetBonus(1);
             Destroy(gameObject);
         }

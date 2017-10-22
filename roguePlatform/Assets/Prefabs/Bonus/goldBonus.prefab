@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4239212149248148}
   - component: {fileID: 212644423166917538}
   - component: {fileID: 61912594655276382}
-  - component: {fileID: 114461940445939532}
+  - component: {fileID: 114803341457849490}
   m_Layer: 0
   m_Name: goldBonus
   m_TagString: GoldBonus
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1540556330271670}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 15.99, y: -1.48, z: 0}
+  m_LocalPosition: {x: 5.2381134, y: -1.1345901, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -51,7 +51,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.0015864372, y: -0.0014373064}
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21197796, y: 0.25509733}
   m_EdgeRadius: 0
---- !u!114 &114461940445939532
+--- !u!114 &114803341457849490
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

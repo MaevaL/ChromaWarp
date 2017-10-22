@@ -17,10 +17,8 @@ public class DestroyOnCollision : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (!collider.CompareTag("Player") && !collider.CompareTag("GoldBonus") && !collider.CompareTag("HealthBonus") && !collider.CompareTag("Projectile"))
-        {
+    private void OnCollisionEnter2D(Collision2D col) {
+        if (col.collider.CompareTag("Ground") || col.collider.CompareTag("Environment") || col.collider.CompareTag("Enemy")) {
             Destroy(gameObject);
         }
     }

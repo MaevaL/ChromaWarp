@@ -36,6 +36,7 @@ public class LifeController : MonoBehaviour
 
         if (_life <= 0)
         {
+            GetComponent<DieHandler>().Die();
             return false;
         }
 
