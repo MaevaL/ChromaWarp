@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/ConceptNiveau4.unity
-=======
-- path: Assets/Niveau Top Right.unity
->>>>>>> d51344b7dc796dbdf36596a53e10907835100391
+- path: Assets/Cross without down.unity
   isLoaded: 1
   isActive: 1
