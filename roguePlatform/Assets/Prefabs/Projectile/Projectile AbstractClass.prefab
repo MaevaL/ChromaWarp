@@ -91,6 +91,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damages: 1
   LifeTime: 10
+  ImpactFX: {fileID: 1157650048063312, guid: ecd526f165efe4b49a422fc1a4b720c4, type: 2}
 --- !u!212 &212086238087192660
 SpriteRenderer:
   m_ObjectHideFlags: 1
