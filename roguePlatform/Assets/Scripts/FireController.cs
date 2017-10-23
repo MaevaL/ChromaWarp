@@ -31,15 +31,20 @@ public class FireController : MonoBehaviour {
         if (Input.GetButtonDown("Fire") && canShoot) {
 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+			Vector2 point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Vector2 diff = (point - (Vector2) _bulletSpawner.position);
 
-            if (Physics.Raycast(ray, out hit) && MouseFrontOfPlayer(hit)) {
-                //Mettre un as Gameobject permet a unity de créer directement un GameObject.
-                //Et pas de créer un Object pour ensuite le cast en GameObject.
-                GameObject go = Instantiate(projectile, _bulletSpawner.position, Quaternion.identity) as GameObject;
+			GameObject go = Instantiate(projectile, _bulletSpawner.position, Quaternion.identity) as GameObject;
+			go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * diff.normalized.x, velocity.y * diff.normalized.y);
 
-                go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * (hit.point.x - transform.position.x), (hit.point.y - transform.position.y) * velocity.y);
-            }
+			//RaycastHit hit;
+   //         if (Physics.Raycast(ray, out hit) && MouseFrontOfPlayer(hit)) {
+   //             //Mettre un as Gameobject permet a unity de créer directement un GameObject.
+   //             //Et pas de créer un Object pour ensuite le cast en GameObject.
+   //             GameObject go = Instantiate(projectile, _bulletSpawner.position, Quaternion.identity) as GameObject;
+
+   //             go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * (hit.point.x - transform.position.x), (hit.point.y - transform.position.y) * velocity.y);
+   //         }
 
             canShoot = false;
             StartCoroutine(RecoveryShot());
