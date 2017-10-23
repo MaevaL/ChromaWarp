@@ -7,13 +7,10 @@ public abstract class DieHandler : MonoBehaviour {
     public GameObject DieFX;
 
     internal virtual void Die() {
-        if(DieFX != null) {
-            GameObject go = Instantiate(DieFX, transform.position, transform.rotation) as GameObject;
+        if (DieFX != null) {
+            GameObject go = Instantiate(DieFX , transform.position , transform.rotation) as GameObject;
+            Destroy(go , 1f);
         }
-        else {
-            Debug.LogError("T'as oublié de drag and drop le FX");
-        }
-
         Destroy(gameObject);
     }
 }
