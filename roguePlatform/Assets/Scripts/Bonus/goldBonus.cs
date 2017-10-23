@@ -7,12 +7,10 @@ public class GoldBonus : MonoBehaviour {
 
     private GameObject player;
 
-    private void Awake()
-    {
+    private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
     }
-    public void SetBonus(int arg)
-    {
+    public void SetBonus(int arg) {
         player.GetComponent<GoldController>().GainGold(arg);
     }
 
