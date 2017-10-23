@@ -285,6 +285,69 @@ Prefab:
       propertyPath: CoinText
       value: 
       objectReference: {fileID: 970105149}
+    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: animDashDuration
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: speedDash
+      value: 50000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: DashForceTestTweak.x
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: dashSpeed.m_Curve.Array.data[1].time
+      value: 0.042970598
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: dashSpeed.m_Curve.Array.data[1].value
+      value: 0.9977684
+      objectReference: {fileID: 0}
+    - target: {fileID: 21200000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d5f2c48c5882f6a42b85c6a2e9f4b96c,
+        type: 3}
+    - target: {fileID: 1164085633382246, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000,
+        type: 0}
+    - target: {fileID: 4614340891453068, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 1.464
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614340891453068, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.742
+      objectReference: {fileID: 0}
+    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: animShootDuration
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: fireRate
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: velocity.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: velocity.y
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
   m_IsPrefabParent: 0
