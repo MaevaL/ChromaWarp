@@ -13,7 +13,7 @@ namespace RoguePlateformer {
         [SerializeField]
         private float jumpNdVelocity = -7f;
         [SerializeField]
-        private float speedDash = 5000f;
+        private float speedDash = 5f;
 
         private Rigidbody2D rigidBody;
 
@@ -77,11 +77,11 @@ namespace RoguePlateformer {
             // dash 
             if (Input.GetButtonDown("Dash")) {
                 if (facingRight) {
-                    StartCoroutine(DashTranslate(2.5f));
+                    StartCoroutine(DashTranslate(speedDash));
                 }
 
                 if (!facingRight) {
-                    StartCoroutine(DashTranslate(-2.5f));
+                    StartCoroutine(DashTranslate(-speedDash));
                 }
             }
         }
