@@ -352,7 +352,7 @@ MonoBehaviour:
   speedJump: 750
   groundRadius: 0.2
   jumpNdVelocity: -12
-  speedDash: 5000
+  speedDash: 10
   facingRight: 0
   groundCheck: {fileID: 400000}
   whatIsGround:
@@ -369,8 +369,8 @@ MonoBehaviour:
       outSlope: 1.880061
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.50093263
-      value: 0.99157333
+      time: 0.1470508
+      value: 1.0039597
       inSlope: 0.001192731
       outSlope: 0.001192731
       tangentMode: 0
@@ -383,4 +383,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  animDashDuration: 1
+  animDashDuration: 0.6
