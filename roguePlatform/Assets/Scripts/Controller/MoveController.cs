@@ -28,7 +28,7 @@ public class MoveController : MonoBehaviour
     private Transform transfMove;
     float widthEnemy;
 
-    public Transform target; //cant't be bothered to do any commments
+    public Transform target;
     float moveSpeed = 5f;
     float rotationSpeed = 3;
     float rangeMin = 1f;
@@ -36,6 +36,10 @@ public class MoveController : MonoBehaviour
     float stop = 0f;
     public Transform myTransform;
     float distance;
+
+    float hauteurMax;
+    float hauteurMin;
+    float rayonPatrol = 5f;
 
 
     public void Start()
@@ -47,6 +51,9 @@ public class MoveController : MonoBehaviour
         target = GameObject.FindWithTag("Player").transform;
         transfMove = this.transform;
         widthEnemy = this.GetComponent<SpriteRenderer>().bounds.extents.x;
+        hauteurMax = myTransform.position.y + rayonPatrol;
+        hauteurMin = myTransform.position.y - rayonPatrol;
+
     }
 
     public void FixedUpdate()
@@ -96,6 +103,26 @@ public class MoveController : MonoBehaviour
             {
                 //do whatever the enemy has to do with the player
             }
+
+
+
+        }
+        else if (type == 3)
+        {
+            if (transform.position.y >= hauteurMax)
+            {
+
+                transform.position.Set(transform.position.x, (transform.position.y + 1), transform.position.z);
+                Debug.Log("++ : " + transform.position);
+
+            }
+            else
+            {
+                transform.position.Set(transform.position.x, (transform.position.y - 1), transform.position.z);
+                Debug.Log("-- : " + transform.position);
+            }
+            
+
 
 
 
