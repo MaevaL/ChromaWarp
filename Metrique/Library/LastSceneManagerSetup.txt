@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/ConceptNiveau.unity
+- path: Assets/Cross without down.unity
   isLoaded: 1
   isActive: 1
