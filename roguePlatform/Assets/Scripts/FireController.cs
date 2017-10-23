@@ -8,10 +8,11 @@ public class FireController : MonoBehaviour {
     public GameObject projectile;
     public Vector2 velocity;
     bool canShoot = true;
-    public Vector2 offset = new Vector2(0.4f, 0.1f);
+    [SerializeField]
+    private Transform _bulletSpawner = null;
     public float fireRate = 1f;
     private PlayerMove _move;
-
+    
 
     // Use this for initialization
     void Start() {
@@ -35,11 +36,10 @@ public class FireController : MonoBehaviour {
             if (Physics.Raycast(ray, out hit) && MouseFrontOfPlayer(hit)) {
                 //Mettre un as Gameobject permet a unity de créer directement un GameObject.
                 //Et pas de créer un Object pour ensuite le cast en GameObject.
-                GameObject go = Instantiate(projectile, (Vector2)transform.position + offset * transform.localScale.x, Quaternion.identity) as GameObject;
+                GameObject go = Instantiate(projectile, _bulletSpawner.position, Quaternion.identity) as GameObject;
 
                 go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * (hit.point.x - transform.position.x), (hit.point.y - transform.position.y) * velocity.y);
             }
-
 
             canShoot = false;
             StartCoroutine(RecoveryShot());
