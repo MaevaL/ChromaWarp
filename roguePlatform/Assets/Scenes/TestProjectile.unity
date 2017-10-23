@@ -348,6 +348,26 @@ Prefab:
       propertyPath: velocity.y
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: speedDash
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: dashSpeed.m_Curve.Array.data[1].time
+      value: 0.19284594
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: dashSpeed.m_Curve.Array.data[1].value
+      value: 1.0039597
+      objectReference: {fileID: 0}
+    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: animDashDuration
+      value: 0.6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
   m_IsPrefabParent: 0
