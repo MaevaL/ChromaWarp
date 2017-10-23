@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4239212149248148}
   - component: {fileID: 212644423166917538}
   - component: {fileID: 61912594655276382}
-  - component: {fileID: 114803341457849490}
+  - component: {fileID: 114243781788537102}
   m_Layer: 0
   m_Name: goldBonus
   m_TagString: GoldBonus
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21197796, y: 0.25509733}
   m_EdgeRadius: 0
---- !u!114 &114803341457849490
+--- !u!114 &114243781788537102
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1540556330271670}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 966f9e65444c7bd449e8689e2dce79f7, type: 3}
+  m_Script: {fileID: 11500000, guid: 076a4ec1aee40794295feb152e54f575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212644423166917538

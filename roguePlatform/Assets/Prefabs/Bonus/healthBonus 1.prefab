@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4714669621215772}
   - component: {fileID: 212179708509725110}
   - component: {fileID: 61070871801699928}
-  - component: {fileID: 114310770577337352}
+  - component: {fileID: 114701558184980448}
   m_Layer: 0
   m_Name: healthBonus 1
   m_TagString: HealthBonus
@@ -67,7 +67,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
---- !u!114 &114310770577337352
+--- !u!114 &114701558184980448
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1289321663581958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 357feeedb9c33be4c8aa06a444c391a2, type: 3}
+  m_Script: {fileID: 11500000, guid: 44126e09a1ed83d4286030581de77e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!212 &212179708509725110
