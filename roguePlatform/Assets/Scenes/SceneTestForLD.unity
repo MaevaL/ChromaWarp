@@ -372,6 +372,16 @@ Prefab:
       propertyPath: OffSetMoveCam
       value: 32
       objectReference: {fileID: 0}
+    - target: {fileID: 114332774002563472, guid: 9ae39d795a7edc045a1eceb6ee9362e7,
+        type: 2}
+      propertyPath: OffSetMoveCamX
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 114332774002563472, guid: 9ae39d795a7edc045a1eceb6ee9362e7,
+        type: 2}
+      propertyPath: OffSetMoveCamY
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ae39d795a7edc045a1eceb6ee9362e7, type: 2}
   m_IsPrefabParent: 0
@@ -530,10 +540,10 @@ MonoBehaviour:
   chunkSize: 20
   chunkWidth: 64
   chunkHeight: 36
-  chunksX: 110
-  chunksY: 110
+  chunksX: 20
+  chunksY: 20
   seed: 456159
-  mainPathLength: 100
+  mainPathLength: 10
   mapRoot: {fileID: 173079373}
   rotatedRoot: {fileID: 0}
   generateRotated: 0
