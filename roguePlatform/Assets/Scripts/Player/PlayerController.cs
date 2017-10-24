@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour {
     /// <summary>
     /// Affiche les informations hud
     /// </summary>
-    private void hud() {
+    private void Hud() {
         healthText.text = ": " + (lifeController.GetLife());
         CoinText.text = ": " + goldController.GetGold();
     }
@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour {
     /// Le mode bleu permet d'attaquer les ennemies bleu et inversement pour le mode rouge
     /// </summary>
     private void swapColor() {
+
         if (Input.GetButtonDown("SwapColor")) {
             colorController.SwapColor();
             if (colorController.GetColor() == 1) {
@@ -64,4 +65,5 @@ public class PlayerController : MonoBehaviour {
             }
         }
     }
+
 }
