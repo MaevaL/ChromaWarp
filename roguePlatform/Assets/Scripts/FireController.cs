@@ -34,9 +34,9 @@ public class FireController : MonoBehaviour {
     private void Fire() {
         if (Input.GetButtonDown("Fire") && canShoot) {
 
-            Vector3 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3 diff = (worldPos - _bulletSpawner.position).normalized; 
-            RaycastHit hit;
+            Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 diff = (worldPos - (Vector2) _bulletSpawner.position).normalized;
+            
 
             if (MouseFrontOfPlayer(worldPos)) {
                 //Mettre un as Gameobject permet a unity de créer directement un GameObject.

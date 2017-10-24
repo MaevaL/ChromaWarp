@@ -14,6 +14,8 @@ namespace RoguePlateformer {
         private float jumpNdVelocity = -7f;
         [SerializeField]
         private float speedDash = 5f;
+        private float _currentDashingSpeed = 0f;
+        private float _dashTimer = 0;
 
         private Rigidbody2D rigidBody;
 
@@ -64,71 +66,42 @@ namespace RoguePlateformer {
             //Change Face Direction 
             if (move > 0 && !facingRight) { Flip(); } else if (move < 0 && facingRight) { Flip(); }
 
-            JumpCheck();
+            Jump();
 
-            DashCheck();
+            Dash();
 
         }
 
         /// <summary>
         /// Lance une coroutine qui lance l'action du dash avec une certaine vitesse
         /// </summary>
-        public void DashCheck() {
-            // dash 
-            if (Input.GetButtonDown("Dash")) {
-                if (facingRight) {
-                    StartCoroutine(DashTranslate(speedDash));
+        public void Dash() {
+            // dash
+            if (_currentDashingSpeed == 0f) {
+                if (Input.GetButtonDown("Dash")) {
+                    _currentDashingSpeed = facingRight ? speedDash : -speedDash;
+                }
+            }
+
+            if ( _currentDashingSpeed != 0f ) {
+                if (_dashTimer <= animDashDuration) {
+                    anim.SetBool("Dash" , true);
+                    _dashTimer += Time.fixedDeltaTime;
+                    transform.position = transform.position + new Vector3(_currentDashingSpeed * dashSpeed.Evaluate(_dashTimer) * Time.fixedDeltaTime , 0 , 0);
                 }
 
-                if (!facingRight) {
-                    StartCoroutine(DashTranslate(-speedDash));
+                if (_dashTimer > animDashDuration) {
+                    _currentDashingSpeed = 0f;
+                    _dashTimer = 0f;
+                    anim.SetBool("Dash" , false);
                 }
             }
         }
-
-        /// <summary>
-        /// Utilsie le curve, mais ne marche pas car set a chaque frame le velocity bin .... Il CASSE LES COUILLES
-        /// </summary>
-        /// <param name="multiply"></param>
-        /// <returns></returns>
-        //IEnumerator Dash(float multiply) {
-        //    float timer = 0;
-        //    dashSpeed.preWrapMode = WrapMode.Loop;
-        //    dashSpeed.postWrapMode = WrapMode.Loop;
-
-        //    while (timer < animDashDuration) {
-        //        rigidBody.velocity = new Vector2(multiply * dashSpeed.Evaluate(timer), rigidBody.velocity.y);
-        //        Debug.Log(rigidBody.velocity);
-        //        timer += Time.deltaTime;
-        //        yield return new WaitForEndOfFrame();
-        //    }
-        //}
-
-        /// <summary>
-        /// Calcule toutes les positions qui vont être utilisé dans l'action du Dash via une courbe
-        /// jusqu'à la fin de la frame.
-        /// </summary>
-        /// <param name="multiply">Permet de gerer la vitesse de l'action</param>
-        /// <returns></returns>
-        IEnumerator DashTranslate(float multiply) {
-            float timer = 0;
-            dashSpeed.preWrapMode = WrapMode.PingPong;
-            dashSpeed.postWrapMode = WrapMode.PingPong;
-
-            while (timer < animDashDuration) {
-                anim.SetBool("Dash", true); 
-                transform.position += new Vector3(multiply * dashSpeed.Evaluate(timer) * Time.deltaTime, rigidBody.velocity.y, 0);
-                Debug.Log("Test Dash Update Pos : " + transform.position);
-                timer += Time.deltaTime;
-                yield return new WaitForEndOfFrame();
-            }
-            anim.SetBool("Dash", false);
-        }
-
+        
         /// <summary>
         /// Méthode gérant le saut et le double saut
         /// </summary>
-        public void JumpCheck() {
+        public void Jump() {
             //Jump 
             if (isFlying && Input.GetButtonDown("Jump")) {
                 anim.SetBool("Ground", false);
