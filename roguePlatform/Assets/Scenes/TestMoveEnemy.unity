@@ -108,7 +108,11 @@ NavMeshSettings:
     tileSize: 256
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &390984876
+--- !u!1 &613348579 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+  m_PrefabInternal: {fileID: 629839607}
+--- !u!1001 &629839607
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -117,11 +121,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 1.16
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -2.01
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.z
@@ -147,26 +151,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 11
       objectReference: {fileID: 0}
-    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: DashForceTestTweak.x
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114708611508262948, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: _life
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: velocity.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: velocity.y
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 114605707648165882, guid: 7d5a906dc881f984b9ee96121adc7784,
         type: 2}
       propertyPath: healthText
@@ -180,10 +164,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &390984877 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
-  m_PrefabInternal: {fileID: 390984876}
 --- !u!1001 &832860203
 Prefab:
   m_ObjectHideFlags: 0
@@ -641,7 +621,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 390984877}
+      objectReference: {fileID: 613348579}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ae39d795a7edc045a1eceb6ee9362e7, type: 2}
   m_IsPrefabParent: 0
@@ -799,6 +779,18 @@ Prefab:
     - target: {fileID: 4443981060466060, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531964091440194, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.7378649
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531964091440194, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -3.4148
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531964091440194, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.4111822
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0edae6bd08ea4f14cb4ad00206729398, type: 2}
