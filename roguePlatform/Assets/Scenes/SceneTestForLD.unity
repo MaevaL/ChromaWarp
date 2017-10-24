@@ -250,11 +250,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.58
+      value: 6.81
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.z
@@ -262,15 +262,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalRotation.w
@@ -290,6 +290,26 @@ Prefab:
       propertyPath: CoinText
       value: 
       objectReference: {fileID: 970105149}
+    - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6100000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+      propertyPath: m_Size.x
+      value: 1.2008953
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
   m_IsPrefabParent: 0
@@ -345,7 +365,12 @@ Prefab:
     - target: {fileID: 20114487670033332, guid: 9ae39d795a7edc045a1eceb6ee9362e7,
         type: 2}
       propertyPath: orthographic size
-      value: 15
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 114332774002563472, guid: 9ae39d795a7edc045a1eceb6ee9362e7,
+        type: 2}
+      propertyPath: OffSetMoveCam
+      value: 32
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ae39d795a7edc045a1eceb6ee9362e7, type: 2}
@@ -505,10 +530,10 @@ MonoBehaviour:
   chunkSize: 20
   chunkWidth: 64
   chunkHeight: 36
-  chunksX: 20
-  chunksY: 20
+  chunksX: 110
+  chunksY: 110
   seed: 456159
-  mainPathLength: 10
+  mainPathLength: 100
   mapRoot: {fileID: 173079373}
   rotatedRoot: {fileID: 0}
   generateRotated: 0
