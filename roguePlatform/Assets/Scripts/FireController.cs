@@ -12,11 +12,15 @@ public class FireController : MonoBehaviour {
     private Transform _bulletSpawner = null;
     public float fireRate = 1f;
     private PlayerMove _move;
-    
+    [SerializeField]
+    private float animShootDuration;
+    private Animator anim; 
+
 
     // Use this for initialization
     void Start() {
         _move = GetComponent<PlayerMove>();
+        anim = GetComponent<Animator>(); 
     }
 
     // Update is called once per frame
@@ -30,19 +34,22 @@ public class FireController : MonoBehaviour {
     private void Fire() {
         if (Input.GetButtonDown("Fire") && canShoot) {
 
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
+            Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 diff = (worldPos - (Vector2) _bulletSpawner.position).normalized;
+            Debug.Log(diff); 
 
-            if (Physics.Raycast(ray, out hit) && MouseFrontOfPlayer(hit)) {
+            if (MouseFrontOfPlayer(worldPos)) {
                 //Mettre un as Gameobject permet a unity de créer directement un GameObject.
                 //Et pas de créer un Object pour ensuite le cast en GameObject.
-                GameObject go = Instantiate(projectile, _bulletSpawner.position, Quaternion.identity) as GameObject;
-
-                go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * (hit.point.x - transform.position.x), (hit.point.y - transform.position.y) * velocity.y);
+                StartCoroutine(RecoveryShot(diff));
+                canShoot = false; 
+                
+                
+              
             }
 
-            canShoot = false;
-            StartCoroutine(RecoveryShot());
+            
+           
         }
     }
 
@@ -50,8 +57,14 @@ public class FireController : MonoBehaviour {
     /// Délai entre deux tirs
     /// </summary>
     /// <returns></returns>
-    IEnumerator RecoveryShot() {
-        yield return new WaitForSeconds(fireRate);
+    IEnumerator RecoveryShot(Vector3 hit) {
+ 
+        anim.SetTrigger("ShootT");
+        yield return new WaitForSeconds(fireRate / 2);
+        GameObject go = Instantiate(projectile, _bulletSpawner.position, Quaternion.identity) as GameObject;
+        go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * (hit.x), (hit.y) * velocity.y);
+        yield return new WaitForSeconds(fireRate / 2 );
+     
         canShoot = true;
     }
 
@@ -62,7 +75,7 @@ public class FireController : MonoBehaviour {
     /// </summary>
     /// <param name="hit"></param>
     /// <returns></returns>
-    private bool MouseFrontOfPlayer(RaycastHit hit) {
+    private bool MouseFrontOfPlayer(Vector3 hit) {
         /*
         if(hit.point.x > transform.position.x && _move.facingRight) {
             return true;
@@ -75,8 +88,8 @@ public class FireController : MonoBehaviour {
         return false;
         */
 
-        return ((hit.point.x > transform.position.x && _move.facingRight)
-            || (hit.point.x < transform.position.x && !_move.facingRight));
+        return ((hit.x > transform.position.x && _move.facingRight)
+            || (hit.x < transform.position.x && !_move.facingRight));
     }
 
 

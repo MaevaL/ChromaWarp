@@ -13,7 +13,7 @@ namespace RoguePlateformer {
         [SerializeField]
         private float jumpNdVelocity = -7f;
         [SerializeField]
-        private float speedDash = 5000f;
+        private float speedDash = 5f;
 
         private Rigidbody2D rigidBody;
 
@@ -77,11 +77,11 @@ namespace RoguePlateformer {
             // dash 
             if (Input.GetButtonDown("Dash")) {
                 if (facingRight) {
-                    StartCoroutine(DashTranslate(2.5f));
+                    StartCoroutine(DashTranslate(speedDash));
                 }
 
                 if (!facingRight) {
-                    StartCoroutine(DashTranslate(-2.5f));
+                    StartCoroutine(DashTranslate(-speedDash));
                 }
             }
         }
@@ -116,11 +116,13 @@ namespace RoguePlateformer {
             dashSpeed.postWrapMode = WrapMode.PingPong;
 
             while (timer < animDashDuration) {
+                anim.SetBool("Dash", true); 
                 transform.position += new Vector3(multiply * dashSpeed.Evaluate(timer) * Time.deltaTime, rigidBody.velocity.y, 0);
                 Debug.Log("Test Dash Update Pos : " + transform.position);
                 timer += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
+            anim.SetBool("Dash", false);
         }
 
         /// <summary>
