@@ -92,6 +92,8 @@ MonoBehaviour:
   Damages: 1
   LifeTime: 10
   ImpactFX: {fileID: 1157650048063312, guid: ecd526f165efe4b49a422fc1a4b720c4, type: 2}
+  NoImpactFX: {fileID: 1669269165928014, guid: e9fc495ca0c4c8d40bae95f44eb84185, type: 2}
+  Player: {fileID: 100002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
 --- !u!212 &212086238087192660
 SpriteRenderer:
   m_ObjectHideFlags: 1

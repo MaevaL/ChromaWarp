@@ -8,7 +8,7 @@ public class EnemyProjectile : Projectile {
 
     protected override void SpecificCollision(LifeController lifeController, Collision2D col) {
         if (lifeController != null && lifeController.CompareTag("Player")) {
-            GameObject go = Instantiate(ImpactFX , col.transform.position + new Vector3(0,0.8f,0) , transform.rotation) as GameObject;
+            GameObject go = Instantiate(ImpactFX , col.collider.transform.position , transform.rotation) as GameObject;
             lifeController.LoseLife(Damages);
         }
     }
