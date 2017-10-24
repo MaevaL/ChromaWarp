@@ -269,9 +269,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1532059272686752, guid: 8fe188e39e863714781a36bb95a44470, type: 2}
-  velocity: {x: 2, y: 2}
+  velocity: {x: 10, y: 10}
   _bulletSpawner: {fileID: 4614340891453068}
   fireRate: 0.2
+  animShootDuration: 0
 --- !u!114 &114441118870586116
 MonoBehaviour:
   m_ObjectHideFlags: 1
