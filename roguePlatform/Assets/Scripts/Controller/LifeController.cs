@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,8 +14,15 @@ public class LifeController : MonoBehaviour {
         return _life;
     }
 
+    public void SetLife(int life) {
+        _life += life;
+    }
     public int GetLifeMax() {
         return _lifeMax;
+    }
+
+    public void SetLifeMax(int gain) {
+        _lifeMax += gain;
     }
 
     public void GainLife(int gain) {
@@ -32,7 +40,6 @@ public class LifeController : MonoBehaviour {
             GetComponent<DieHandler>().Die();
             return false;
         }
-
         return true;
     }
 }

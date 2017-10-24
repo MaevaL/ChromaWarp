@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         hud();
-        swapColorCheck();
+        swapColor();
     }
 
     /// <summary>
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour {
     /// Change le personnage de couleur (bleu ou rouge)
     /// Le mode bleu permet d'attaquer les ennemies bleu et inversement pour le mode rouge
     /// </summary>
-    private void swapColorCheck() {
+    private void swapColor() {
         if (Input.GetButtonDown("SwapColor")) {
             colorController.SwapColor();
             if (colorController.GetColor() == 1) {

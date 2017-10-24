@@ -33,6 +33,9 @@ GameObject:
   - component: {fileID: 114605707648165882}
   - component: {fileID: 114441118870586116}
   - component: {fileID: 114781377774457272}
+  - component: {fileID: 114608609601251628}
+  - component: {fileID: 114030485386679598}
+  - component: {fileID: 114668396873928610}
   - component: {fileID: 114348778257364524}
   - component: {fileID: 114604280491849978}
   m_Layer: 8
@@ -257,6 +260,17 @@ Transform:
   m_Father: {fileID: 400002}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114030485386679598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e01643d33adf524fb7b3067b21f8c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114348778257364524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -271,8 +285,8 @@ MonoBehaviour:
   projectile: {fileID: 1532059272686752, guid: 8fe188e39e863714781a36bb95a44470, type: 2}
   velocity: {x: 10, y: 10}
   _bulletSpawner: {fileID: 4614340891453068}
-  fireRate: 0.2
-  animShootDuration: 0
+  fireRate: 1
+  _animShootDuration: 0
 --- !u!114 &114441118870586116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,6 +327,28 @@ MonoBehaviour:
   CoinText: {fileID: 0}
   healthBonus: {fileID: 1289321663581958, guid: a10fb469ed963554dbbc770347bd4a57,
     type: 2}
+--- !u!114 &114608609601251628
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90841f615479f04c938e407b1278e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114668396873928610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f5f363565aa9974cbe49f3821f1765b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114708611508262948
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -325,7 +361,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _life: 3
-  _lifeMax: 10
+  _lifeMax: 3
 --- !u!114 &114781377774457272
 MonoBehaviour:
   m_ObjectHideFlags: 1
