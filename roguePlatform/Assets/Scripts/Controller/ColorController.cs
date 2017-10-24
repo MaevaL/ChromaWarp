@@ -14,11 +14,9 @@ public class ColorController : MonoBehaviour {
     public void SwapColor() {
         if (_color == 1) {
             _color = 2;
-            Debug.Log("blue to red" + _color);
         }
         else if (_color == 2) {
             _color = 1;
-            Debug.Log("red to blue" + _color);
         }
 
     }

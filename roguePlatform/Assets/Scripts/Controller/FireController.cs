@@ -13,7 +13,7 @@ public class FireController : MonoBehaviour {
     public float fireRate = 1f;
     private PlayerMove _move;
     [SerializeField]
-    private float animShootDuration;
+    private float _animShootDuration;
     private Animator anim; 
 
 
@@ -43,13 +43,8 @@ public class FireController : MonoBehaviour {
                 //Et pas de créer un Object pour ensuite le cast en GameObject.
                 StartCoroutine(RecoveryShot(diff));
                 canShoot = false; 
-                
-                
-              
+                 
             }
-
-            
-           
         }
     }
 

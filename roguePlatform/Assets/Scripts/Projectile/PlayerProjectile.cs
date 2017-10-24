@@ -6,6 +6,7 @@ public class PlayerProjectile : Projectile {
 
     public GameObject ImpactFX;
     public GameObject NoImpactFX;
+
     protected override void SpecificCollision(LifeController lifeController, Collision2D col) {
         if(lifeController != null && lifeController.CompareTag("Enemy")) {
             ColorController EnemyColor = col.collider.gameObject.GetComponent<ColorController>();
