@@ -28,13 +28,13 @@ public class MoveController : MonoBehaviour {
     float widthEnemy;
 
     public Transform target;
-    float moveSpeed = 5f;
     float rotationSpeed = 3;
     float rangeMin = 1f;
-    float rangeMax = 10f;
+    [SerializeField]
+    public float rangeMax = 10f;
     float stop = 0f;
-    public Transform myTransform;
     float distance;
+    public bool isClose = false;
 
     float hauteurMax;
     float hauteurMin;
@@ -45,13 +45,11 @@ public class MoveController : MonoBehaviour {
         rigidBody = GetComponent<Rigidbody2D>();
         isFlying = false;
         anim = GetComponent<Animator>();
-        myTransform = this.transform;
         target = GameObject.FindWithTag("Player").transform;
         transfMove = this.transform;
         widthEnemy = this.GetComponent<SpriteRenderer>().bounds.extents.x;
         hauteurMax = transfMove.position.y + rayonPatrol;
         hauteurMin = transfMove.position.y - rayonPatrol;
-
 
     }
 
@@ -153,11 +151,13 @@ public class MoveController : MonoBehaviour {
         displacement = displacement.normalized;
         if (Vector2.Distance(target.position, transform.position) > rangeMin && Vector2.Distance(target.position, transform.position) < rangeMax) {
             if (displacement.x > 0 && !facingRight) { Flip(); } else if (displacement.x < 0 && facingRight) { Flip(); }
-            transform.position += (displacement * moveSpeed * Time.deltaTime);
+            transform.position += (displacement * speed * Time.deltaTime);
+            isClose = false;
 
         }
         else {
             //do whatever the enemy has to do with the player
+            isClose = true;
         }
     }
 
@@ -165,13 +165,13 @@ public class MoveController : MonoBehaviour {
         //this.transform.position.Set(this.transform.position.x, (this.transform.position.y + 1), this.transform.position.z);
 
         if (transform.position.y >= hauteurMax) {
-            moveSpeed = -moveSpeed;
+            speed = -speed;
         }
         if (transform.position.y < hauteurMin) {
-            moveSpeed = -moveSpeed;
+            speed = -speed;
         }
 
-        this.transform.Translate(new Vector3(0, moveSpeed, 0) * Time.deltaTime);
+        this.transform.Translate(new Vector3(0, speed, 0) * Time.deltaTime);
 
     }
 }

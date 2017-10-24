@@ -29,36 +29,54 @@ public class MeleeController : MonoBehaviour {
 
 
     private void MeleeAttack() {
-        if (Input.GetButtonDown("Fire2") && !attacking) {
-            attacking = true;
-            attackTimer = attackCooldown;
 
-            attackTrigger.enabled = true;
+        if (gameObject.CompareTag("Player")) {
 
-        }
 
-        if (attacking) {
-            if(attackTimer > 0) {
-                attackTimer -= Time.deltaTime;
+            if (Input.GetButtonDown("Fire2") && !attacking) {
+                attacking = true;
+                attackTimer = attackCooldown;
+
+                attackTrigger.enabled = true;
+                anim.SetTrigger("PunchT");
+
             }
-            else {
-                attacking = false;
-                attackTrigger.enabled = false;
+
+            if (attacking) {
+                if (attackTimer > 0) {
+                    attackTimer -= Time.deltaTime;
+                }
+                else {
+                    attacking = false;
+                    attackTrigger.enabled = false;
+                }
+
+            }
+        }
+        else {
+
+            if (!gameObject.GetComponent<MoveController>().isClose && !attacking) {
+                attacking = true;
+                attackTimer = attackCooldown;
+
+                attackTrigger.enabled = true;
+                anim.SetTrigger("PunchT");
+
+            }
+
+            if (attacking) {
+                if (attackTimer > 0) {
+                    attackTimer -= Time.deltaTime;
+                }
+                else {
+                    attacking = false;
+                    attackTrigger.enabled = false;
+                }
+
             }
 
         }
     }
 
-    /// <summary>
-    /// Délai entre deux tirs
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator RecoveryPunch(Vector3 hit) {
-
-        anim.SetTrigger("ShootT");
-        yield return new WaitForSeconds(attackCooldown / 2);
-
-        attacking = true;
-    }
 
 }

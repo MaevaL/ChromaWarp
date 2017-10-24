@@ -11,10 +11,23 @@ public class AttackTriggerController : MonoBehaviour {
     }
 
     void OnTriggerEnter2D(Collider2D col) {
-        if (!col.isTrigger &&  col.CompareTag("Enemy")) {
-            SpecificCollision(col.gameObject.GetComponent<LifeController>(), col);
+
+        //Debug.Log("objet: "+ gameObject.GetComponentInParent<LifeController>().tag);
+        if (gameObject.GetComponentInParent<LifeController>().CompareTag("Player")) {
+
+
+            if (!col.isTrigger && col.CompareTag("Enemy")) {
+                SpecificCollision(col.gameObject.GetComponent<LifeController>(), col);
+            }
+
+
         }
-        
+        else {
+            if (!col.isTrigger && col.CompareTag("Player")) {
+                SpecificCollision(col.gameObject.GetComponent<LifeController>(), col);
+            }
+
+        }
         return;
     }
 
@@ -26,15 +39,34 @@ public class AttackTriggerController : MonoBehaviour {
 
     protected void SpecificCollision(LifeController lifeController, Collider2D col) {
 
-        if (lifeController != null && lifeController.CompareTag("Enemy")) {
-            ColorController EnemyColor = col.gameObject.GetComponent<ColorController>();
-            ColorController PlayerColor = GameObject.FindWithTag("Player").GetComponent<ColorController>();
-            if (PlayerColor.SameColor(EnemyColor.GetColor())) {
-                GameObject go = Instantiate(ImpactFX, col.transform.position, transform.rotation) as GameObject;
-                lifeController.LoseLife(Damage);
+        if (gameObject.GetComponentInParent<LifeController>().CompareTag("Player")) {
+
+            if (lifeController != null && lifeController.CompareTag("Enemy")) {
+                ColorController EnemyColor = col.gameObject.GetComponent<ColorController>();
+                ColorController PlayerColor = GameObject.FindWithTag("Player").GetComponent<ColorController>();
+                if (PlayerColor.SameColor(EnemyColor.GetColor())) {
+                    GameObject go = Instantiate(ImpactFX, col.transform.position, transform.rotation) as GameObject;
+                    lifeController.LoseLife(Damage);
+                }
+                else {
+                    GameObject go = Instantiate(NoImpactFX, col.transform.position, transform.rotation) as GameObject;
+                }
+
             }
-            else {
-                GameObject go = Instantiate(NoImpactFX, col.transform.position, transform.rotation) as GameObject;
+        }
+        else {
+
+            if (lifeController != null && lifeController.CompareTag("Player")) {
+                ColorController EnemyColor = col.gameObject.GetComponent<ColorController>();
+                ColorController PlayerColor = GameObject.FindWithTag("Player").GetComponent<ColorController>();
+                if (PlayerColor.SameColor(EnemyColor.GetColor())) {
+                    GameObject go = Instantiate(ImpactFX, col.transform.position, transform.rotation) as GameObject;
+                    lifeController.LoseLife(Damage);
+                }
+                else {
+                    GameObject go = Instantiate(NoImpactFX, col.transform.position, transform.rotation) as GameObject;
+                }
+
             }
 
         }
