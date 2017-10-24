@@ -272,6 +272,7 @@ MonoBehaviour:
   velocity: {x: 2, y: 2}
   _bulletSpawner: {fileID: 4614340891453068}
   fireRate: 0.2
+  animShootDuration: 0
 --- !u!114 &114441118870586116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -352,7 +353,7 @@ MonoBehaviour:
   speedJump: 750
   groundRadius: 0.2
   jumpNdVelocity: -12
-  speedDash: 10
+  speedDash: 20
   facingRight: 0
   groundCheck: {fileID: 400000}
   whatIsGround:
@@ -383,4 +384,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
-  animDashDuration: 0.6
+  animDashDuration: 0.7
