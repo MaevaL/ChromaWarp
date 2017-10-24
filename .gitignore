@@ -1,6 +1,9 @@
-# =============== #
-# Unity generated #
-# =============== #
+roguePlatform/Assets/AssetStoreTools*
+roguePlatform/Library/*
+roguePlatform/.vs/
+roguePlatform/UnityGenerated/
+roguePlatform/Obj/
+roguePlatform/Temp/
 Temp/
 Obj/
 UnityGenerated/
