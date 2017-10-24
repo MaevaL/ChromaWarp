@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Tableau sorties Top right.unity
-  isLoaded: 1
-  isActive: 1
