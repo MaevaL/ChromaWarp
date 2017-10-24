@@ -1,12 +1,12 @@
 # =============== #
 # Unity generated #
 # =============== #
-Temp/
-Obj/
-UnityGenerated/
+roguePlatform/Temp/
+roguePlatform/Obj/
+roguePlatform/UnityGenerated/
 roguePlatform/.vs/
-/Library/*
-Assets/AssetStoreTools*
+roguePlatform/Library/*
+roguePlatform/Assets/AssetStoreTools*
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -33,5 +33,3 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
-
-roguePlatform/Library/
