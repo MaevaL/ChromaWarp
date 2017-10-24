@@ -163,8 +163,6 @@ public class MoveController : MonoBehaviour {
 
     void MoveFlying() {
         //this.transform.position.Set(this.transform.position.x, (this.transform.position.y + 1), this.transform.position.z);
-        Debug.Log(" position :  " + this.transform.position);
-        Debug.Log("posY " + this.transform.position.y);
 
         if (transform.position.y >= hauteurMax) {
             moveSpeed = -moveSpeed;
