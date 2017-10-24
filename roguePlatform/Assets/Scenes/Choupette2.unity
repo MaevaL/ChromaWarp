@@ -222,6 +222,16 @@ Prefab:
       propertyPath: _color
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114301624413568838, guid: db0a89ff20b05e0418eac0d207dd9513,
+        type: 2}
+      propertyPath: animShootDuration
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114301624413568838, guid: db0a89ff20b05e0418eac0d207dd9513,
+        type: 2}
+      propertyPath: fireRate
+      value: 0.01
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: db0a89ff20b05e0418eac0d207dd9513, type: 2}
@@ -360,62 +370,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4034855063937ae47952a290a39f7e37, type: 2}
   m_IsPrefabParent: 0
---- !u!1001 &836941692
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4853977590209518, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 7.67
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853977590209518, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1.30661
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853977590209518, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853977590209518, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853977590209518, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853977590209518, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853977590209518, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4853977590209518, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 1294640987096492, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
-      propertyPath: m_Name
-      value: EnemyStandard 1 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 50765134203916846, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
-        type: 2}
-      propertyPath: m_UseAutoMass
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114222628089869776, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
-        type: 2}
-      propertyPath: groundRadius
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &869638885
 Prefab:
   m_ObjectHideFlags: 0
@@ -465,6 +419,16 @@ Prefab:
       propertyPath: type
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114222628089869776, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114222628089869776, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
+        type: 2}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1941181464}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
   m_IsPrefabParent: 0
@@ -922,7 +886,8 @@ MonoBehaviour:
   projectile: {fileID: 1532059272686752, guid: 8fe188e39e863714781a36bb95a44470, type: 2}
   velocity: {x: 2, y: 2}
   _bulletSpawner: {fileID: 479392105}
-  fireRate: 0.2
+  fireRate: 0.01
+  animShootDuration: 0
 --- !u!114 &1941181454
 MonoBehaviour:
   m_ObjectHideFlags: 0
