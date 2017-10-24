@@ -240,7 +240,7 @@ GameObject:
   m_Layer: 8
   m_Name: BulletSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -251,7 +251,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164085633382246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.81, y: 0.76, z: 0}
+  m_LocalPosition: {x: 1.464, y: 0.742, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 400002}
@@ -269,9 +269,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1532059272686752, guid: 8fe188e39e863714781a36bb95a44470, type: 2}
-  velocity: {x: 2, y: 2}
+  velocity: {x: 20, y: 20}
   _bulletSpawner: {fileID: 4614340891453068}
-  fireRate: 0.2
+  fireRate: 0.6
+  animShootDuration: 0.6
 --- !u!114 &114441118870586116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -369,7 +370,7 @@ MonoBehaviour:
       outSlope: 1.880061
       tangentMode: 0
     - serializedVersion: 2
-      time: 0.1470508
+      time: 0.19284594
       value: 1.0039597
       inSlope: 0.001192731
       outSlope: 0.001192731

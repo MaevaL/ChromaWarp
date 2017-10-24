@@ -136,6 +136,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &144135121
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4488438937644224, guid: 524ee9fdf1f37084e95d2d06bc2c415f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 5.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488438937644224, guid: 524ee9fdf1f37084e95d2d06bc2c415f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -0.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488438937644224, guid: 524ee9fdf1f37084e95d2d06bc2c415f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488438937644224, guid: 524ee9fdf1f37084e95d2d06bc2c415f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488438937644224, guid: 524ee9fdf1f37084e95d2d06bc2c415f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488438937644224, guid: 524ee9fdf1f37084e95d2d06bc2c415f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488438937644224, guid: 524ee9fdf1f37084e95d2d06bc2c415f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4488438937644224, guid: 524ee9fdf1f37084e95d2d06bc2c415f, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114708781096477672, guid: 524ee9fdf1f37084e95d2d06bc2c415f,
+        type: 2}
+      propertyPath: fireRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 524ee9fdf1f37084e95d2d06bc2c415f, type: 2}
+  m_IsPrefabParent: 0
+--- !u!1 &234918295 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+  m_PrefabInternal: {fileID: 445401649}
 --- !u!1001 &392853983
 Prefab:
   m_ObjectHideFlags: 0
@@ -245,7 +296,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -7.58
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.y
@@ -285,89 +336,6 @@ Prefab:
       propertyPath: CoinText
       value: 
       objectReference: {fileID: 970105149}
-    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: animDashDuration
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: speedDash
-      value: 50000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: DashForceTestTweak.x
-      value: 5000
-      objectReference: {fileID: 0}
-    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: dashSpeed.m_Curve.Array.data[1].time
-      value: 0.042970598
-      objectReference: {fileID: 0}
-    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: dashSpeed.m_Curve.Array.data[1].value
-      value: 0.9977684
-      objectReference: {fileID: 0}
-    - target: {fileID: 21200000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: d5f2c48c5882f6a42b85c6a2e9f4b96c,
-        type: 3}
-    - target: {fileID: 1164085633382246, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000,
-        type: 0}
-    - target: {fileID: 4614340891453068, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.464
-      objectReference: {fileID: 0}
-    - target: {fileID: 4614340891453068, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.742
-      objectReference: {fileID: 0}
-    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: animShootDuration
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: fireRate
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: velocity.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: velocity.y
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: speedDash
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: dashSpeed.m_Curve.Array.data[1].time
-      value: 0.19284594
-      objectReference: {fileID: 0}
-    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: dashSpeed.m_Curve.Array.data[1].value
-      value: 1.0039597
-      objectReference: {fileID: 0}
-    - target: {fileID: 114886628848011692, guid: 7d5a906dc881f984b9ee96121adc7784,
-        type: 2}
-      propertyPath: animDashDuration
-      value: 0.6
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
   m_IsPrefabParent: 0
@@ -380,7 +348,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4030928975993702, guid: 9ae39d795a7edc045a1eceb6ee9362e7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4030928975993702, guid: 9ae39d795a7edc045a1eceb6ee9362e7, type: 2}
       propertyPath: m_LocalPosition.y
@@ -414,6 +382,11 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
+      objectReference: {fileID: 234918295}
+    - target: {fileID: 65346905327326010, guid: 9ae39d795a7edc045a1eceb6ee9362e7,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ae39d795a7edc045a1eceb6ee9362e7, type: 2}
