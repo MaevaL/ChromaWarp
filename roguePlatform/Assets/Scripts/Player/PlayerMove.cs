@@ -118,7 +118,7 @@ namespace RoguePlateformer {
             while (timer < animDashDuration) {
                 anim.SetBool("Dash", true); 
                 transform.position += new Vector3(multiply * dashSpeed.Evaluate(timer) * Time.deltaTime, rigidBody.velocity.y, 0);
-                Debug.Log("Test Dash Update Pos : " + transform.position);
+               // Debug.Log("Test Dash Update Pos : " + transform.position);
                 timer += Time.deltaTime;
                 yield return new WaitForEndOfFrame();
             }
