@@ -250,11 +250,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -12.9
+      value: 6.81
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.96
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
       propertyPath: m_LocalPosition.z
@@ -530,10 +530,10 @@ MonoBehaviour:
   chunkSize: 20
   chunkWidth: 64
   chunkHeight: 36
-  chunksX: 20
-  chunksY: 20
+  chunksX: 110
+  chunksY: 110
   seed: 456159
-  mainPathLength: 5
+  mainPathLength: 100
   mapRoot: {fileID: 173079373}
   rotatedRoot: {fileID: 0}
   generateRotated: 0
