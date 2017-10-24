@@ -17,6 +17,11 @@ public class LifeController : MonoBehaviour {
         return _lifeMax;
     }
 
+    public void SetLifeMax(int lifeMax)
+    {
+        _lifeMax = lifeMax; 
+    }
+ 
     public void GainLife(int gain) {
         _life += gain;
 
