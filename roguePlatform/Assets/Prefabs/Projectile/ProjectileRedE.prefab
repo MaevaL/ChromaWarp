@@ -22,9 +22,9 @@ GameObject:
   - component: {fileID: 212383069140973794}
   - component: {fileID: 50406831593545090}
   - component: {fileID: 58367623653975242}
-  - component: {fileID: 114527058871217766}
-  m_Layer: 0
-  m_Name: ProjectileRed
+  - component: {fileID: 114954954359018692}
+  m_Layer: 13
+  m_Name: ProjectileRedE
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0.00064284465, y: 0}
   serializedVersion: 2
   m_Radius: 0.048214164
---- !u!114 &114527058871217766
+--- !u!114 &114954954359018692
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,11 +86,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1027816845321022}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f629040c9092f9458ca881c15755632, type: 3}
+  m_Script: {fileID: 11500000, guid: e766501a34605544e9fe006221ec2ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Damages: 1
   LifeTime: 10
+  color: 2
+  ImpactFX: {fileID: 1157650048063312, guid: ecd526f165efe4b49a422fc1a4b720c4, type: 2}
+  NoImpactFX: {fileID: 1669269165928014, guid: e9fc495ca0c4c8d40bae95f44eb84185, type: 2}
 --- !u!212 &212383069140973794
 SpriteRenderer:
   m_ObjectHideFlags: 1

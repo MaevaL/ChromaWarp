@@ -430,6 +430,18 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: blueProjectile
+      value: 
+      objectReference: {fileID: 1532059272686752, guid: 8fe188e39e863714781a36bb95a44470,
+        type: 2}
+    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: redProjectile
+      value: 
+      objectReference: {fileID: 1969944743426048, guid: 0d468b1ce7995f444a8f04c539c5f34c,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114608609601251628, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
     - {fileID: 114030485386679598, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
