@@ -152,6 +152,18 @@ Prefab:
       propertyPath: _color
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114323101414798946, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
+        type: 2}
+      propertyPath: blueProjectile
+      value: 
+      objectReference: {fileID: 1740691952530410, guid: c22e6117ffb512b4895e5e4a6e41fe84,
+        type: 2}
+    - target: {fileID: 114323101414798946, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
+        type: 2}
+      propertyPath: redProjectile
+      value: 
+      objectReference: {fileID: 1027816845321022, guid: cf08a26cb6e742d4d9d8dd5ff00b667b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
   m_IsPrefabParent: 0
@@ -203,6 +215,18 @@ Prefab:
       propertyPath: _color
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114323101414798946, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
+        type: 2}
+      propertyPath: blueProjectile
+      value: 
+      objectReference: {fileID: 1740691952530410, guid: c22e6117ffb512b4895e5e4a6e41fe84,
+        type: 2}
+    - target: {fileID: 114323101414798946, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
+        type: 2}
+      propertyPath: redProjectile
+      value: 
+      objectReference: {fileID: 1027816845321022, guid: cf08a26cb6e742d4d9d8dd5ff00b667b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
   m_IsPrefabParent: 0
