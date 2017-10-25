@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class FireEnemy : MonoBehaviour {
 
-
-    public GameObject projectile;
+    public GameObject blueProjectile;
+    public GameObject redProjectile;
     public Vector2 velocity;
     bool canShoot = true;
     public Vector2 offset = new Vector2(0.4f, 0.1f);
     public float fireRate = 1f;
     public float delay = 1f;
+    private Animator anim;
+
 
 
     // Use this for initialization
     void Start() {
+        anim = GetComponent<Animator>();
         InvokeRepeating("Fire", delay, fireRate);
     }
 
@@ -22,7 +25,16 @@ public class FireEnemy : MonoBehaviour {
     /// Attaque à distance de l'ennemi qui lance des projectiles
     /// </summary>
     private void Fire() {
-        GameObject go = (GameObject)Instantiate(projectile, (Vector2)transform.position + offset * transform.localScale.x, Quaternion.identity);
+        anim.SetTrigger("ShootEnemyT");
+
+        GameObject go;
+        if (GetComponent<ColorController>().GetColor() == 1) {
+            go = Instantiate(blueProjectile , (Vector2)transform.position + offset * transform.localScale.x , Quaternion.identity) as GameObject;
+        }
+        else {
+            go = Instantiate(redProjectile , (Vector2)transform.position + offset * transform.localScale.x , Quaternion.identity) as GameObject;
+        }
+        
         go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * transform.localScale.x, velocity.y);
     }
 }

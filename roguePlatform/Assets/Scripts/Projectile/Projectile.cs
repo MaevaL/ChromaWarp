@@ -6,6 +6,7 @@ public abstract class Projectile : MonoBehaviour {
 
     public int Damages = 1;
     public float LifeTime;
+    public int color;
     void Start() {
             
         Destroy(gameObject , LifeTime);

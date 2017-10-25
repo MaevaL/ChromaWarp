@@ -18,9 +18,9 @@ public class LifeAmelioration : Amelioration {
     public override void setAmelioration() {
         Debug.Log("life"); 
         LifeController life = GameObject.FindWithTag("Player").GetComponent<LifeController>();
-        life.SetLifeMax(System.Convert.ToInt32(1));
-        life.SetLife(System.Convert.ToInt32(1));
-        Debug.Log(life.GetLifeMax());
-        Debug.Log(life.GetLife());
+        life.SetLifeMax(System.Convert.ToInt32(param));
+        life.SetLife(System.Convert.ToInt32(param));
+        //Debug.Log(life.GetLifeMax());
+        //Debug.Log(life.GetLife());
     }
 }

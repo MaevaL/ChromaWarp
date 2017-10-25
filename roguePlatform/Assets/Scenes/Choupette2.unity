@@ -152,6 +152,18 @@ Prefab:
       propertyPath: _color
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114323101414798946, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
+        type: 2}
+      propertyPath: blueProjectile
+      value: 
+      objectReference: {fileID: 1740691952530410, guid: c22e6117ffb512b4895e5e4a6e41fe84,
+        type: 2}
+    - target: {fileID: 114323101414798946, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
+        type: 2}
+      propertyPath: redProjectile
+      value: 
+      objectReference: {fileID: 1027816845321022, guid: cf08a26cb6e742d4d9d8dd5ff00b667b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
   m_IsPrefabParent: 0
@@ -203,6 +215,18 @@ Prefab:
       propertyPath: _color
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114323101414798946, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
+        type: 2}
+      propertyPath: blueProjectile
+      value: 
+      objectReference: {fileID: 1740691952530410, guid: c22e6117ffb512b4895e5e4a6e41fe84,
+        type: 2}
+    - target: {fileID: 114323101414798946, guid: b4c34b6a79b90e045a9ddfe06c72a50b,
+        type: 2}
+      propertyPath: redProjectile
+      value: 
+      objectReference: {fileID: 1027816845321022, guid: cf08a26cb6e742d4d9d8dd5ff00b667b,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b4c34b6a79b90e045a9ddfe06c72a50b, type: 2}
   m_IsPrefabParent: 0
@@ -430,6 +454,18 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: blueProjectile
+      value: 
+      objectReference: {fileID: 1532059272686752, guid: 8fe188e39e863714781a36bb95a44470,
+        type: 2}
+    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: redProjectile
+      value: 
+      objectReference: {fileID: 1969944743426048, guid: 0d468b1ce7995f444a8f04c539c5f34c,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114608609601251628, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
     - {fileID: 114030485386679598, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}

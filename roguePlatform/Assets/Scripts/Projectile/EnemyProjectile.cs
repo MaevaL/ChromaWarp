@@ -11,9 +11,11 @@ public class EnemyProjectile : Projectile {
         if (lifeController != null && lifeController.CompareTag("Player")) {
 
             ColorController PlayerColor = col.collider.gameObject.GetComponent<ColorController>();
-            ColorController EnemyColor = GameObject.FindWithTag("Enemy").GetComponent<ColorController>();
 
-            if (PlayerColor.SameColor(EnemyColor.GetColor())) {
+            Debug.Log(PlayerColor.GetColor());
+            Debug.Log(color);
+
+            if (PlayerColor.SameColor(color)) {
                 GameObject go = Instantiate(ImpactFX , col.collider.transform.position + new Vector3(0.5f , 0.5f , 0) , transform.rotation) as GameObject;
                 lifeController.LoseLife(Damages);
             }
