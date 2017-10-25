@@ -20,11 +20,11 @@ public class PlayerController : MonoBehaviour {
 
         lifeController = gameObject.GetComponent<LifeController>();
         healthText = GameObject.Find("HealthText").GetComponent<Text>();
-        healthText.text = ": " + lifeController.GetLife();
+        healthText.text = ": " + lifeController.GetLife() + " / " + lifeController.GetLifeMax() ;
 
         goldController = gameObject.GetComponent<GoldController>();
         CoinText = GameObject.Find("CoinText").GetComponent<Text>();
-        CoinText.text = ": " + goldController.GetGold();
+        CoinText.text = ": " + goldController.GetGold() +" / " + goldController.GetGoldMax();
 
         // Le player prend la couleur tweak dans unity
         colorController = gameObject.GetComponent<ColorController>();
@@ -39,15 +39,15 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         Hud();
-        swapColor();
+        SwapColor();
     }
 
     /// <summary>
     /// Affiche les informations hud
     /// </summary>
     private void Hud() {
-        healthText.text = ": " + (lifeController.GetLife());
-        CoinText.text = ": " + goldController.GetGold();
+        healthText.text = ": " + (lifeController.GetLife()) + " / " + lifeController.GetLifeMax();
+        CoinText.text = ": " + goldController.GetGold() + " / " + goldController.GetGoldMax();
     }
 
     /// <summary>

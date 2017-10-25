@@ -12,7 +12,7 @@ public class UpgradeLife : Upgrade {
 
     private void Start()
     {
-        Button btn = yourButton.GetComponent<Button>(); ;
+        Button btn = yourButton.GetComponent<Button>();
         btn.onClick.AddListener(Temp);
     }
 

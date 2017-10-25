@@ -9,7 +9,11 @@ public class UpdateShopUI : MonoBehaviour {
     public Text currentEnergy; 
     public GameObject player;
     private UpgradeController upgradeController;
-    private GoldController goldController; 
+    private GoldController goldController;
+    [SerializeField]
+    private Button yourButton;
+    [SerializeField]
+    private Canvas hudUpgrade; 
     // Use this for initialization
     void Start()
     {
@@ -17,8 +21,11 @@ public class UpdateShopUI : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         upgradeController = player.GetComponent<UpgradeController>();
         goldController = player.GetComponent<GoldController>();
-        neededEnergy.text = "Energy for next upgrade : " + upgradeController.GetCost();
-        currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax(); 
+        neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
+        currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
+        Button btn = yourButton.GetComponent<Button>();
+        btn.onClick.AddListener(Exit); 
+
     }
 	// Update is called once per frame
 	void Update () {
@@ -27,6 +34,15 @@ public class UpdateShopUI : MonoBehaviour {
     
     private void Hud()
     {
-        neededEnergy.text = "Next Upgrade : " + upgradeController.GetCost();
+        neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
+        currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
     }
+
+    private void Exit()
+    {
+        hudUpgrade.gameObject.SetActive(false); 
+    }
+
+        
+
 }
