@@ -13,8 +13,18 @@ public class GoldController : MonoBehaviour {
         return _gold;
     }
 
+    public int SetGold(int gold) 
+    {
+        return _gold = gold; 
+    }
+
     public int GetGoldMax() {
         return _goldMax;
+    }
+
+    public int SetGoldMax(int goldMax)
+    {
+        return _goldMax = goldMax; 
     }
 
     public void GainGold(int gain) {

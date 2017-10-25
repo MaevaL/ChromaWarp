@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class ShootAmelioration : Amelioration {
     private void Start() {
-        setAmelioration("0.001");
+        setAmelioration();
     }
-    public override void setAmelioration(string param) {
+    public override void setAmelioration() {
         FireController fireController = GameObject.FindWithTag("Player").GetComponent<FireController>();
-        fireController.fireRate = (float)System.Convert.ToDouble((param));
+        fireController.fireRate = (float)System.Convert.ToDouble((0.0001));
     }
 }

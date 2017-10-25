@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DamageAmelioration : Amelioration {
     private void Start() {
-        setAmelioration("3");
+        setAmelioration();
     }
-    public override void setAmelioration(string param) {
+     public override void setAmelioration() {
     }
 }

@@ -15,14 +15,14 @@ public class LifeController : MonoBehaviour {
     }
 
     public void SetLife(int life) {
-        _life += life;
+        _life = life;
     }
     public int GetLifeMax() {
         return _lifeMax;
     }
 
     public void SetLifeMax(int gain) {
-        _lifeMax += gain;
+        _lifeMax = gain;
     }
 
     public void GainLife(int gain) {

@@ -1,26 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class Upgrade : MonoBehaviour
 {
     
-    public int coins;
+    private float facteur = 2f;
+    public GameObject player; 
     public string title;
     public string description;
-
+   
     
+    //public Button yourButton; 
 
-    public void buy (int coins, int playerCoins)
+    void Start()
     {
+        // For children 
+        //Button btn = yourButton.GetComponent<Button>(); ;
+        //btn.onClick.AddListener(Temp);
+
+    }
+
+    protected void Temp()
+    {     
+        player = GameObject.FindGameObjectWithTag("Player");
+        Buy(player.GetComponent<UpgradeController>().GetCost(), player.GetComponent<GoldController>().GetGold()); 
+    }
+
+    protected virtual void Buy(int coins, int playerCoins)
+    {
+ 
         if (playerCoins >= coins)
         {
             playerCoins -= coins;
-            effect(); 
+            player.GetComponent<GoldController>().SetGold(playerCoins);
+            player.GetComponent<UpgradeController>().NewCost(); 
+            Effect();
         }
         //TODO Create else 
     }
 
-    protected abstract void effect(); 
+    protected abstract void Effect(); 
 
+  
 }

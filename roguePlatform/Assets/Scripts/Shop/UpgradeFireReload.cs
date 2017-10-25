@@ -5,19 +5,23 @@ using UnityEngine.UI;
 
 public class UpgradeFireReload : Upgrade{
 
-    public GameObject player;
+   
     private FireController fireController;
     public float upReload;
-    public Button yourButton; 
+    public Button yourButton;
 
-    private void Start()
+    void Start()
     {
         Button btn = yourButton.GetComponent<Button>(); ;
-        btn.onClick.AddListener(effect); 
+        btn.onClick.AddListener(Temp);   
     }
-
-    protected override void effect()
+   
+    /// <summary>
+    /// Substract The FireRate with a Parameter 
+    /// </summary>
+    protected override void Effect()
     {
+        
         player = GameObject.FindGameObjectWithTag("Player");
         fireController = player.GetComponent<FireController>();
         if (fireController.fireRate > 0.0f)
@@ -25,7 +29,9 @@ public class UpgradeFireReload : Upgrade{
             fireController.fireRate = fireController.fireRate - upReload;
         }
         else
-            fireController.fireRate = 0; 
+            fireController.fireRate = 0;
+
+      
     }
 
 	
