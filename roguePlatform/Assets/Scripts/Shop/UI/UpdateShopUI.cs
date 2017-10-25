@@ -34,6 +34,7 @@ public class UpdateShopUI : MonoBehaviour {
     
     private void Hud()
     {
+        
         neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
         currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
     }

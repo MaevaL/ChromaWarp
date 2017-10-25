@@ -8,6 +8,7 @@ public class UpgradeMaxCoins : Upgrade
 
     private GoldController goldController;
     public Button yourButton;
+    [SerializeField]
     private int goldMax;
 
     // Use this for initialization
@@ -20,9 +21,11 @@ public class UpgradeMaxCoins : Upgrade
     protected override void Effect()
     {
         int currentGoldMax;
+
         player = GameObject.FindGameObjectWithTag("Player");
         goldController = player.GetComponent<GoldController>();
         currentGoldMax = goldController.GetGoldMax();
         goldController.SetGoldMax(currentGoldMax + goldMax);
+        Debug.Log(goldController.GetGoldMax()); 
     }
 }
