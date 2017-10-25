@@ -39,7 +39,7 @@ public class UpdateShopUI : MonoBehaviour {
         neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
         currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
         maxLife.text = "" + lifeController.GetLifeMax();
-        fireRate.text = fireController.fireRate + "/sec";
+        fireRate.text = "each " + fireController.fireRate + " sec";
         maxEnergy.text = "" + goldController.GetGoldMax(); 
     //Create Listener EXIT 
     Button btn = yourButton.GetComponent<Button>();
@@ -57,7 +57,7 @@ public class UpdateShopUI : MonoBehaviour {
         neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
         currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
         maxLife.text = "" + lifeController.GetLifeMax();
-        fireRate.text = fireController.fireRate + "/sec";
+        fireRate.text = "each " + fireController.fireRate + " sec";
         maxEnergy.text = "" + goldController.GetGoldMax();
     }
 

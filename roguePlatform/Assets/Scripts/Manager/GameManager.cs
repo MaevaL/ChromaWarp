@@ -18,10 +18,10 @@ public class GameManager : MonoBehaviour
     //private BoardManager boardScript;                       //Store a reference to our BoardManager which will set up the level.
     private int level = 1;                                  //Current level number, expressed in game as "Day 1".
     private List<Enemy> enemies;                            //List of all Enemy units, used to issue them move commands.
-    //private bool doingSetup = true;                         //Boolean to check if we're setting up board, prevent Player from moving during setup.
-    
+                                                            //private bool doingSetup = true;                         //Boolean to check if we're setting up board, prevent Player from moving during setup.
+
     [SerializeField]
-    private GameObject player = GameObject.FindGameObjectWithTag("Player"); 
+    private GameObject player; 
     //All Variable needed for SaveGame 
     private int maxEnergy;
     private int maxLife;
