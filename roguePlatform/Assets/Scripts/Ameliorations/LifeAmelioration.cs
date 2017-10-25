@@ -10,7 +10,7 @@ public class LifeAmelioration : Amelioration {
         LifeController life = GameObject.FindWithTag("Player").GetComponent<LifeController>();
         life.SetLifeMax(System.Convert.ToInt32(param));
         life.SetLife(System.Convert.ToInt32(param));
-        Debug.Log(life.GetLifeMax());
-        Debug.Log(life.GetLife());
+        //Debug.Log(life.GetLifeMax());
+        //Debug.Log(life.GetLife());
     }
 }
