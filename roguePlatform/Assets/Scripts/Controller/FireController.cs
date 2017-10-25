@@ -5,7 +5,8 @@ using RoguePlateformer;
 
 public class FireController : MonoBehaviour {
 
-    public GameObject projectile;
+    public GameObject blueProjectile;
+    public GameObject redProjectile;
     public Vector2 velocity;
     bool canShoot = true;
     [SerializeField]
@@ -13,7 +14,7 @@ public class FireController : MonoBehaviour {
     public float fireRate = 1f;
     private PlayerMove _move;
     [SerializeField]
-    private float animShootDuration;
+    private float _animShootDuration;
     private Animator anim; 
 
 
@@ -43,13 +44,8 @@ public class FireController : MonoBehaviour {
                 //Et pas de créer un Object pour ensuite le cast en GameObject.
                 StartCoroutine(RecoveryShot(diff));
                 canShoot = false; 
-                
-                
-              
+                 
             }
-
-            
-           
         }
     }
 
@@ -61,7 +57,13 @@ public class FireController : MonoBehaviour {
  
         anim.SetTrigger("ShootT");
         yield return new WaitForSeconds(fireRate / 2);
-        GameObject go = Instantiate(projectile, _bulletSpawner.position, Quaternion.identity) as GameObject;
+        GameObject go;
+        if (GetComponent<ColorController>().GetColor() == 1) {
+             go = Instantiate(blueProjectile , _bulletSpawner.position , Quaternion.identity) as GameObject;
+        } else {
+            go = Instantiate(redProjectile , _bulletSpawner.position , Quaternion.identity) as GameObject;
+        }
+        
         go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * (hit.x), (hit.y) * velocity.y);
         yield return new WaitForSeconds(fireRate / 2 );
      

@@ -11,6 +11,23 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1817306642152232}
   m_IsPrefabParent: 1
+--- !u!1 &1775053366500350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4709892124473744}
+  - component: {fileID: 61857365485257732}
+  - component: {fileID: 114646954905695036}
+  m_Layer: 9
+  m_Name: AttackTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1806389533039532
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +61,7 @@ GameObject:
   - component: {fileID: 114955928434513124}
   - component: {fileID: 114824728213422586}
   - component: {fileID: 114708781096477672}
+  - component: {fileID: 114794881210486438}
   - component: {fileID: 114069456335341906}
   m_Layer: 9
   m_Name: EnemyFollower
@@ -74,13 +92,27 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817306642152232}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.67, y: -1.30661, z: 0}
+  m_LocalPosition: {x: 21.45, y: -0.42, z: 0}
   m_LocalScale: {x: -1.7715329, y: 1.7715304, z: 1}
   m_Children:
   - {fileID: 4727446510800412}
   - {fileID: 4819037853728368}
+  - {fileID: 4709892124473744}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4709892124473744
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775053366500350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4488438937644224}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4727446510800412
 Transform:
@@ -168,6 +200,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47361416, y: 0.85907197}
   m_EdgeRadius: 0
+--- !u!61 &61857365485257732
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775053366500350}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.22809446, y: -0.035643816}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.53469694, y: 0.72277117}
+  m_EdgeRadius: 0
 --- !u!95 &95652916448104412
 Animator:
   serializedVersion: 3
@@ -224,16 +281,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d79d70388f830246a3fffc3c4050aa3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
   groundRadius: 2
   facingRight: 0
-  type: 1
+  type: 2
   groundCheck: {fileID: 4727446510800412}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  myTransform: {fileID: 0}
+  rangeMax: 15
+  isClose: 0
+--- !u!114 &114646954905695036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1775053366500350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f94deb8c1ee4ad47a074f0cc9d65430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 1
+  ImpactFX: {fileID: 1157650048063312, guid: ecd526f165efe4b49a422fc1a4b720c4, type: 2}
+  NoImpactFX: {fileID: 1669269165928014, guid: e9fc495ca0c4c8d40bae95f44eb84185, type: 2}
 --- !u!114 &114708781096477672
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -246,10 +318,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1740691952530410, guid: c22e6117ffb512b4895e5e4a6e41fe84, type: 2}
-  velocity: {x: 1, y: 0}
+  velocity: {x: 0, y: 0}
   offset: {x: 0.4, y: 0.1}
-  fireRate: 1
-  delay: 1
+  fireRate: 0
+  delay: 0
+--- !u!114 &114794881210486438
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817306642152232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 799042b6ac9b03d4abc899b730f98b49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackCooldown: 0.3
+  attackTrigger: {fileID: 61857365485257732}
+  animShootDuration: 0
 --- !u!114 &114824728213422586
 MonoBehaviour:
   m_ObjectHideFlags: 1

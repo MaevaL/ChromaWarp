@@ -1,9 +1,16 @@
 fileFormatVersion: 2
 guid: da606b317705046478c2232b8a4b0507
-timeCreated: 1508760708
+timeCreated: 1508850372
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: robot_punch_spritesheet_0
+    21300002: robot_punch_spritesheet_1
+    21300004: robot_punch_spritesheet_2
+    21300006: robot_punch_spritesheet_3
+    21300008: robot_punch_spritesheet_4
+    21300010: robot_punch_spritesheet_5
+    21300012: robot_punch_spritesheet_6
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -39,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -63,9 +70,115 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: robot_punch_spritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 5
+        width: 250.85715
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: robot_punch_spritesheet_1
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 5
+        width: 250.85715
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: robot_punch_spritesheet_2
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 5
+        width: 250.85715
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: robot_punch_spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 5
+        width: 250.85715
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: robot_punch_spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 5
+        width: 250.85715
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: robot_punch_spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 1250
+        y: 5
+        width: 250.85715
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: robot_punch_spritesheet_6
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 5
+        width: 250.85715
+        height: 157
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 

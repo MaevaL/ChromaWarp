@@ -20,11 +20,11 @@ public class PlayerController : MonoBehaviour {
 
         lifeController = gameObject.GetComponent<LifeController>();
         healthText = GameObject.Find("HealthText").GetComponent<Text>();
-        healthText.text = ": " + lifeController.GetLife();
+        healthText.text = ": " + lifeController.GetLife() + " / " + lifeController.GetLifeMax() ;
 
         goldController = gameObject.GetComponent<GoldController>();
         CoinText = GameObject.Find("CoinText").GetComponent<Text>();
-        CoinText.text = ": " + goldController.GetGold();
+        CoinText.text = ": " + goldController.GetGold() +" / " + goldController.GetGoldMax();
 
         // Le player prend la couleur tweak dans unity
         colorController = gameObject.GetComponent<ColorController>();
@@ -38,23 +38,24 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        hud();
-        swapColorCheck();
+        Hud();
+        SwapColor();
     }
 
     /// <summary>
     /// Affiche les informations hud
     /// </summary>
-    private void hud() {
-        healthText.text = ": " + (lifeController.GetLife());
-        CoinText.text = ": " + goldController.GetGold();
+    private void Hud() {
+        healthText.text = ": " + (lifeController.GetLife()) + " / " + lifeController.GetLifeMax();
+        CoinText.text = ": " + goldController.GetGold() + " / " + goldController.GetGoldMax();
     }
 
     /// <summary>
     /// Change le personnage de couleur (bleu ou rouge)
     /// Le mode bleu permet d'attaquer les ennemies bleu et inversement pour le mode rouge
     /// </summary>
-    private void swapColorCheck() {
+    private void SwapColor() {
+
         if (Input.GetButtonDown("SwapColor")) {
             colorController.SwapColor();
             if (colorController.GetColor() == 1) {
@@ -64,4 +65,5 @@ public class PlayerController : MonoBehaviour {
             }
         }
     }
+
 }
