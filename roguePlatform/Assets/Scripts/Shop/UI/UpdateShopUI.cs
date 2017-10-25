@@ -5,11 +5,23 @@ using UnityEngine.UI;
 
 public class UpdateShopUI : MonoBehaviour {
 
-    public Text neededEnergy;
-    public Text currentEnergy; 
+    [SerializeField]
+    private Text fireRate;
+    [SerializeField]
+    private Text maxEnergy;  
+    [SerializeField]
+    private Text neededEnergy;
+    [SerializeField]
+    private Text currentEnergy;
+    [SerializeField]
+    private Text maxLife; 
     public GameObject player;
+    //Controller 
     private UpgradeController upgradeController;
     private GoldController goldController;
+    private LifeController lifeController;
+    private FireController fireController; 
+    //Graphics
     [SerializeField]
     private Button yourButton;
     [SerializeField]
@@ -17,13 +29,20 @@ public class UpdateShopUI : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-
+        //Get All Controller 
         player = GameObject.FindGameObjectWithTag("Player");
         upgradeController = player.GetComponent<UpgradeController>();
         goldController = player.GetComponent<GoldController>();
+        lifeController = player.GetComponent<LifeController>();
+        fireController = player.GetComponent<FireController>();
+        //Initialize all text fields
         neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
         currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
-        Button btn = yourButton.GetComponent<Button>();
+        maxLife.text = "" + lifeController.GetLifeMax();
+        fireRate.text = fireController.fireRate + "/sec";
+        maxEnergy.text = "" + goldController.GetGoldMax(); 
+    //Create Listener EXIT 
+    Button btn = yourButton.GetComponent<Button>();
         btn.onClick.AddListener(Exit); 
 
     }
@@ -34,13 +53,17 @@ public class UpdateShopUI : MonoBehaviour {
     
     private void Hud()
     {
-        
+        //Update all text fields 
         neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
         currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
+        maxLife.text = "" + lifeController.GetLifeMax();
+        fireRate.text = fireController.fireRate + "/sec";
+        maxEnergy.text = "" + goldController.GetGoldMax();
     }
 
     private void Exit()
     {
+        //Disable the HUD UPGRADE
         hudUpgrade.gameObject.SetActive(false); 
     }
 
