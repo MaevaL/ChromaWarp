@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114348778257364524}
   - component: {fileID: 114937667180440164}
   - component: {fileID: 114604280491849978}
+  - component: {fileID: 114163170209980046}
   m_Layer: 8
   m_Name: LittleRobotBoy
   m_TagString: Player
@@ -292,19 +293,6 @@ Transform:
   m_Father: {fileID: 400002}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-
---- !u!114 &114030485386679598
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100002}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e01643d33adf524fb7b3067b21f8c95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-
 --- !u!61 &61482535224364130
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -330,7 +318,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.567407, y: 0.98169684}
   m_EdgeRadius: 0
-
+--- !u!114 &114030485386679598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e01643d33adf524fb7b3067b21f8c95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114163170209980046
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e976a38fb09d6047988c9bb286e1320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cost: 1
+  facteur: 2
 --- !u!114 &114348778257364524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -342,12 +353,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818687d383333d843990cb586ce6d44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1532059272686752, guid: 8fe188e39e863714781a36bb95a44470, type: 2}
+  blueProjectile: {fileID: 0}
+  redProjectile: {fileID: 0}
   velocity: {x: 20, y: 20}
   _bulletSpawner: {fileID: 4614340891453068}
   fireRate: 0.6
-  animShootDuration: 0.6
-
+  _animShootDuration: 0
 --- !u!114 &114441118870586116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -359,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e560caade396f34d867451bbfab0760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gold: 0
+  _gold: 5
   _goldMax: 10
 --- !u!114 &114529915127566286
 MonoBehaviour:
@@ -413,6 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90841f615479f04c938e407b1278e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  yourButton: {fileID: 0}
 --- !u!114 &114668396873928610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -435,10 +447,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc9b5558d32dc444fb69696fc6af3bf0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-
   _life: 3
   _lifeMax: 3
-
 --- !u!114 &114781377774457272
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -511,4 +521,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackCooldown: 0.3
   attackTrigger: {fileID: 61482535224364130}
-animShootDuration: 0
+  animShootDuration: 0
