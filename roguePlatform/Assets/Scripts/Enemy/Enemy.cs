@@ -12,9 +12,9 @@ public class Enemy : MonoBehaviour {
     void Start() {
         colorController = gameObject.GetComponent<ColorController>();
         if (colorController.GetColor() == 1) {
-            this.GetComponent<SpriteRenderer>().color = new Color(0f, 0f, 1f, 1f);
+            this.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 1f, 1f);
         } else {
-            this.GetComponent<SpriteRenderer>().color = new Color(1f, 0f, 0f, 1f);
+            this.GetComponent<SpriteRenderer>().color = new Color(1f, 0.4f, 0.4f, 1f);
         }
         lifeController = gameObject.GetComponent<LifeController>();
     }

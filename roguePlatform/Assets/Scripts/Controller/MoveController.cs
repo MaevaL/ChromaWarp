@@ -150,6 +150,7 @@ public class MoveController : MonoBehaviour {
         Vector3 displacement = target.position - transform.position;
         displacement = displacement.normalized;
         if (Vector2.Distance(target.position, transform.position) > rangeMin && Vector2.Distance(target.position, transform.position) < rangeMax) {
+            anim.SetTrigger("RunT");
             if (displacement.x > 0 && !facingRight) { Flip(); } else if (displacement.x < 0 && facingRight) { Flip(); }
             transform.position += (displacement * speed * Time.deltaTime);
             isClose = false;
