@@ -19,7 +19,15 @@ public class GameManager : MonoBehaviour
     private int level = 1;                                  //Current level number, expressed in game as "Day 1".
     private List<Enemy> enemies;                            //List of all Enemy units, used to issue them move commands.
     //private bool doingSetup = true;                         //Boolean to check if we're setting up board, prevent Player from moving during setup.
-
+    
+    [SerializeField]
+    private GameObject player = GameObject.FindGameObjectWithTag("Player"); 
+    //All Variable needed for SaveGame 
+    private int maxEnergy;
+    private int maxLife;
+    private float projectileRate;
+    private float cacRate;
+    private int currentEnergy; 
 
 
     //Awake is always called before any Start functions
@@ -153,6 +161,49 @@ public class GameManager : MonoBehaviour
         //Disable this GameManager.
         enabled = false;
     }
+
+    //When the level need to be restart, conserv the important data 
+    public void SaveLevelInfos()
+    {
+        //A réimplémenter pour éviter une duplication du code 
+        player = GameObject.FindGameObjectWithTag("Player");
+        GoldController goldController = player.GetComponent<GoldController>();
+        LifeController lifeController = player.GetComponent<LifeController>();
+        FireController fireController = player.GetComponent<FireController>();
+
+        //Energy
+        currentEnergy = goldController.GetGold();
+        maxEnergy = goldController.GetGoldMax();
+        //Life 
+        maxLife = lifeController.GetLifeMax();
+        //Fire 
+        projectileRate = fireController.fireRate;  
+        //Cac 
+
+
+    }
+
+    public void InitialisationPlayer()
+    {
+        //A réimplémenter pour éviter une duplication du code
+        player = GameObject.FindGameObjectWithTag("Player");
+        GoldController goldController = player.GetComponent<GoldController>();
+        LifeController lifeController = player.GetComponent<LifeController>();
+        FireController fireController = player.GetComponent<FireController>();
+        
+        //Initialize Gold
+        goldController.SetGold(currentEnergy);
+        goldController.SetGoldMax(maxEnergy);
+        //Initialize MaxLife 
+        lifeController.SetLifeMax(maxLife);
+        //Initialize FireProperties
+        fireController.fireRate = projectileRate;
+        //Initialize CAC Properties
+    }
+
+
+    
+
 
 }
 
