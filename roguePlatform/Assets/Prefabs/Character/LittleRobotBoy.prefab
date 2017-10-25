@@ -353,8 +353,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818687d383333d843990cb586ce6d44e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blueProjectile: {fileID: 0}
-  redProjectile: {fileID: 0}
+  blueProjectile: {fileID: 1532059272686752, guid: 8fe188e39e863714781a36bb95a44470,
+    type: 2}
+  redProjectile: {fileID: 1969944743426048, guid: 0d468b1ce7995f444a8f04c539c5f34c,
+    type: 2}
   velocity: {x: 20, y: 20}
   _bulletSpawner: {fileID: 4614340891453068}
   fireRate: 0.6

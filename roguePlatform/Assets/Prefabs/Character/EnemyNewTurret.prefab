@@ -254,7 +254,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57d67987edbd6b444b6b5cf7632bb1d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 1740691952530410, guid: c22e6117ffb512b4895e5e4a6e41fe84, type: 2}
+  blueProjectile: {fileID: 1740691952530410, guid: c22e6117ffb512b4895e5e4a6e41fe84,
+    type: 2}
+  redProjectile: {fileID: 1027816845321022, guid: cf08a26cb6e742d4d9d8dd5ff00b667b,
+    type: 2}
   velocity: {x: 3, y: 0}
   offset: {x: 0.4, y: 0.1}
   fireRate: 1
