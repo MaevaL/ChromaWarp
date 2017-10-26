@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class AttackTriggerController : MonoBehaviour {
 
-    public int Damage = 1;
-
+    [SerializeField]
+    private int damageToEnemy = 1;
+    [SerializeField]
+    private int damageToPlayer = 1;
     void Start() {
         
     }
@@ -46,7 +48,7 @@ public class AttackTriggerController : MonoBehaviour {
                 ColorController PlayerColor = GameObject.FindWithTag("Player").GetComponent<ColorController>();
                 if (PlayerColor.SameColor(EnemyColor.GetColor())) {
                     GameObject go = Instantiate(ImpactFX, col.transform.position, transform.rotation) as GameObject;
-                    lifeController.LoseLife(Damage);
+                    lifeController.LoseLife(damageToEnemy);
                 }
                 else {
                     GameObject go = Instantiate(NoImpactFX, col.transform.position, transform.rotation) as GameObject;
@@ -61,7 +63,7 @@ public class AttackTriggerController : MonoBehaviour {
                 ColorController PlayerColor = GameObject.FindWithTag("Player").GetComponent<ColorController>();
                 if (PlayerColor.SameColor(EnemyColor.GetColor())) {
                     GameObject go = Instantiate(ImpactFX, col.transform.position, transform.rotation) as GameObject;
-                    lifeController.LoseLife(Damage);
+                    lifeController.LoseLife(damageToEnemy);
                 }
                 else {
                     GameObject go = Instantiate(NoImpactFX, col.transform.position, transform.rotation) as GameObject;
@@ -72,4 +74,23 @@ public class AttackTriggerController : MonoBehaviour {
         }
     }
 
+    public int GetDamageToEnemy()
+    {
+        return damageToEnemy; 
+    }
+
+    public int getDamageToPlayer()
+    {
+        return damageToPlayer;
+    }
+
+    public void SetDamageToEnemy(int damage)
+    {
+        damageToEnemy = damage; 
+    }
+
+    public void SetDamageToPlayer(int damage)
+    {
+        damageToPlayer = damage;
+    }
 }

@@ -21,8 +21,9 @@ public class GameManager : MonoBehaviour
                                                             //private bool doingSetup = true;                         //Boolean to check if we're setting up board, prevent Player from moving during setup.
 
     [SerializeField]
-    private GameObject player; 
-    //All Variable needed for SaveGame 
+    private GameObject player;
+    //All Variable needed for SaveGame //
+    //PlayerValue
     private int maxEnergy;
     private int maxLife;
     private float projectileRate;
@@ -170,7 +171,6 @@ public class GameManager : MonoBehaviour
         GoldController goldController = player.GetComponent<GoldController>();
         LifeController lifeController = player.GetComponent<LifeController>();
         FireController fireController = player.GetComponent<FireController>();
-
         //Energy
         currentEnergy = goldController.GetGold();
         maxEnergy = goldController.GetGoldMax();

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour {
 
-    public int Damages = 1;
+    public int DamagesToPlayer = 1;
+    public int DamagesToEnemy=1;
     public float LifeTime;
     public int color;
     void Start() {
@@ -25,7 +26,7 @@ public abstract class Projectile : MonoBehaviour {
     }
 
     public void SetDamages(int param) {
-        Damages = param;
+        DamagesToPlayer = param;
     }
 
     protected abstract void SpecificCollision(LifeController lifeController, Collision2D col);

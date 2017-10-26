@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class UpgradePunchDamage : Upgrade {
 
+
     public Button yourButton;
+    [SerializeField]
     private float punchDamage;
-    private MeleeController meleeController; 
+    private PlayerController playerController; 
 
     protected override void Effect()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        meleeController = player.GetComponent<MeleeController>(); 
-        
+        playerController = player.GetComponent<PlayerController>(); 
+        //TODO Implement mechanism to upgrade the punchDamage
     }
 
     // Use this for initialization
@@ -22,8 +24,5 @@ public class UpgradePunchDamage : Upgrade {
         btn.onClick.AddListener(Temp);
     }
 
-    // Update is called once per frame
-    void Update () {
-		
-	}
+  
 }
