@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class AttackTriggerController : MonoBehaviour {
 
-    public int Damage = 1;
+    public int Damage;
 
     void Start() {
-        
+       
     }
 
     void OnTriggerEnter2D(Collider2D col) {
@@ -40,8 +40,10 @@ public class AttackTriggerController : MonoBehaviour {
     protected void SpecificCollision(LifeController lifeController, Collider2D col) {
 
         if (gameObject.GetComponentInParent<LifeController>().CompareTag("Player")) {
-
+            Damage = GameObject.FindWithTag("Player").GetComponent<PlayerController>().damageMelee;
+            
             if (lifeController != null && lifeController.CompareTag("Enemy")) {
+                
                 ColorController EnemyColor = col.gameObject.GetComponent<ColorController>();
                 ColorController PlayerColor = GameObject.FindWithTag("Player").GetComponent<ColorController>();
                 if (PlayerColor.SameColor(EnemyColor.GetColor())) {
@@ -56,6 +58,8 @@ public class AttackTriggerController : MonoBehaviour {
         }
         else {
 
+
+            Damage = col.gameObject.GetComponent<Enemy>().damageMelee;
             if (lifeController != null && lifeController.CompareTag("Player")) {
                 ColorController EnemyColor = col.gameObject.GetComponent<ColorController>();
                 ColorController PlayerColor = GameObject.FindWithTag("Player").GetComponent<ColorController>();

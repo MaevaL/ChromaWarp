@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour {
 
-    public int Damages = 1;
+    public int Damages;
     public float LifeTime;
     public int color;
     void Start() {

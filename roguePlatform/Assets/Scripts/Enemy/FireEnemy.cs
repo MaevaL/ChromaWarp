@@ -46,7 +46,7 @@ public class FireEnemy : MonoBehaviour {
         else {
             go = Instantiate(redProjectile, (Vector2)transform.position + offset * transform.localScale.x, Quaternion.identity) as GameObject;
         }
-
+        go.GetComponent<EnemyProjectile>().Damages = gameObject.GetComponent<Enemy>().damageProjectile;
         go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * transform.localScale.x, velocity.y);
     }
 
@@ -81,6 +81,7 @@ public class FireEnemy : MonoBehaviour {
             }
 
         }
+        go.GetComponent<EnemyProjectile>().Damages = gameObject.GetComponent<Enemy>().damageProjectile;
         go.GetComponent<Rigidbody2D>().velocity = direction;
     }
 }
