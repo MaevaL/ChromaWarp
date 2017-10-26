@@ -68,6 +68,11 @@ public class GameManager : MonoBehaviour
        // instance.level++;
         //instance.InitGame();
     }
+    void Start() {
+        timerText = GameObject.Find("TimerText").GetComponent<Text>();
+        timerText.text = "0:0";
+        InvokeRepeating("IncrTimer", 0.0f, 1.0f);
+    }
 
 
     //Initializes the game for each level.
@@ -94,10 +99,7 @@ public class GameManager : MonoBehaviour
         //Clear any Enemy objects in our List to prepare for next level.
         enemies.Clear();
 
-        timerText = GameObject.Find("TimerText").GetComponent<Text>();
-        timerText.text = "0:0";
 
-        InvokeRepeating("IncrTimer", 0.0f, 1.0f);
         //Call the SetupScene function of the BoardManager script, pass it current level number.
         //boardScript.SetupScene(level);
 
