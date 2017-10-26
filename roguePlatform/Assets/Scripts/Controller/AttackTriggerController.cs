@@ -48,7 +48,7 @@ public class AttackTriggerController : MonoBehaviour {
                 ColorController PlayerColor = GameObject.FindWithTag("Player").GetComponent<ColorController>();
                 if (PlayerColor.SameColor(EnemyColor.GetColor())) {
                     GameObject go = Instantiate(ImpactFX, col.transform.position, transform.rotation) as GameObject;
-                    lifeController.LoseLife(damageToEnemy);
+                    lifeController.LoseLife(Damage);
                 }
                 else {
                     GameObject go = Instantiate(NoImpactFX, col.transform.position, transform.rotation) as GameObject;
@@ -58,14 +58,14 @@ public class AttackTriggerController : MonoBehaviour {
         }
         else {
 
-            Damage = GameObject.FindWithTag("Player").GetComponent<PlayerController>().damageMelee;
+            Damage = GameObject.FindWithTag("Player").GetComponent<PlayerController>().GetDamageMelee();
             //Damage = col.gameObject.GetComponent<Enemy>().damageMelee;
             if (lifeController != null && lifeController.CompareTag("Player")) {
                 ColorController EnemyColor = col.gameObject.GetComponent<ColorController>();
                 ColorController PlayerColor = GameObject.FindWithTag("Player").GetComponent<ColorController>();
                 if (PlayerColor.SameColor(EnemyColor.GetColor())) {
                     GameObject go = Instantiate(ImpactFX, col.transform.position, transform.rotation) as GameObject;
-                    lifeController.LoseLife(damageToEnemy);
+                    lifeController.LoseLife(Damage);
                 }
                 else {
                     GameObject go = Instantiate(NoImpactFX, col.transform.position, transform.rotation) as GameObject;
@@ -76,23 +76,5 @@ public class AttackTriggerController : MonoBehaviour {
         }
     }
 
-    public int GetDamageToEnemy()
-    {
-        return damageToEnemy; 
-    }
-
-    public int getDamageToPlayer()
-    {
-        return damageToPlayer;
-    }
-
-    public void SetDamageToEnemy(int damage)
-    {
-        damageToEnemy = damage; 
-    }
-
-    public void SetDamageToPlayer(int damage)
-    {
-        damageToPlayer = damage;
-    }
+   
 }

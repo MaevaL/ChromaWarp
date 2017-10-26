@@ -16,7 +16,9 @@ public class UpdateShopUI : MonoBehaviour {
     [SerializeField]
     private Text maxLife;
     [SerializeField]
-    private Text fireDamage; 
+    private Text fireDamage;
+    [SerializeField]
+    private Text punchDamage; 
     
     public GameObject player;
     //Controller 
@@ -24,7 +26,8 @@ public class UpdateShopUI : MonoBehaviour {
     private GoldController goldController;
     private LifeController lifeController;
     private FireController fireController;
-    private AttackTriggerController attackTriggerController; 
+    private AttackTriggerController attackTriggerController;
+    private PlayerController playerController; 
   //Other Graphics
     [SerializeField]
     private Button yourButton;
@@ -39,7 +42,7 @@ public class UpdateShopUI : MonoBehaviour {
         goldController = player.GetComponent<GoldController>();
         lifeController = player.GetComponent<LifeController>();
         fireController = player.GetComponent<FireController>();
-        
+        playerController = player.GetComponent<PlayerController>(); 
         //Initialize all text fields
         Hud();
         //neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
@@ -66,6 +69,8 @@ public class UpdateShopUI : MonoBehaviour {
         maxLife.text = "" + lifeController.GetLifeMax();
         fireRate.text = "each " + fireController.fireRate + " sec";
         maxEnergy.text = "" + goldController.GetGoldMax();
+        fireDamage.text = "Fire Damage " + playerController.GetDamageProjectile();
+        punchDamage.text = "Punch Damage " + playerController.GetDamageMelee();
        }
 
     private void Exit()

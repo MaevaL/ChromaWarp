@@ -8,14 +8,15 @@ public class UpgradePunchDamage : Upgrade {
 
     public Button yourButton;
     [SerializeField]
-    private float punchDamage;
+    private int punchDamage;
     private PlayerController playerController; 
 
     protected override void Effect()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        playerController = player.GetComponent<PlayerController>(); 
-        //TODO Implement mechanism to upgrade the punchDamage
+        playerController = player.GetComponent<PlayerController>();
+        
+        playerController.SetDamageMelee(playerController.GetDamageMelee() + punchDamage); 
     }
 
     // Use this for initialization

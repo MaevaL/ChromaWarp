@@ -17,7 +17,7 @@ public class EnemyProjectile : Projectile {
 
             if (PlayerColor.SameColor(color)) {
                 GameObject go = Instantiate(ImpactFX , col.collider.transform.position + new Vector3(0.5f , 0.5f , 0) , transform.rotation) as GameObject;
-                lifeController.LoseLife(DamagesToPlayer);
+                lifeController.LoseLife(Damages);
             }
             else {
                 GameObject go = Instantiate(NoImpactFX , col.transform.position , transform.rotation) as GameObject;

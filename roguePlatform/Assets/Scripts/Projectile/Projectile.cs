@@ -25,7 +25,7 @@ public abstract class Projectile : MonoBehaviour {
     }
 
     public void SetDamages(int param) {
-        DamagesToPlayer = param;
+        Damages = param;
     }
 
     protected abstract void SpecificCollision(LifeController lifeController, Collision2D col);

@@ -9,7 +9,7 @@ public class UpgradeFireDamage : Upgrade
     public Button yourButton;
     [SerializeField]
     private int fireDamage;
-    private PlayerProjectile projectile; 
+    private PlayerController playerController; 
 
     // Use this for initialization
     void Start()
@@ -20,10 +20,10 @@ public class UpgradeFireDamage : Upgrade
 
     protected override void Effect()
     {
-        //player = GameObject.FindGameObjectWithTag("Player");
-        //projectile = player.GetComponent<AttackTriggerController>();
-        //fireDamage += fireDamage + projectile.GetDamageToEnemy();
-        //projectile.SetDamageToEnemy(fireDamage);
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerController = player.GetComponent<PlayerController>(); 
+        
+        playerController.SetDamageProjectile(playerController.GetDamageProjectile() + fireDamage);
     }
 
 }
