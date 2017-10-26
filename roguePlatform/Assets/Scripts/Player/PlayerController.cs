@@ -15,8 +15,10 @@ public class PlayerController : MonoBehaviour {
     public GameObject healthBonus;
     ColorController colorController;
 
-    public int damageMelee = 1;
-    public int damageProjectile = 1;
+    [SerializeField]
+    private int damageMelee = 1;
+    [SerializeField]
+    private int damageProjectile = 1;
 
     // Use this for initialization
     void Start() {
@@ -69,4 +71,29 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public int GetDamageMelee()
+    {
+        return damageMelee; 
+    }
+    public int GetDamageProjectile()
+    {
+        return damageProjectile; 
+    }
+
+    public void SetDamageMelee(int damage)
+    {
+        if(damage>=0)
+        {
+            damageMelee = damage;
+        }
+        
+    }
+
+    public void SetDamageProjectile(int damage) {
+        if(damage>=0)
+        {
+            damageProjectile = damage;
+        }
+      
+    }
 }

@@ -58,7 +58,7 @@ public class AttackTriggerController : MonoBehaviour {
         }
         else {
 
-            Damage = GameObject.FindWithTag("Player").GetComponent<PlayerController>().damageMelee;
+            Damage = GameObject.FindWithTag("Player").GetComponent<PlayerController>().GetDamageMelee();
             //Damage = col.gameObject.GetComponent<Enemy>().damageMelee;
             if (lifeController != null && lifeController.CompareTag("Player")) {
                 ColorController EnemyColor = col.gameObject.GetComponent<ColorController>();
@@ -76,4 +76,5 @@ public class AttackTriggerController : MonoBehaviour {
         }
     }
 
+   
 }
