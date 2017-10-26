@@ -13,12 +13,24 @@ public class FireEnemy : MonoBehaviour {
     public float delay = 1f;
     private Animator anim;
 
+    //Turret
+    private GameObject target;
+    public float distancePlayer;
+    public Transform shootPointLeft;
+    public Transform shootPointRight;
 
 
     // Use this for initialization
     void Start() {
         anim = GetComponent<Animator>();
-        InvokeRepeating("Fire", delay, fireRate);
+
+        if (gameObject.GetComponent<MoveController>().type == 4) {
+            target = GameObject.FindGameObjectWithTag("Player");
+            //InvokeRepeating("TurretFire", delay, fireRate);
+        }
+        else {
+            InvokeRepeating("Fire", delay, fireRate);
+        }
     }
 
     /// <summary>
@@ -29,12 +41,46 @@ public class FireEnemy : MonoBehaviour {
 
         GameObject go;
         if (GetComponent<ColorController>().GetColor() == 1) {
-            go = Instantiate(blueProjectile , (Vector2)transform.position + offset * transform.localScale.x , Quaternion.identity) as GameObject;
+            go = Instantiate(blueProjectile, (Vector2)transform.position + offset * transform.localScale.x, Quaternion.identity) as GameObject;
         }
         else {
-            go = Instantiate(redProjectile , (Vector2)transform.position + offset * transform.localScale.x , Quaternion.identity) as GameObject;
+            go = Instantiate(redProjectile, (Vector2)transform.position + offset * transform.localScale.x, Quaternion.identity) as GameObject;
         }
-        
+
         go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * transform.localScale.x, velocity.y);
+    }
+
+    public void TurretFire(bool attackingRight) {
+        anim.SetTrigger("ShootEnemyT");
+        Debug.Log("WTF!");
+        Vector3 positionTargetCompense = new Vector3(target.transform.position.x, target.transform.position.y * target.GetComponent<BoxCollider2D>().offset.y, 0);
+        Vector2 direction = positionTargetCompense - transform.position;
+        Debug.Log("direction: " + direction);
+        direction.Normalize();
+        Debug.Log("direction normalized: " + direction);
+        GameObject go;
+
+        if (!attackingRight) {
+
+            if (GetComponent<ColorController>().GetColor() == 1) {
+                go = Instantiate(blueProjectile, shootPointRight.transform.position, Quaternion.identity) as GameObject;
+            }
+            else {
+                go = Instantiate(redProjectile, shootPointRight.transform.position, Quaternion.identity) as GameObject;
+            }
+
+
+        }
+        else {
+
+            if (GetComponent<ColorController>().GetColor() == 1) {
+                go = Instantiate(blueProjectile, shootPointLeft.transform.position, Quaternion.identity) as GameObject;
+            }
+            else {
+                go = Instantiate(redProjectile, shootPointLeft.transform.position, Quaternion.identity) as GameObject;
+            }
+
+        }
+        go.GetComponent<Rigidbody2D>().velocity = direction;
     }
 }
