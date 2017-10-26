@@ -65,6 +65,7 @@ public class FireController : MonoBehaviour {
         }
         
         go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * (hit.x), (hit.y) * velocity.y);
+        go.GetComponent<PlayerProjectile>().Damages = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDamageProjectile();
         yield return new WaitForSeconds(fireRate / 2 );
      
         canShoot = true;
