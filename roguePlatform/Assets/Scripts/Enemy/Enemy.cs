@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour {
     LifeController lifeController;
     ColorController colorController;
     MoveController moveController;
+    public int damageMelee = 1;
+    public int damageProjectile = 1;
 
     void Start() {
         colorController = gameObject.GetComponent<ColorController>();

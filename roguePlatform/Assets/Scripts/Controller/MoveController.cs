@@ -11,7 +11,7 @@ public class MoveController : MonoBehaviour {
     [SerializeField]
     private bool facingRight = true;
     [SerializeField]
-    private int type = 0;
+    public int type = 0;
     private Rigidbody2D rigidBody;
 
     private bool isFlying;
@@ -39,6 +39,10 @@ public class MoveController : MonoBehaviour {
     float hauteurMax;
     float hauteurMin;
     float rayonPatrol = 3f;
+
+    //Turret
+    public bool lookingRight;
+
 
 
     public void Start() {
@@ -78,6 +82,10 @@ public class MoveController : MonoBehaviour {
 
             case 3:
                 MoveFlying();
+                break;
+
+            case 4:
+                MoveTurret();
                 break;
 
             default:
@@ -174,5 +182,27 @@ public class MoveController : MonoBehaviour {
 
         this.transform.Translate(new Vector3(0, speed, 0) * Time.deltaTime);
 
+    }
+
+    void MoveTurret() {
+
+        distance = Vector3.Distance(transform.position, target.transform.position);
+
+
+        if(target.transform.position.x > transform.position.x && !facingRight) {
+            lookingRight = true;
+            Flip();
+        }
+        if (target.transform.position.x < transform.position.x && facingRight) {
+            lookingRight = false;
+            Flip();
+        }
+
+
+        //float move = -1;
+        //rigidBody.velocity = new Vector2(move * speed, rigidBody.velocity.y);
+        //anim.SetFloat("Speed", Mathf.Abs(move));
+
+        //if (move > 0 && !facingRight) { Flip(); } else if (move < 0 && facingRight) { Flip(); }
     }
 }

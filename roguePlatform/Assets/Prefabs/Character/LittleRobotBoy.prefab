@@ -82,7 +82,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.44, y: -1.74, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400004}
@@ -415,6 +415,8 @@ MonoBehaviour:
   CoinText: {fileID: 0}
   healthBonus: {fileID: 1289321663581958, guid: a10fb469ed963554dbbc770347bd4a57,
     type: 2}
+  damageMelee: 1
+  damageProjectile: 1
 --- !u!114 &114608609601251628
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -15,6 +15,9 @@ public class PlayerController : MonoBehaviour {
     public GameObject healthBonus;
     ColorController colorController;
 
+    public int damageMelee = 1;
+    public int damageProjectile = 1;
+
     // Use this for initialization
     void Start() {
 
