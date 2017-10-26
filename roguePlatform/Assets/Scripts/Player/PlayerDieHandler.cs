@@ -9,5 +9,7 @@ public class PlayerDieHandler : DieHandler {
     /// </summary>
     internal override void Die() {
         base.Die();
+        DieAudio = GetComponent<AudioSource>();
+        DieAudio.Play(); 
     }
 }

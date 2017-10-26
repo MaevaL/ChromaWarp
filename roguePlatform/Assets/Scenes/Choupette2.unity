@@ -466,6 +466,12 @@ Prefab:
       value: 
       objectReference: {fileID: 1969944743426048, guid: 0d468b1ce7995f444a8f04c539c5f34c,
         type: 2}
+    - target: {fileID: 114604280491849978, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: DieAudio
+      value: 
+      objectReference: {fileID: 82528321251495656, guid: a3229d10dffe21948bfe6202dcf54f4c,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114608609601251628, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
     - {fileID: 114030485386679598, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
