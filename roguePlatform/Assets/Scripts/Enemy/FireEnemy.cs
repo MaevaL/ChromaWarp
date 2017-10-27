@@ -52,12 +52,10 @@ public class FireEnemy : MonoBehaviour {
 
     public void TurretFire(bool attackingRight) {
         anim.SetTrigger("ShootEnemyT");
-        Debug.Log("WTF!");
         Vector3 positionTargetCompense = new Vector3(target.transform.position.x, target.transform.position.y * target.GetComponent<BoxCollider2D>().offset.y, 0);
         Vector2 direction = positionTargetCompense - transform.position;
-        Debug.Log("direction: " + direction);
         direction.Normalize();
-        Debug.Log("direction normalized: " + direction);
+        
         GameObject go;
 
         if (!attackingRight) {
@@ -82,6 +80,6 @@ public class FireEnemy : MonoBehaviour {
 
         }
         go.GetComponent<EnemyProjectile>().Damages = gameObject.GetComponent<Enemy>().damageProjectile;
-        go.GetComponent<Rigidbody2D>().velocity = direction;
+        go.GetComponent<Rigidbody2D>().velocity = new Vector2(direction.x*velocity.x, direction.y * velocity.y);
     }
 }

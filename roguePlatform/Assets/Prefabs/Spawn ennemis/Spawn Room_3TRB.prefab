@@ -156,7 +156,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4504669435551490}
   m_Layer: 0
-  m_Name: Spawn ennemies crossWithoutLeft
+  m_Name: Spawn Room_3TRB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

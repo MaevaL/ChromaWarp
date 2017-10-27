@@ -34,7 +34,7 @@ public class SceneManagerOver : MonoBehaviour {
         }
         if (Input.GetKeyUp(KeyCode.Keypad2)) {
             gameManager.SaveLevelInfos();
-            Load(0);
+            Load(2);
         }
         if (Input.GetKeyUp(KeyCode.Escape)) {
             Load("Menu");
