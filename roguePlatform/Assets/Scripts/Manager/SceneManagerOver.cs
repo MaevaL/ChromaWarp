@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneManagerOver : MonoBehaviour {
 
     public static SceneManagerOver Instance { set; get; }
-
+    private GameManager gameManager; 
 
     // Use this for initialization
     void Start() {
@@ -15,6 +15,7 @@ public class SceneManagerOver : MonoBehaviour {
         }
         else {
             GameObject.DontDestroyOnLoad(gameObject);
+            gameManager = gameObject.GetComponent<GameManager>(); 
             Instance = this;
 
         }
@@ -26,9 +27,11 @@ public class SceneManagerOver : MonoBehaviour {
         //TEMPORAIRE
         //TRIGGER FIN DE NIVEAU ICI
         if (Input.GetKeyUp(KeyCode.Keypad1)) {
+            gameManager.SaveLevelInfos(); 
             Load(1);
         }
         if (Input.GetKeyUp(KeyCode.Keypad2)) {
+            gameManager.SaveLevelInfos();
             Load(0);
         }
     }
