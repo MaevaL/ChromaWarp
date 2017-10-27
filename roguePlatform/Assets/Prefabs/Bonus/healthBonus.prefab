@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61070871801699928}
   - component: {fileID: 114701558184980448}
   m_Layer: 0
-  m_Name: healthBonus
+  m_Name: HealthBonus
   m_TagString: HealthBonus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
