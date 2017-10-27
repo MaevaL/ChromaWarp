@@ -24,8 +24,8 @@ public class UpgradeMaxCoins : Upgrade
 
         player = GameObject.FindGameObjectWithTag("Player");
         goldController = player.GetComponent<GoldController>();
-        currentGoldMax = goldController.GetGoldMax();
+        currentGoldMax = goldController.GetEnergyMax();
         goldController.SetGoldMax(currentGoldMax + goldMax);
-        Debug.Log(goldController.GetGoldMax()); 
+        Debug.Log(goldController.GetEnergyMax()); 
     }
 }

@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public abstract class Upgrade : MonoBehaviour
 {
-    
-    private float facteur = 2f;
     public GameObject player; 
     public string title;
     public string description;
@@ -25,7 +23,7 @@ public abstract class Upgrade : MonoBehaviour
     protected void Temp()
     {     
         player = GameObject.FindGameObjectWithTag("Player");
-        Buy(player.GetComponent<UpgradeController>().GetCost(), player.GetComponent<GoldController>().GetGold()); 
+        Buy(player.GetComponent<UpgradeController>().GetCost(), player.GetComponent<GoldController>().GetEnergy()); 
     }
 
     protected virtual void Buy(int coins, int playerCoins)
@@ -34,7 +32,7 @@ public abstract class Upgrade : MonoBehaviour
         if (playerCoins >= coins)
         {
             playerCoins -= coins;
-            player.GetComponent<GoldController>().SetGold(playerCoins);
+            player.GetComponent<GoldController>().SetEnergy(playerCoins);
             player.GetComponent<UpgradeController>().NewCost(); 
             Effect();
         }

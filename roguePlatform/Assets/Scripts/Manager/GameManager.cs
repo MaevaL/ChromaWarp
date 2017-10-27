@@ -24,12 +24,13 @@ public class GameManager : MonoBehaviour
     private GameObject player;
     //All Variable needed for SaveGame //
     //PlayerValue
-    private int maxEnergy;
-    private int maxLife;
+    private int energyMax;
+    private int lifeMax;
     private float projectileRate;
     private float cacRate;
-    private int currentEnergy; 
-
+    private int energyCurrent;
+    private int projectileDmg;
+    private int cacDmg; 
 
     //Awake is always called before any Start functions
     void Awake()
@@ -173,14 +174,20 @@ public class GameManager : MonoBehaviour
         GoldController goldController = player.GetComponent<GoldController>();
         LifeController lifeController = player.GetComponent<LifeController>();
         FireController fireController = player.GetComponent<FireController>();
+        MeleeController meleeController = player.GetComponent<MeleeController>();
+        PlayerController playerController = player.GetComponent<PlayerController>(); 
         //Energy
-        currentEnergy = goldController.GetGold();
-        maxEnergy = goldController.GetGoldMax();
+        energyCurrent = goldController.GetEnergy();
+        energyMax = goldController.GetEnergyMax();
         //Life 
-        maxLife = lifeController.GetLifeMax();
+        lifeMax = lifeController.GetLifeMax();
         //Fire 
-        projectileRate = fireController.fireRate;  
-        //Cac 
+        projectileRate = fireController.GetFireRate();
+        projectileDmg = playerController.GetDamageProjectile(); 
+        //Cac
+        cacRate = meleeController.GetAttackCooldown();
+        cacDmg = playerController.GetDamageMelee();
+
 
 
     }
@@ -192,16 +199,21 @@ public class GameManager : MonoBehaviour
         GoldController goldController = player.GetComponent<GoldController>();
         LifeController lifeController = player.GetComponent<LifeController>();
         FireController fireController = player.GetComponent<FireController>();
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        MeleeController meleeController = player.GetComponent<MeleeController>(); 
         
         //Initialize Gold
-        goldController.SetGold(currentEnergy);
-        goldController.SetGoldMax(maxEnergy);
+        goldController.SetEnergy(energyCurrent);
+        goldController.SetGoldMax(energyMax);
         //Initialize MaxLife 
-        lifeController.SetLifeMax(maxLife);
+        lifeController.SetLifeMax(lifeMax);
         //Initialize FireProperties
-        fireController.fireRate = projectileRate;
+        fireController.SetFireRate(projectileRate);
+        playerController.SetDamageProjectile(projectileDmg);
         //Initialize CAC Properties
-    }
+        meleeController.SetAttackCoolDown(cacRate);
+        playerController.SetDamageMelee(cacDmg); 
+    }   
 
 
     

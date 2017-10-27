@@ -141,7 +141,7 @@ public class MoveController : MonoBehaviour {
         Debug.DrawLine(lineCastPos, lineCastPos + Vector2.down);
         Debug.DrawRay(lineCastPos, lineCastPos + Vector2.down);
         Vector2 transfMoveRight = transfMove.right * 0.02f;
-        bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos - transfMoveRight, whatIsGround);
+        // bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos - transfMoveRight, whatIsGround);
 
         if (isGrounded) {
             Vector3 currRotate = transfMove.eulerAngles;

@@ -11,7 +11,8 @@ public class FireController : MonoBehaviour {
     bool canShoot = true;
     [SerializeField]
     private Transform _bulletSpawner = null;
-    public float fireRate = 1f;
+    [SerializeField]
+    private float fireRate = 1f;
     private PlayerMove _move;
     [SerializeField]
     private float _animShootDuration;
@@ -95,6 +96,13 @@ public class FireController : MonoBehaviour {
             || (hit.x < transform.position.x && !_move.facingRight));
     }
 
+    public float GetFireRate()
+    {
+        return fireRate; 
+    }
 
-
+    public void SetFireRate(float fireRateP)
+    {
+        fireRate = fireRateP; 
+    }
 }
