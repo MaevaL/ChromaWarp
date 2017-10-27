@@ -70,10 +70,10 @@ public class UpdateShopUI : MonoBehaviour {
     {
         //Update all text fields 
         neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
-        currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
+        currentEnergy.text = "Current Energy : " + goldController.GetEnergy() + "/" + goldController.GetEnergyMax();
         maxLife.text = "" + lifeController.GetLifeMax();
-        fireRate.text = "each " + fireController.fireRate + " sec";
-        maxEnergy.text = "" + goldController.GetGoldMax();
+        fireRate.text = "each " + fireController.GetFireRate() + " sec";
+        maxEnergy.text = "" + goldController.GetEnergyMax();
         fireDamage.text = "Fire Damage " + playerController.GetDamageProjectile();
         punchDamage.text = "Punch Damage " + playerController.GetDamageMelee();
         punchRate.text = "each" + meleeController.GetAttackCooldown() + " sec"; 

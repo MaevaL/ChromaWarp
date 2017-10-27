@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 
         goldController = gameObject.GetComponent<GoldController>();
         CoinText = GameObject.Find("CoinText").GetComponent<Text>();
-        CoinText.text = ": " + goldController.GetGold() +" / " + goldController.GetGoldMax();
+        CoinText.text = ": " + goldController.GetEnergy() +" / " + goldController.GetEnergyMax();
 
         // Le player prend la couleur tweak dans unity
         colorController = gameObject.GetComponent<ColorController>();
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     private void Hud() {
         healthText.text = ": " + (lifeController.GetLife()) + " / " + lifeController.GetLifeMax();
-        CoinText.text = ": " + goldController.GetGold() + " / " + goldController.GetGoldMax();
+        CoinText.text = ": " + goldController.GetEnergy() + " / " + goldController.GetEnergyMax();
     }
 
     /// <summary>

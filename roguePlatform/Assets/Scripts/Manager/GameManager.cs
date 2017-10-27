@@ -2,7 +2,8 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;      
-using UnityEngine.UI;                  
+using UnityEngine.UI;
+using RoguePlateformer;
 
 public class GameManager : MonoBehaviour
 {
@@ -23,14 +24,25 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject player;
     //All Variable needed for SaveGame //
+
     //PlayerValue
-    private int maxEnergy;
-    private int maxLife;
+    private int energyMax;
+    private int lifeMax;
     private float projectileRate;
     private float cacRate;
-    private int currentEnergy; 
-
-
+    private int energyCurrent;
+    private int projectileDmg;
+    private int cacDmg;
+    private float runSpeed;
+    private float jumpSpeed;
+    private float dashSpeed;
+    //Controller 
+    private GoldController goldController;
+    private LifeController lifeController;
+    private FireController fireController;
+    private MeleeController meleeController;
+    private PlayerController playerController;
+    private PlayerMove playerMove; 
     //Awake is always called before any Start functions
     void Awake()
     {
@@ -74,6 +86,10 @@ public class GameManager : MonoBehaviour
     //This is called each time a scene is loaded.
     static private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
+
+        //Create Controller 
+        instance.InitController();
+        instance.InitialisationPlayer();
 
         // instance.level++;
         //instance.InitGame();
@@ -177,6 +193,8 @@ public class GameManager : MonoBehaviour
         ////Enable black background image gameObject.
         //levelImage.SetActive(true);
 
+        //Save PlayerData 
+        instance.SaveLevelInfos();
         //Disable this GameManager.
         enabled = false;
     }
@@ -185,40 +203,52 @@ public class GameManager : MonoBehaviour
     public void SaveLevelInfos()
     {
         //A réimplémenter pour éviter une duplication du code 
-        player = GameObject.FindGameObjectWithTag("Player");
-        GoldController goldController = player.GetComponent<GoldController>();
-        LifeController lifeController = player.GetComponent<LifeController>();
-        FireController fireController = player.GetComponent<FireController>();
         //Energy
-        currentEnergy = goldController.GetGold();
-        maxEnergy = goldController.GetGoldMax();
+        energyCurrent = goldController.GetEnergy();
+        energyMax = goldController.GetEnergyMax();
         //Life 
-        maxLife = lifeController.GetLifeMax();
+        lifeMax = lifeController.GetLifeMax();
         //Fire 
-        projectileRate = fireController.fireRate;  
-        //Cac 
-
-
+        projectileRate = fireController.GetFireRate();
+        projectileDmg = playerController.GetDamageProjectile(); 
+        //Cac
+        cacRate = meleeController.GetAttackCooldown();
+        cacDmg = playerController.GetDamageMelee();
+        //Move 
+        runSpeed = playerMove.GetRunSpeed();
+        dashSpeed = playerMove.GetDashSpeed();
+        jumpSpeed = playerMove.GetJumpSpeed(); 
     }
 
-    public void InitialisationPlayer()
+    private void InitialisationPlayer()
     {
-        //A réimplémenter pour éviter une duplication du code
-        player = GameObject.FindGameObjectWithTag("Player");
-        GoldController goldController = player.GetComponent<GoldController>();
-        LifeController lifeController = player.GetComponent<LifeController>();
-        FireController fireController = player.GetComponent<FireController>();
-        
         //Initialize Gold
-        goldController.SetGold(currentEnergy);
-        goldController.SetGoldMax(maxEnergy);
+        goldController.SetEnergy(energyCurrent);
+        goldController.SetGoldMax(energyMax);
         //Initialize MaxLife 
-        lifeController.SetLifeMax(maxLife);
+        lifeController.SetLifeMax(lifeMax);
         //Initialize FireProperties
-        fireController.fireRate = projectileRate;
+        fireController.SetFireRate(projectileRate);
+        playerController.SetDamageProjectile(projectileDmg);
         //Initialize CAC Properties
-    }
+        meleeController.SetAttackCoolDown(cacRate);
+        playerController.SetDamageMelee(cacDmg);
+        //Initiamlize PlayerMove
+        playerMove.SetDashSpeed(dashSpeed);
+        playerMove.SetJumpSpeed(jumpSpeed);
+        playerMove.SetRunSpeed(runSpeed); 
+    }   
 
+    private void InitController()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+        goldController = player.GetComponent<GoldController>();
+        lifeController = player.GetComponent<LifeController>();
+        fireController = player.GetComponent<FireController>();
+        meleeController = player.GetComponent<MeleeController>();
+        playerController = player.GetComponent<PlayerController>();
+        playerMove = player.GetComponent<PlayerMove>();
+    }
 
     
 

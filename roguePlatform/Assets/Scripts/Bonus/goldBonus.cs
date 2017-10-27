@@ -11,7 +11,7 @@ public class GoldBonus : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
     }
     public void SetBonus(int arg) {
-        player.GetComponent<GoldController>().GainGold(arg);
+        player.GetComponent<GoldController>().GainEnergy(arg);
     }
 
     //private void OnCollisionEnter2D(Collision2D col) {

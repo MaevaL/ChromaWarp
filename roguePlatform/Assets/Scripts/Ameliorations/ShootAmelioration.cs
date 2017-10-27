@@ -8,6 +8,6 @@ public class ShootAmelioration : Amelioration {
     }
     public override void setAmelioration() {
         FireController fireController = GameObject.FindWithTag("Player").GetComponent<FireController>();
-        fireController.fireRate = (float)System.Convert.ToDouble((0.0001));
+        fireController.SetFireRate((float)System.Convert.ToDouble((0.0001)));
     }
 }
