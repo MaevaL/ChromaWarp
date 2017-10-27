@@ -14,14 +14,25 @@ public class UpdateShopUI : MonoBehaviour {
     [SerializeField]
     private Text currentEnergy;
     [SerializeField]
-    private Text maxLife; 
+    private Text maxLife;
+    [SerializeField]
+    private Text fireDamage;
+    [SerializeField]
+    private Text punchDamage;
+    [SerializeField]
+    private Text punchRate; 
+
     public GameObject player;
     //Controller 
     private UpgradeController upgradeController;
     private GoldController goldController;
     private LifeController lifeController;
-    private FireController fireController; 
-    //Graphics
+    private FireController fireController;
+    private AttackTriggerController attackTriggerController;
+    private PlayerController playerController;
+    private MeleeController meleeController;
+
+  //Other Graphics
     [SerializeField]
     private Button yourButton;
     [SerializeField]
@@ -35,12 +46,16 @@ public class UpdateShopUI : MonoBehaviour {
         goldController = player.GetComponent<GoldController>();
         lifeController = player.GetComponent<LifeController>();
         fireController = player.GetComponent<FireController>();
+        playerController = player.GetComponent<PlayerController>();
+        meleeController = player.GetComponent<MeleeController>();
         //Initialize all text fields
-        neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
-        currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
-        maxLife.text = "" + lifeController.GetLifeMax();
-        fireRate.text = fireController.fireRate + "/sec";
-        maxEnergy.text = "" + goldController.GetGoldMax(); 
+        Hud();
+        //neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
+        //currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
+        //maxLife.text = "" + lifeController.GetLifeMax();
+        //fireRate.text = "each " + fireController.fireRate + " sec";
+        //maxEnergy.text = "" + goldController.GetGoldMax();
+        //fireDamage.text = "Fire Damage" + attackTriggerController.GetDamageToEnemy();  
     //Create Listener EXIT 
     Button btn = yourButton.GetComponent<Button>();
         btn.onClick.AddListener(Exit); 
@@ -55,10 +70,13 @@ public class UpdateShopUI : MonoBehaviour {
     {
         //Update all text fields 
         neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
-        currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
+        currentEnergy.text = "Current Energy : " + goldController.GetEnergy() + "/" + goldController.GetEnergyMax();
         maxLife.text = "" + lifeController.GetLifeMax();
-        fireRate.text = fireController.fireRate + "/sec";
-        maxEnergy.text = "" + goldController.GetGoldMax();
+        fireRate.text = "each " + fireController.GetFireRate() + " sec";
+        maxEnergy.text = "" + goldController.GetEnergyMax();
+        fireDamage.text = "" + playerController.GetDamageProjectile();
+        punchDamage.text = "" + playerController.GetDamageMelee();
+        punchRate.text = "each " + meleeController.GetAttackCooldown() + " sec"; 
     }
 
     private void Exit()

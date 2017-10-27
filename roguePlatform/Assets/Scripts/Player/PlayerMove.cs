@@ -1,19 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace RoguePlateformer {
+namespace RoguePlateformer
+{
+
     public class PlayerMove : MonoBehaviour {
         [SerializeField]
-        private float speed = 10f;
+        private float runSpeed = 10f;
         [SerializeField]
-        private float speedJump = 350f;
+        private float jumpSpeed = 350f;
         [SerializeField]
         private float groundRadius;// 0.2f;
         [SerializeField]
         private float jumpNdVelocity = -7f;
         [SerializeField]
-        private float speedDash = 5f;
+        private float dashSpeed = 5f;
+
         private float _currentDashingSpeed = 0f;
         private float _dashTimer = 0;
 
@@ -35,7 +36,7 @@ namespace RoguePlateformer {
         public Vector2 DashForceTestTweak;
 
         [Header("Used in Translate")]
-        public AnimationCurve dashSpeed;
+        public AnimationCurve dashSpeedAnim;
         public float animDashDuration;
 
 
@@ -59,7 +60,7 @@ namespace RoguePlateformer {
 
             //Velocity and animation
             float move = Input.GetAxis("Horizontal");
-            rigidBody.velocity = new Vector2(move * speed, rigidBody.velocity.y);
+            rigidBody.velocity = new Vector2(move * runSpeed, rigidBody.velocity.y);
 
             anim.SetFloat("Speed", Mathf.Abs(move));
 
@@ -79,7 +80,7 @@ namespace RoguePlateformer {
             // dash
             if (_currentDashingSpeed == 0f) {
                 if (Input.GetButtonDown("Dash")) {
-                    _currentDashingSpeed = facingRight ? speedDash : -speedDash;
+                    _currentDashingSpeed = facingRight ? dashSpeed : -dashSpeed;
                 }
             }
 
@@ -87,7 +88,7 @@ namespace RoguePlateformer {
                 if (_dashTimer <= animDashDuration) {
                     anim.SetBool("Dash" , true);
                     _dashTimer += Time.fixedDeltaTime;
-                    transform.position = transform.position + new Vector3(_currentDashingSpeed * dashSpeed.Evaluate(_dashTimer) * Time.fixedDeltaTime , 0 , 0);
+                    transform.position = transform.position + new Vector3(_currentDashingSpeed * dashSpeedAnim.Evaluate(_dashTimer) * Time.fixedDeltaTime , 0 , 0);
                 }
 
                 if (_dashTimer > animDashDuration) {
@@ -106,11 +107,11 @@ namespace RoguePlateformer {
             if (isFlying && Input.GetButtonDown("Jump")) {
                 anim.SetBool("Ground", false);
                 ResetYVelocity();
-                rigidBody.AddForce(new Vector2(0, speedJump));
+                rigidBody.AddForce(new Vector2(0, jumpSpeed));
             }
             // Double Jump
             else if (!isFlying && Input.GetButtonDown("Jump") && nbJump < 1 && rigidBody.velocity.y > jumpNdVelocity) {
-                rigidBody.AddForce(new Vector2(0, speedJump));
+                rigidBody.AddForce(new Vector2(0, jumpSpeed));
                 ResetYVelocity();
                 nbJump++;
             }
@@ -145,5 +146,37 @@ namespace RoguePlateformer {
             rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
         }
 
+        public float GetRunSpeed()
+        {
+            return runSpeed;
+        }
+
+        public void SetRunSpeed(float speedP)
+        {
+            runSpeed = speedP; 
+        }
+
+        public float GetJumpSpeed ()
+        {
+            return jumpSpeed; 
+        }
+
+        public void SetJumpSpeed(float speedJumpP)
+        {
+            jumpSpeed = speedJumpP;  
+        }
+
+        public float GetDashSpeed()
+        {
+            return dashSpeed; 
+        }
+
+        public void SetDashSpeed (float dashSpeedP)
+        {
+            dashSpeed = dashSpeedP;
+        }
+
     }
+
+   
 }

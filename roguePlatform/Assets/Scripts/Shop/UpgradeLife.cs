@@ -7,7 +7,8 @@ public class UpgradeLife : Upgrade {
 
     
     private LifeController lifeController;
-    public int life;
+    [SerializeField]
+    private int life;
     public Button yourButton; 
 
     private void Start()

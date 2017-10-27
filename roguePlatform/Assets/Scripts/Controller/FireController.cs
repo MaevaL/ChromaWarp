@@ -11,11 +11,13 @@ public class FireController : MonoBehaviour {
     bool canShoot = true;
     [SerializeField]
     private Transform _bulletSpawner = null;
-    public float fireRate = 1f;
+    [SerializeField]
+    private float fireRate = 1f;
     private PlayerMove _move;
     [SerializeField]
     private float _animShootDuration;
-    private Animator anim; 
+    private Animator anim;
+    public AudioClip fireAudio;
 
 
     // Use this for initialization
@@ -60,11 +62,14 @@ public class FireController : MonoBehaviour {
         GameObject go;
         if (GetComponent<ColorController>().GetColor() == 1) {
              go = Instantiate(blueProjectile , _bulletSpawner.position , Quaternion.identity) as GameObject;
+            SoundManager.instance.PlaySingle(fireAudio);
         } else {
             go = Instantiate(redProjectile , _bulletSpawner.position , Quaternion.identity) as GameObject;
+            SoundManager.instance.PlaySingle(fireAudio);
         }
         
         go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * (hit.x), (hit.y) * velocity.y);
+        go.GetComponent<PlayerProjectile>().Damages = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().GetDamageProjectile();
         yield return new WaitForSeconds(fireRate / 2 );
      
         canShoot = true;
@@ -94,6 +99,13 @@ public class FireController : MonoBehaviour {
             || (hit.x < transform.position.x && !_move.facingRight));
     }
 
+    public float GetFireRate()
+    {
+        return fireRate; 
+    }
 
-
+    public void SetFireRate(float fireRateP)
+    {
+        fireRate = fireRateP; 
+    }
 }

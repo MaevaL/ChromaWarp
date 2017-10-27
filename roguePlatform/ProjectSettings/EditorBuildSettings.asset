@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/TestMoveEnemy.unity
+    guid: 35158a8f76feb4f47ad528d244b5b9d8
+  - enabled: 1
+    path: Assets/Scenes/TestMoveEnemyTest.unity
+    guid: 7a28b1c5c531e084f891be6e5c4cb8ed

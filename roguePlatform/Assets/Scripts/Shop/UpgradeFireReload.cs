@@ -24,12 +24,12 @@ public class UpgradeFireReload : Upgrade{
         
         player = GameObject.FindGameObjectWithTag("Player");
         fireController = player.GetComponent<FireController>();
-        if (fireController.fireRate > 0.0f)
+        if (fireController.GetFireRate() > 0.0f)
         {
-            fireController.fireRate = fireController.fireRate - upReload;
+            fireController.SetFireRate(fireController.GetFireRate() - upReload);
         }
         else
-            fireController.fireRate = 0;
+            fireController.SetFireRate(0);
 
       
     }

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public abstract class Projectile : MonoBehaviour {
 
-    public int Damages = 1;
+    public int Damages;
     public float LifeTime;
     public int color;
+    public AudioClip projectileSound;
+    public AudioClip projectileSoundNoImpact;
     void Start() {
             
         Destroy(gameObject , LifeTime);

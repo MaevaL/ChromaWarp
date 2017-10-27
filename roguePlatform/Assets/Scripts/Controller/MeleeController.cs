@@ -78,5 +78,16 @@ public class MeleeController : MonoBehaviour {
         }
     }
 
+    public float GetAttackCooldown()
+    {
+        return attackCooldown; 
+    }
 
+    public void SetAttackCoolDown(float cooldown)
+    {
+        if(cooldown>=0)
+        {
+            attackCooldown = cooldown;
+        } 
+    }
 }

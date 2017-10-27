@@ -5,36 +5,36 @@ using UnityEngine;
 public class GoldController : MonoBehaviour {
 
     [SerializeField]
-    private int _gold = 1;
+    private int energy = 1;
     [SerializeField]
-    private int _goldMax = 1;
+    private int energyMax = 1;
 
-    public int GetGold() {
-        return _gold;
+    public int GetEnergy() {
+        return energy;
     }
 
-    public int SetGold(int gold) 
+    public int SetEnergy(int gold) 
     {
-        return _gold = gold; 
+        return energy = gold; 
     }
 
-    public int GetGoldMax() {
-        return _goldMax;
+    public int GetEnergyMax() {
+        return energyMax;
     }
 
     public int SetGoldMax(int goldMax)
     {
-        return _goldMax = goldMax; 
+        return energyMax = goldMax; 
     }
 
-    public void GainGold(int gain) {
-        _gold += gain;
+    public void GainEnergy(int gain) {
+        energy += gain;
 
-        if (_gold > _goldMax) { _gold = _goldMax; }
+        if (energy > energyMax) { energy = energyMax; }
     }
 
-    public bool LoseGold(int loss) {
-        _gold -= loss;
-        return (_gold <= 0) ? false : true;
+    public bool LoseEnergy(int loss) {
+        energy -= loss;
+        return (energy <= 0) ? false : true;
     }
 }

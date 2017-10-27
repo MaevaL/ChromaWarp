@@ -131,7 +131,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1678614500115252}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22.22, y: -0.88, z: 0}
+  m_LocalPosition: {x: 34.512794, y: 4.8893204, z: 0}
   m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_Children:
   - {fileID: 4886686475546324}
@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DieFX: {fileID: 1829612915015264, guid: 9e24e7fc32011d449bf208226428d41b, type: 2}
+  DieAudio: {fileID: 8300000, guid: d869a9ddda1eda04d839cb8ba22419e5, type: 3}
   healthBonus: {fileID: 1289321663581958, guid: a10fb469ed963554dbbc770347bd4a57,
     type: 2}
   goldBonus: {fileID: 1540556330271670, guid: 6c388bb3117861f4788350ec0db95c69, type: 2}
@@ -306,6 +307,7 @@ MonoBehaviour:
   target: {fileID: 0}
   rangeMax: 15
   isClose: 0
+  lookingRight: 0
 --- !u!114 &114391568334304538
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -317,6 +319,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03c79e06a2be0cd44b9820923f142073, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageMelee: 1
+  damageProjectile: 1
 --- !u!114 &114615825156061088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -336,6 +340,9 @@ MonoBehaviour:
   offset: {x: 0.4, y: 0.1}
   fireRate: 0
   delay: 0
+  distancePlayer: 0
+  shootPointLeft: {fileID: 0}
+  shootPointRight: {fileID: 0}
 --- !u!114 &114636638436121278
 MonoBehaviour:
   m_ObjectHideFlags: 1

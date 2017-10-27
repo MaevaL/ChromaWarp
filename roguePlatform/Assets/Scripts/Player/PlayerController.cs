@@ -15,6 +15,11 @@ public class PlayerController : MonoBehaviour {
     public GameObject healthBonus;
     ColorController colorController;
 
+    [SerializeField]
+    private int damageMelee = 1;
+    [SerializeField]
+    private int damageProjectile = 1;
+
     // Use this for initialization
     void Start() {
 
@@ -24,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 
         goldController = gameObject.GetComponent<GoldController>();
         CoinText = GameObject.Find("CoinText").GetComponent<Text>();
-        CoinText.text = ": " + goldController.GetGold() +" / " + goldController.GetGoldMax();
+        CoinText.text = ": " + goldController.GetEnergy() +" / " + goldController.GetEnergyMax();
 
         // Le player prend la couleur tweak dans unity
         colorController = gameObject.GetComponent<ColorController>();
@@ -47,7 +52,7 @@ public class PlayerController : MonoBehaviour {
     /// </summary>
     private void Hud() {
         healthText.text = ": " + (lifeController.GetLife()) + " / " + lifeController.GetLifeMax();
-        CoinText.text = ": " + goldController.GetGold() + " / " + goldController.GetGoldMax();
+        CoinText.text = ": " + goldController.GetEnergy() + " / " + goldController.GetEnergyMax();
     }
 
     /// <summary>
@@ -66,4 +71,29 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+    public int GetDamageMelee()
+    {
+        return damageMelee; 
+    }
+    public int GetDamageProjectile()
+    {
+        return damageProjectile; 
+    }
+
+    public void SetDamageMelee(int damage)
+    {
+        if(damage>=0)
+        {
+            damageMelee = damage;
+        }
+        
+    }
+
+    public void SetDamageProjectile(int damage) {
+        if(damage>=0)
+        {
+            damageProjectile = damage;
+        }
+      
+    }
 }
