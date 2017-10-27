@@ -74,9 +74,9 @@ public class UpdateShopUI : MonoBehaviour {
         maxLife.text = "" + lifeController.GetLifeMax();
         fireRate.text = "each " + fireController.GetFireRate() + " sec";
         maxEnergy.text = "" + goldController.GetEnergyMax();
-        fireDamage.text = "Fire Damage " + playerController.GetDamageProjectile();
-        punchDamage.text = "Punch Damage " + playerController.GetDamageMelee();
-        punchRate.text = "each" + meleeController.GetAttackCooldown() + " sec"; 
+        fireDamage.text = "" + playerController.GetDamageProjectile();
+        punchDamage.text = "" + playerController.GetDamageMelee();
+        punchRate.text = "each " + meleeController.GetAttackCooldown() + " sec"; 
     }
 
     private void Exit()
