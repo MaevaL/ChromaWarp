@@ -1073,7 +1073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4339408558158300}
   m_Layer: 0
-  m_Name: Tableau_Sorties_Right_Top_Bottom
+  m_Name: Room_3TBL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
