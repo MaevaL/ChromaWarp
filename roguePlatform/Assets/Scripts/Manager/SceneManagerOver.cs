@@ -31,6 +31,9 @@ public class SceneManagerOver : MonoBehaviour {
         if (Input.GetKeyUp(KeyCode.Keypad2)) {
             Load(0);
         }
+        if (Input.GetKeyUp(KeyCode.Escape)) {
+            Load("Menu");
+        }
     }
 
 
@@ -38,11 +41,19 @@ public class SceneManagerOver : MonoBehaviour {
 
         if (!SceneManager.GetSceneByBuildIndex(sceneIndex).isLoaded) {
             SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+            //PlayMusic(SceneManager.GetActiveScene().GetRootGameObjects().);
+
         }
 
     }
 
     public void Load(string sceneName) {
+
+        //if (!(sceneName == "Menu" || sceneName == "Shop")) {
+
+        //    GameObject.Find("HUD").SetActive(true);
+        //}
+
         if (!SceneManager.GetSceneByName(sceneName).isLoaded) {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }

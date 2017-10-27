@@ -40,7 +40,8 @@ public class AttackTriggerController : MonoBehaviour {
     protected void SpecificCollision(LifeController lifeController, Collider2D col) {
 
         if (gameObject.GetComponentInParent<LifeController>().CompareTag("Player")) {
-            //Damage = GameObject.FindWithTag("Player").GetComponent<PlayerController>().damageMelee;
+            //If Player attacks an Enemy with melee attack
+
             Damage = col.gameObject.GetComponent<Enemy>().damageMelee;
             if (lifeController != null && lifeController.CompareTag("Enemy")) {
                 
@@ -57,11 +58,11 @@ public class AttackTriggerController : MonoBehaviour {
             }
         }
         else {
+            //If Enemy attacks the Player with melee attack
 
             Damage = GameObject.FindWithTag("Player").GetComponent<PlayerController>().GetDamageMelee();
-            //Damage = col.gameObject.GetComponent<Enemy>().damageMelee;
             if (lifeController != null && lifeController.CompareTag("Player")) {
-                ColorController EnemyColor = col.gameObject.GetComponent<ColorController>();
+                ColorController EnemyColor = gameObject.GetComponentInParent<ColorController>();
                 ColorController PlayerColor = GameObject.FindWithTag("Player").GetComponent<ColorController>();
                 if (PlayerColor.SameColor(EnemyColor.GetColor())) {
                     GameObject go = Instantiate(ImpactFX, col.transform.position, transform.rotation) as GameObject;

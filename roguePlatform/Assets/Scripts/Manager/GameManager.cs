@@ -74,14 +74,14 @@ public class GameManager : MonoBehaviour
     //This is called each time a scene is loaded.
     static private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
-       // instance.level++;
+
+        // instance.level++;
         //instance.InitGame();
 
     }
     void Start() {
-        timerText = GameObject.Find("TimerText").GetComponent<Text>();
-        timerText.text = "0:0";
-        InvokeRepeating("IncrTimer", 0.0f, 1.0f);
+
+        
 
     }
 
@@ -89,6 +89,12 @@ public class GameManager : MonoBehaviour
     //Initializes the game for each level.
     void InitGame()
     {
+
+        timerText = GameObject.Find("TimerText").GetComponent<Text>();
+        //GameObject.Find("HUD").SetActive(false);
+        timerText.text = "0:0";
+        InvokeRepeating("IncrTimer", 0.0f, 1.0f);
+        
         //While doingSetup is true the player can't move
         //doingSetup = true;
 
@@ -118,16 +124,22 @@ public class GameManager : MonoBehaviour
 
     void IncrTimer()
     {
-        //Conditions if scene load is Menu or Shop
-        //Don't increm
-        timerSecond++;
 
-        if (timerSecond == 60)
-        {
-            timerSecond = 0;
-            timerMinute++;
+        if (SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Shop") {
+
+            return;
         }
-        timerText.text = timerMinute + ":" + timerSecond;
+        else {
+            //Conditions if scene load is Menu or Shop
+            //Don't increm
+            timerSecond++;
+
+            if (timerSecond == 60) {
+                timerSecond = 0;
+                timerMinute++;
+            }
+            timerText.text = timerMinute + ":" + timerSecond;
+        }
     }
 
 
