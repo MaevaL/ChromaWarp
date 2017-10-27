@@ -15,7 +15,8 @@ public class SceneManagerOver : MonoBehaviour {
         }
         else {
             GameObject.DontDestroyOnLoad(gameObject);
-            gameManager = gameObject.GetComponent<GameManager>(); 
+            gameManager = gameObject.GetComponent<GameManager>();
+            
             Instance = this;
 
         }
@@ -26,6 +27,7 @@ public class SceneManagerOver : MonoBehaviour {
     void Update() {
         //TEMPORAIRE
         //TRIGGER FIN DE NIVEAU ICI
+        
         if (Input.GetKeyUp(KeyCode.Keypad1)) {
             gameManager.SaveLevelInfos(); 
             Load(1);
