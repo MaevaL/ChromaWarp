@@ -15,7 +15,8 @@ public class FireController : MonoBehaviour {
     private PlayerMove _move;
     [SerializeField]
     private float _animShootDuration;
-    private Animator anim; 
+    private Animator anim;
+    public AudioClip fireAudio;
 
 
     // Use this for initialization
@@ -60,8 +61,10 @@ public class FireController : MonoBehaviour {
         GameObject go;
         if (GetComponent<ColorController>().GetColor() == 1) {
              go = Instantiate(blueProjectile , _bulletSpawner.position , Quaternion.identity) as GameObject;
+            SoundManager.instance.PlaySingle(fireAudio);
         } else {
             go = Instantiate(redProjectile , _bulletSpawner.position , Quaternion.identity) as GameObject;
+            SoundManager.instance.PlaySingle(fireAudio);
         }
         
         go.GetComponent<Rigidbody2D>().velocity = new Vector2(velocity.x * (hit.x), (hit.y) * velocity.y);
