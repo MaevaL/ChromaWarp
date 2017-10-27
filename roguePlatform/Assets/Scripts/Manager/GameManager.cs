@@ -2,7 +2,8 @@
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;      
-using UnityEngine.UI;                  
+using UnityEngine.UI;
+using RoguePlateformer;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,8 +31,10 @@ public class GameManager : MonoBehaviour
     private float cacRate;
     private int energyCurrent;
     private int projectileDmg;
-    private int cacDmg; 
-
+    private int cacDmg;
+    private float runSpeed;
+    private float jumpSpeed;
+    private float dashSpeed; 
     //Awake is always called before any Start functions
     void Awake()
     {
@@ -175,7 +178,9 @@ public class GameManager : MonoBehaviour
         LifeController lifeController = player.GetComponent<LifeController>();
         FireController fireController = player.GetComponent<FireController>();
         MeleeController meleeController = player.GetComponent<MeleeController>();
-        PlayerController playerController = player.GetComponent<PlayerController>(); 
+        PlayerController playerController = player.GetComponent<PlayerController>();
+        PlayerMove playerMove = player.GetComponent<PlayerMove>(); 
+
         //Energy
         energyCurrent = goldController.GetEnergy();
         energyMax = goldController.GetEnergyMax();
@@ -187,9 +192,10 @@ public class GameManager : MonoBehaviour
         //Cac
         cacRate = meleeController.GetAttackCooldown();
         cacDmg = playerController.GetDamageMelee();
-
-
-
+        //Move 
+        runSpeed = playerMove.GetRunSpeed();
+        dashSpeed = playerMove.GetDashSpeed();
+        jumpSpeed = playerMove.GetJumpSpeed(); 
     }
 
     public void InitialisationPlayer()
@@ -200,8 +206,8 @@ public class GameManager : MonoBehaviour
         LifeController lifeController = player.GetComponent<LifeController>();
         FireController fireController = player.GetComponent<FireController>();
         PlayerController playerController = player.GetComponent<PlayerController>();
-        MeleeController meleeController = player.GetComponent<MeleeController>(); 
-        
+        MeleeController meleeController = player.GetComponent<MeleeController>();
+        PlayerMove playerMove = player.GetComponent<PlayerMove>(); 
         //Initialize Gold
         goldController.SetEnergy(energyCurrent);
         goldController.SetGoldMax(energyMax);
@@ -212,7 +218,12 @@ public class GameManager : MonoBehaviour
         playerController.SetDamageProjectile(projectileDmg);
         //Initialize CAC Properties
         meleeController.SetAttackCoolDown(cacRate);
-        playerController.SetDamageMelee(cacDmg); 
+        playerController.SetDamageMelee(cacDmg);
+        //Initiamlize PlayerMove
+        playerMove.SetDashSpeed(dashSpeed);
+        playerMove.SetJumpSpeed(jumpSpeed);
+        playerMove.SetRunSpeed(runSpeed); 
+
     }   
 
 

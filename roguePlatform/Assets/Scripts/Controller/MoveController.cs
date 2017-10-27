@@ -205,4 +205,16 @@ public class MoveController : MonoBehaviour {
 
         //if (move > 0 && !facingRight) { Flip(); } else if (move < 0 && facingRight) { Flip(); }
     }
+
+    public float GetSpeed()
+    {
+        return speed; 
+    }
+
+    public void SetSpeed(int speedP)
+    {
+        speed = speedP; 
+    }
+
+
 }
