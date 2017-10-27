@@ -48,7 +48,13 @@ namespace RoguePlateformer {
             anim = GetComponent<Animator>();
         }
 
-        public void FixedUpdate() {
+		public void Update() {
+			Jump();
+
+			Dash();
+		}
+
+		public void FixedUpdate() {
 
             //Check if is on the ground 
             isFlying = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
@@ -66,9 +72,7 @@ namespace RoguePlateformer {
             //Change Face Direction 
             if (move > 0 && !facingRight) { Flip(); } else if (move < 0 && facingRight) { Flip(); }
 
-            Jump();
-
-            Dash();
+            
 
         }
 

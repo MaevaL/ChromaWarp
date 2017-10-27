@@ -271,6 +271,10 @@ Prefab:
       propertyPath: m_Size.x
       value: 1.2008953
       objectReference: {fileID: 0}
+    - target: {fileID: 5000000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
   m_IsPrefabParent: 0
@@ -317,7 +321,7 @@ Prefab:
         type: 2}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1334993638}
     - target: {fileID: 65346905327326010, guid: 9ae39d795a7edc045a1eceb6ee9362e7,
         type: 2}
       propertyPath: m_Enabled
@@ -522,19 +526,19 @@ MonoBehaviour:
     initRight: 1
     initBottom: 1
     initLeft: 0
-    prefab: {fileID: 1910932409516932, guid: 12b053d2dea4f16409a499c29aae892e, type: 2}
+    prefab: {fileID: 1973620663183692, guid: 12b053d2dea4f16409a499c29aae892e, type: 2}
   - type: 4
     initTop: 1
     initRight: 1
     initBottom: 1
     initLeft: 1
-    prefab: {fileID: 1130276558966982, guid: 137e2f508e053a148b725771aadc22fe, type: 2}
+    prefab: {fileID: 1467361626415126, guid: 137e2f508e053a148b725771aadc22fe, type: 2}
   - type: 2
     initTop: 0
     initRight: 1
     initBottom: 0
     initLeft: 1
-    prefab: {fileID: 1770115431636480, guid: 8d7f9c080824a014fb41ac4891abe11b, type: 2}
+    prefab: {fileID: 1399098458490386, guid: 8d7f9c080824a014fb41ac4891abe11b, type: 2}
   - type: 2
     initTop: 0
     initRight: 1
@@ -594,22 +598,26 @@ MonoBehaviour:
     initRight: 0
     initBottom: 1
     initLeft: 1
-    prefab: {fileID: 1445493252382518, guid: c8e53e44fe516684f8bc720717944482, type: 2}
+    prefab: {fileID: 1988993385104258, guid: c8e53e44fe516684f8bc720717944482, type: 2}
   - type: 3
     initTop: 0
     initRight: 1
     initBottom: 1
     initLeft: 1
-    prefab: {fileID: 1244535485138654, guid: 1afb66b2335f16249988c620037ef6ca, type: 2}
+    prefab: {fileID: 1809591856564528, guid: 1afb66b2335f16249988c620037ef6ca, type: 2}
   - type: 3
     initTop: 1
     initRight: 0
     initBottom: 1
     initLeft: 1
-    prefab: {fileID: 1909231632505858, guid: b80b7ef0be5f9d0428e7311689cfb428, type: 2}
+    prefab: {fileID: 1997370836869506, guid: b80b7ef0be5f9d0428e7311689cfb428, type: 2}
   - type: 1
     initTop: 1
     initRight: 1
     initBottom: 0
     initLeft: 0
-    prefab: {fileID: 1769629360746496, guid: 78750e3b676dd724bac52ec7dc27e0b9, type: 2}
+    prefab: {fileID: 1567956385908266, guid: 78750e3b676dd724bac52ec7dc27e0b9, type: 2}
+--- !u!1 &1334993638 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
+  m_PrefabInternal: {fileID: 445401649}
