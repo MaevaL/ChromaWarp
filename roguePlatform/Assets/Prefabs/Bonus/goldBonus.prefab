@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 61912594655276382}
   - component: {fileID: 114243781788537102}
   m_Layer: 0
-  m_Name: GoldBonus
+  m_Name: goldBonus
   m_TagString: GoldBonus
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
