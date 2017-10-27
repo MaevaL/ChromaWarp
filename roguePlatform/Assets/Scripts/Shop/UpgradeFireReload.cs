@@ -9,6 +9,7 @@ public class UpgradeFireReload : Upgrade{
     private FireController fireController;
     public float upReload;
     public Button yourButton;
+    private Animator anim; 
 
     void Start()
     {
@@ -23,6 +24,8 @@ public class UpgradeFireReload : Upgrade{
     {
         
         player = GameObject.FindGameObjectWithTag("Player");
+        anim = player.GetComponent<Animator>();
+        anim.speed = anim.speed + upReload; 
         fireController = player.GetComponent<FireController>();
         if (fireController.GetFireRate() > 0.0f)
         {
