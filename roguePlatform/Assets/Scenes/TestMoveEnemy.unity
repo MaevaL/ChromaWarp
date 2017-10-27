@@ -157,6 +157,11 @@ Prefab:
       propertyPath: CoinText
       value: 
       objectReference: {fileID: 827358699}
+    - target: {fileID: 114348778257364524, guid: 7d5a906dc881f984b9ee96121adc7784,
+        type: 2}
+      propertyPath: fireAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: 15444287b6893d64a9444f42258b77be, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d5a906dc881f984b9ee96121adc7784, type: 2}
   m_IsPrefabParent: 0
@@ -747,6 +752,10 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 409316, guid: 95dcbf14cf489ba48af50e8d7b70e06b, type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719100583625532, guid: 95dcbf14cf489ba48af50e8d7b70e06b, type: 2}
       propertyPath: m_RootOrder
       value: 13
       objectReference: {fileID: 0}

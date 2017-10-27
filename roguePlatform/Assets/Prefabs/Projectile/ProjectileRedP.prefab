@@ -92,6 +92,9 @@ MonoBehaviour:
   Damages: 1
   LifeTime: 10
   color: 2
+  projectileSound: {fileID: 8300000, guid: 15444287b6893d64a9444f42258b77be, type: 3}
+  projectileSoundNoImpact: {fileID: 8300000, guid: 27ed895acee069349b4340c5b330aa98,
+    type: 3}
   ImpactFX: {fileID: 1157650048063312, guid: ecd526f165efe4b49a422fc1a4b720c4, type: 2}
   NoImpactFX: {fileID: 1669269165928014, guid: e9fc495ca0c4c8d40bae95f44eb84185, type: 2}
 --- !u!212 &212714938965688552

@@ -18,6 +18,7 @@ public class PlayerProjectile : Projectile {
             }
             else {
                 GameObject go = Instantiate(NoImpactFX , col.transform.position , transform.rotation) as GameObject;
+                SoundManager.instance.PlaySingle(projectileSoundNoImpact);
             }
             
         }
