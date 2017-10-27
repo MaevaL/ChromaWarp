@@ -202,6 +202,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &325931673 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4030928975993702, guid: 9ae39d795a7edc045a1eceb6ee9362e7,
+    type: 2}
+  m_PrefabInternal: {fileID: 651668240}
 --- !u!224 &436742656 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224779381945615688, guid: 4034855063937ae47952a290a39f7e37,
@@ -355,7 +360,7 @@ Prefab:
     - target: {fileID: 20114487670033332, guid: 9ae39d795a7edc045a1eceb6ee9362e7,
         type: 2}
       propertyPath: m_CullingMask.m_Bits
-      value: 4294950911
+      value: 4294949887
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ae39d795a7edc045a1eceb6ee9362e7, type: 2}
@@ -695,11 +700,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 50
+  orthographic size: 54
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967039
+    m_Bits: 4294952136
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: fa547fbe66790d646a03808fc138738c, type: 2}
   m_TargetDisplay: 0
@@ -803,9 +808,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d3b32a392466547a5b8ba4c0eaf104, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  renderTexture: {fileID: 0}
   minimapCam: {fileID: 1494305568}
-  player: {fileID: 1334993652}
+  mainCam: {fileID: 325931673}
 --- !u!1 &2108914247
 GameObject:
   m_ObjectHideFlags: 0
