@@ -570,6 +570,16 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1326871188}
+    - target: {fileID: 224925137268447054, guid: 08817a13d3f65fe458541653223c93d6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 387
+      objectReference: {fileID: 0}
+    - target: {fileID: 224810507470534484, guid: 08817a13d3f65fe458541653223c93d6,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 524
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08817a13d3f65fe458541653223c93d6, type: 2}
   m_IsPrefabParent: 0

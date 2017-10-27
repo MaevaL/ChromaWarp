@@ -208,6 +208,8 @@ public class GameManager : MonoBehaviour
         PlayerController playerController = player.GetComponent<PlayerController>();
         MeleeController meleeController = player.GetComponent<MeleeController>();
         PlayerMove playerMove = player.GetComponent<PlayerMove>(); 
+
+
         //Initialize Gold
         goldController.SetEnergy(energyCurrent);
         goldController.SetGoldMax(energyMax);
