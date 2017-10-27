@@ -361,6 +361,7 @@ MonoBehaviour:
   _bulletSpawner: {fileID: 4614340891453068}
   fireRate: 0.6
   _animShootDuration: 0
+  fireAudio: {fileID: 0}
 --- !u!114 &114441118870586116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -400,6 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DieFX: {fileID: 1829612915015264, guid: 9e24e7fc32011d449bf208226428d41b, type: 2}
+  DieAudio: {fileID: 8300000, guid: f9d0a0f2f44c62e4aad742e49fe63ba5, type: 3}
 --- !u!114 &114605707648165882
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -76,11 +76,13 @@ public class GameManager : MonoBehaviour
     {
        // instance.level++;
         //instance.InitGame();
+
     }
     void Start() {
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
         timerText.text = "0:0";
         InvokeRepeating("IncrTimer", 0.0f, 1.0f);
+
     }
 
 
@@ -116,6 +118,8 @@ public class GameManager : MonoBehaviour
 
     void IncrTimer()
     {
+        //Conditions if scene load is Menu or Shop
+        //Don't increm
         timerSecond++;
 
         if (timerSecond == 60)
@@ -152,7 +156,7 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //GameOver is called when the player reaches 0 food points
+    //GameOver is called when the player reaches 0HP
     public void GameOver()
     {
         //Set levelText to display number of levels passed and game over message

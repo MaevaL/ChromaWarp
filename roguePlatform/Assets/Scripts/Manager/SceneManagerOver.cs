@@ -23,6 +23,8 @@ public class SceneManagerOver : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        //TEMPORAIRE
+        //TRIGGER FIN DE NIVEAU ICI
         if (Input.GetKeyUp(KeyCode.Keypad1)) {
             Load(1);
         }

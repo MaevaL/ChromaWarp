@@ -268,6 +268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DieFX: {fileID: 1829612915015264, guid: 9e24e7fc32011d449bf208226428d41b, type: 2}
+  DieAudio: {fileID: 8300000, guid: d869a9ddda1eda04d839cb8ba22419e5, type: 3}
   healthBonus: {fileID: 1289321663581958, guid: a10fb469ed963554dbbc770347bd4a57,
     type: 2}
   goldBonus: {fileID: 1540556330271670, guid: 6c388bb3117861f4788350ec0db95c69, type: 2}
