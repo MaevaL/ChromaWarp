@@ -60,7 +60,6 @@ GameObject:
   - component: {fileID: 114323293571175934}
   - component: {fileID: 114391568334304538}
   - component: {fileID: 114636638436121278}
-  - component: {fileID: 114615825156061088}
   - component: {fileID: 114647955075840616}
   - component: {fileID: 114135139179189114}
   m_Layer: 9
@@ -320,29 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageMelee: 1
-  damageProjectile: 1
---- !u!114 &114615825156061088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1678614500115252}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57d67987edbd6b444b6b5cf7632bb1d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  blueProjectile: {fileID: 1740691952530410, guid: c22e6117ffb512b4895e5e4a6e41fe84,
-    type: 2}
-  redProjectile: {fileID: 1027816845321022, guid: cf08a26cb6e742d4d9d8dd5ff00b667b,
-    type: 2}
-  velocity: {x: 0, y: 0}
-  offset: {x: 0.4, y: 0.1}
-  fireRate: 0
-  delay: 0
-  distancePlayer: 0
-  shootPointLeft: {fileID: 0}
-  shootPointRight: {fileID: 0}
+  damageProjectile: 0
 --- !u!114 &114636638436121278
 MonoBehaviour:
   m_ObjectHideFlags: 1
