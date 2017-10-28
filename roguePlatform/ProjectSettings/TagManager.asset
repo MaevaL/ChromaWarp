@@ -26,7 +26,11 @@ TagManager:
   - Environment
   - PlayerProjectile
   - EnemyProjectile
+<<<<<<< HEAD
   - Range
+=======
+  - Minimap
+>>>>>>> ld
   - 
   - 
   - 
