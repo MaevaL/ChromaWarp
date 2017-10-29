@@ -85,10 +85,32 @@ namespace RoguePlateformer
             }
 
             if ( _currentDashingSpeed != 0f ) {
+                //if (_dashTimer <= animDashDuration) {
+                //    anim.SetBool("Dash" , true);
+                //    _dashTimer += Time.fixedDeltaTime;
+                //    transform.position = transform.position + new Vector3(_currentDashingSpeed * dashSpeedAnim.Evaluate(_dashTimer) * Time.fixedDeltaTime , 0 , 0);
+                //}
                 if (_dashTimer <= animDashDuration) {
-                    anim.SetBool("Dash" , true);
+                    anim.SetBool("Dash", true);
                     _dashTimer += Time.fixedDeltaTime;
-                    transform.position = transform.position + new Vector3(_currentDashingSpeed * dashSpeedAnim.Evaluate(_dashTimer) * Time.fixedDeltaTime , 0 , 0);
+
+                    float currentSpeed = _currentDashingSpeed * dashSpeedAnim.Evaluate(_dashTimer);
+                    float dist = currentSpeed * Time.deltaTime;
+
+                    Vector3 RaycastDirection = transform.right;
+                    LayerMask MaskRayCast = new LayerMask();
+
+                    if (!facingRight) {
+                        RaycastDirection *= -1;
+                    }
+
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0), RaycastDirection, out hit, dist, MaskRayCast)) {
+                        _dashTimer = animDashDuration + 1;
+                    } else {
+                        transform.position = transform.position + new Vector3(dist, 0, 0);
+                    }
                 }
 
                 if (_dashTimer > animDashDuration) {
