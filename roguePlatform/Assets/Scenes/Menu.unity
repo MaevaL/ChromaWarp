@@ -2820,6 +2820,7 @@ GameObject:
   - component: {fileID: 1289528160}
   - component: {fileID: 1289528159}
   - component: {fileID: 1289528158}
+  - component: {fileID: 1289528161}
   - component: {fileID: 1289528157}
   - component: {fileID: 1289528156}
   m_Layer: 0
@@ -2963,6 +2964,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1289528161}
+        m_MethodName: LoadByIndex
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 4
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1289528159
@@ -2998,6 +3010,17 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1289528154}
+--- !u!114 &1289528161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1289528154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff1fe5e929542ea44a63569bb2fb26c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1330162784
 GameObject:
   m_ObjectHideFlags: 0
@@ -3967,6 +3990,8 @@ MonoBehaviour:
   timerSecond: 0
   timerMinute: 0
   timerText: {fileID: 329476185}
+  facteurUpgrade: 1.5
+  costUpgrade: 10
   energyMax: 150
   lifeMax: 10
   projectileRate: 0.6
