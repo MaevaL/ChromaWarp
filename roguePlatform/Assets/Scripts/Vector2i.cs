@@ -1,4 +1,6 @@
-﻿namespace RoguePlateformer {
+﻿using UnityEngine;
+
+namespace RoguePlateformer {
 	public class Vector2i {
 
 		public int x;
@@ -27,6 +29,10 @@
 
 		public static Vector2i operator /(Vector2i v, float d) {
 			return new Vector2i();
+		}
+
+		public static explicit operator Vector2(Vector2i v) {
+			return new Vector2(v.x, v.y);
 		}
 
 	}
