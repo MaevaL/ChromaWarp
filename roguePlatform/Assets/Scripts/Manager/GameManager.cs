@@ -20,21 +20,35 @@ public class GameManager : MonoBehaviour {
     private List<Enemy> enemies;                            //List of all Enemy units, used to issue them move commands.
                                                             //private bool doingSetup = true;                         //Boolean to check if we're setting up board, prevent Player from moving during setup.
 
-    [SerializeField]
+    
     private GameObject player;
     //All Variable needed for SaveGame //
-
+    //Upgrade Values
+    [SerializeField]
+    private float facteurUpgrade = 1.5f; 
+    [SerializeField]
+    private int costUpgrade = 10; 
     //PlayerValue
-    private int energyMax;
-    private int lifeMax;
-    private float projectileRate;
-    private float cacRate;
-    private int energyCurrent;
-    private int projectileDmg;
-    private int cacDmg;
-    private float runSpeed;
-    private float jumpSpeed;
-    private float dashSpeed;
+    [SerializeField]
+    private int energyMax = 150;
+    [SerializeField]
+    private int lifeMax = 10;
+    [SerializeField]
+    private float projectileRate = 0.6f;
+    [SerializeField]
+    private float cacRate=0.3f;
+    [SerializeField]
+    private int energyCurrent = 0;
+    [SerializeField]
+    private int projectileDmg = 1;
+    [SerializeField]
+    private int cacDmg =1;
+    [SerializeField]
+    private float runSpeed = 10f;
+    [SerializeField]
+    private float jumpSpeed = 750f;
+    [SerializeField]
+    private float dashSpeed = 20f;
     //Controller 
     private GoldController goldController;
     private LifeController lifeController;
@@ -42,6 +56,7 @@ public class GameManager : MonoBehaviour {
     private MeleeController meleeController;
     private PlayerController playerController;
     private PlayerMove playerMove;
+    private UpgradeController upgradeController;
     //Awake is always called before any Start functions
     void Awake() {
         //Check if instance already exists
@@ -98,7 +113,7 @@ public class GameManager : MonoBehaviour {
 
     //Initializes the game for each level.
     void InitGame() {
-       
+        
         timerText = GameObject.Find("TimerText").GetComponent<Text>();
         //GameObject.Find("HUD").SetActive(false);
         timerText.text = "0:0";
@@ -193,6 +208,7 @@ public class GameManager : MonoBehaviour {
         //Energy
         InitController(); 
         energyCurrent = goldController.GetEnergy();
+     
         energyMax = goldController.GetEnergyMax();
         //Life 
         lifeMax = lifeController.GetLifeMax();
@@ -206,14 +222,20 @@ public class GameManager : MonoBehaviour {
         runSpeed = playerMove.GetRunSpeed();
         dashSpeed = playerMove.GetDashSpeed();
         jumpSpeed = playerMove.GetJumpSpeed();
+        
+        //Upgrade
+        costUpgrade = upgradeController.GetCost();
+        facteurUpgrade = upgradeController.GetFacteur(); 
     }
 
-    private void InitialisationPlayer() {
+    public void InitialisationPlayer() {
 
+       
         InitController(); 
         //Initialize Gold
         goldController.SetEnergy(energyCurrent);
         goldController.SetGoldMax(energyMax);
+       
         //Initialize MaxLife 
         lifeController.SetLifeMax(lifeMax);
         //Initialize FireProperties
@@ -226,20 +248,36 @@ public class GameManager : MonoBehaviour {
         playerMove.SetDashSpeed(dashSpeed);
         playerMove.SetJumpSpeed(jumpSpeed);
         playerMove.SetRunSpeed(runSpeed);
+
+        //UpgradeController
+        upgradeController.SetCost(costUpgrade); 
+
+        
+
     }
 
     public void InitController() {
         player = GameObject.FindGameObjectWithTag("Player");
-        goldController = player.GetComponent<GoldController>();
-        lifeController = player.GetComponent<LifeController>();
-        fireController = player.GetComponent<FireController>();
-        meleeController = player.GetComponent<MeleeController>();
-        playerController = player.GetComponent<PlayerController>();
-        playerMove = player.GetComponent<PlayerMove>();
-        
+        if (player != null)
+        {
+            goldController = player.GetComponent<GoldController>();
+            lifeController = player.GetComponent<LifeController>();
+            fireController = player.GetComponent<FireController>();
+            meleeController = player.GetComponent<MeleeController>();
+            playerController = player.GetComponent<PlayerController>();
+            playerMove = player.GetComponent<PlayerMove>();
+            upgradeController = player.GetComponent<UpgradeController>(); 
+        }
+        else
+            Debug.LogError("Player not Initialized");
     }
 
+    public GameObject GetPlayer()
+    {
+        return player; 
+    }
 
+    
 
 
 }

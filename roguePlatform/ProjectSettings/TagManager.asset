@@ -11,6 +11,7 @@ TagManager:
   - ProjectileEnemy
   - Ground
   - Environment
+  - GameManager
   layers:
   - Default
   - TransparentFX
@@ -28,7 +29,6 @@ TagManager:
   - EnemyProjectile
   - Range
   - Minimap
-  - 
   - 
   - 
   - 

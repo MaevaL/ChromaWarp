@@ -19,6 +19,16 @@ public class UpgradeController : MonoBehaviour
         return cost;
     }
 
+    public float GetFacteur()
+    {
+        return facteur;
+    }
+
+    public void SetCost(int costP)
+    {
+        cost = costP; 
+    }
+
     public void NewCost()
     {
         cost = (int) (cost * facteur);

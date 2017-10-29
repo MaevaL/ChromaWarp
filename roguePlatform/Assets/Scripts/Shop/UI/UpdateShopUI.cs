@@ -32,6 +32,8 @@ public class UpdateShopUI : MonoBehaviour {
     private PlayerController playerController;
     private MeleeController meleeController;
 
+    private bool shopDisabled; 
+
   //Other Graphics
     [SerializeField]
     private Button yourButton;
@@ -41,6 +43,7 @@ public class UpdateShopUI : MonoBehaviour {
     void Start()
     {
         //Get All Controller 
+         
         player = GameObject.FindGameObjectWithTag("Player");
         upgradeController = player.GetComponent<UpgradeController>();
         goldController = player.GetComponent<GoldController>();
@@ -48,6 +51,8 @@ public class UpdateShopUI : MonoBehaviour {
         fireController = player.GetComponent<FireController>();
         playerController = player.GetComponent<PlayerController>();
         meleeController = player.GetComponent<MeleeController>();
+
+        playerController.SetShopDisabled(false); 
         //Initialize all text fields
         Hud();
         //neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
@@ -82,9 +87,12 @@ public class UpdateShopUI : MonoBehaviour {
     private void Exit()
     {
         //Disable the HUD UPGRADE
-        hudUpgrade.gameObject.SetActive(false); 
+        hudUpgrade.gameObject.SetActive(false);
+        playerController.SetShopDisabled(true);
+        Debug.Log("Shop is now Disabled"); 
     }
 
+    
         
 
 }

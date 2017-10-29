@@ -11,7 +11,8 @@ public class PlayerController : MonoBehaviour {
     public Text healthText;
     GoldController goldController;
     public Text CoinText;
-
+    private GameManager gameManager;
+    private GameObject objectManager;
     public GameObject healthBonus;
     ColorController colorController;
 
@@ -20,9 +21,18 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private int damageProjectile = 1;
 
+    // All variables needed for SceneManager
+    private bool shopDisabled; 
+    private bool isDead; 
     // Use this for initialization
     void Start() {
 
+        objectManager = GameObject.FindGameObjectWithTag("GameManager");
+        gameManager = objectManager.GetComponent<GameManager>();
+        gameManager.InitialisationPlayer();
+
+        isDead = false;
+        shopDisabled = false; 
         lifeController = gameObject.GetComponent<LifeController>();
         healthText = GameObject.Find("HealthText").GetComponent<Text>();
         healthText.text = ": " + lifeController.GetLife() + " / " + lifeController.GetLifeMax() ;
@@ -95,5 +105,25 @@ public class PlayerController : MonoBehaviour {
             damageProjectile = damage;
         }
       
+    }
+
+    public bool GetIsDead()
+    {
+        return isDead; 
+    }
+
+    public void SetIsDead(bool deadP)
+    {
+        isDead = deadP;
+    }
+
+    public void SetShopDisabled(bool shopDisabledP)
+    {
+        shopDisabled = shopDisabledP; 
+    }
+
+    public bool GetShopDisabled()
+    {
+        return shopDisabled; 
     }
 }

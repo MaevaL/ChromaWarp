@@ -6,8 +6,13 @@ using UnityEngine.SceneManagement;
 public class SceneManagerOver : MonoBehaviour {
 
     public static SceneManagerOver Instance { set; get; }
-    private GameManager gameManager; 
+    private GameManager gameManager;
+    
+    private GameObject player; 
+    private PlayerController playerController;
 
+    private Scene activeScene; 
+    private string previousScene = null;
     // Use this for initialization
     void Start() {
         if (Instance != null) {
@@ -17,8 +22,8 @@ public class SceneManagerOver : MonoBehaviour {
             GameObject.DontDestroyOnLoad(gameObject);
             gameManager = gameObject.GetComponent<GameManager>();
             
+            
             Instance = this;
-
         }
     }
 
@@ -27,16 +32,56 @@ public class SceneManagerOver : MonoBehaviour {
     void Update() {
         //TEMPORAIRE
         //TRIGGER FIN DE NIVEAU ICI
+        player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerController = player.GetComponent<PlayerController>();
+        }
         
-        if (Input.GetKeyUp(KeyCode.Keypad1)) {
-            gameManager.SaveLevelInfos(); 
-            Load(1);
+        activeScene = SceneManager.GetActiveScene();
+
+       
+        if (player != null)
+        {
+            if (playerController.GetIsDead())
+            {
+                previousScene = SceneManager.GetActiveScene().name;
+                gameManager.SaveLevelInfos();
+                Debug.Log("PlayerDataSaved");
+                Load("Shop");
+            }
         }
-        if (Input.GetKeyUp(KeyCode.Keypad2)) {
-            gameManager.SaveLevelInfos();
-            Load(2);
+
+        //if(activeScene.name == "Menu")
+        //{
+        //    GameObject.Find("HUD").SetActive(false);
+        //}
+
+       
+        if(activeScene.name == "Shop" && playerController.GetShopDisabled())
+        {
+            if (previousScene != null)
+            {
+                Load(previousScene);   
+            }
+            else
+            {
+                Load("Menu");
+            }
         }
+
+        //For TESTING PASSAGE LEVEL
+        //if (Input.GetKeyUp(KeyCode.Keypad1)) {
+        //    gameManager.SaveLevelInfos(); 
+        //    Load(1);
+        //}
+        //if (Input.GetKeyUp(KeyCode.Keypad2)) {
+        //    gameManager.SaveLevelInfos();
+        //    Load(2);
+        //}
+
         if (Input.GetKeyUp(KeyCode.Escape)) {
+            gameManager.SaveLevelInfos();
             Load("Menu");
         }
     }
@@ -53,15 +98,16 @@ public class SceneManagerOver : MonoBehaviour {
     }
 
     public void Load(string sceneName) {
-
-        //if (!(sceneName == "Menu" || sceneName == "Shop")) {
-
-        //    GameObject.Find("HUD").SetActive(true);
-        //}
+        gameManager.SaveLevelInfos();
+        if (!(sceneName == "Menu" || sceneName == "Shop")) {
+            GameObject.Find("HUD").SetActive(true);
+        }
 
         if (!SceneManager.GetSceneByName(sceneName).isLoaded) {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
+
+        gameManager.InitialisationPlayer();
 
     }
 
