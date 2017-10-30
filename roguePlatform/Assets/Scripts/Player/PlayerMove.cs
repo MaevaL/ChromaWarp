@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-namespace RoguePlateformer
-{
+namespace RoguePlateformer {
 
     public class PlayerMove : MonoBehaviour {
         [SerializeField]
@@ -19,6 +18,8 @@ namespace RoguePlateformer
         private float _dashTimer = 0;
 
         private Rigidbody2D rigidBody;
+        private Animator anim;
+        private RaycastHit hit;
 
         private bool isFlying;
         //Variable which countains what direction the character is looking
@@ -26,20 +27,17 @@ namespace RoguePlateformer
 
         private int nbJump;
 
-        private Animator anim;
+
         //Variable for checking if in contact with ground
         public Transform groundCheck;
         public LayerMask whatIsGround;
-
-        private Vector3 _prevPos;
-
         public Vector2 DashForceTestTweak;
 
         [Header("Used in Translate")]
         public AnimationCurve dashSpeedAnim;
         public float animDashDuration;
 
-        private RaycastHit hit;
+
 
 
 
@@ -51,11 +49,11 @@ namespace RoguePlateformer
             anim = GetComponent<Animator>();
         }
 
-		public void Update() {
+        public void Update() {
             Jump();
-		}
+        }
 
-		public void FixedUpdate() {
+        public void FixedUpdate() {
             Dash();
 
             //Check if is on the ground 
@@ -76,22 +74,16 @@ namespace RoguePlateformer
         }
 
         /// <summary>
-        /// Lance une coroutine qui lance l'action du dash avec une certaine vitesse
+        /// Dash following a curve with a raycast to detect obstacles
         /// </summary>
         public void Dash() {
-            // dash
             if (_currentDashingSpeed == 0f) {
                 if (Input.GetButtonDown("Dash")) {
                     _currentDashingSpeed = facingRight ? dashSpeed : -dashSpeed;
                 }
             }
 
-            if ( _currentDashingSpeed != 0f ) {
-                //if (_dashTimer <= animDashDuration) {
-                //    anim.SetBool("Dash" , true);
-                //    _dashTimer += Time.fixedDeltaTime;
-                //    transform.position = transform.position + new Vector3(_currentDashingSpeed * dashSpeedAnim.Evaluate(_dashTimer) * Time.fixedDeltaTime , 0 , 0);
-                //}
+            if (_currentDashingSpeed != 0f) {
                 if (_dashTimer <= animDashDuration) {
                     anim.SetBool("Dash", true);
                     _dashTimer += Time.fixedDeltaTime;
@@ -106,8 +98,6 @@ namespace RoguePlateformer
                         RaycastDirection *= -1;
                     }
 
-                    
-
                     if (Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0), RaycastDirection, out hit, dist, MaskRayCast)) {
                         _dashTimer = animDashDuration + 1;
                     } else {
@@ -118,13 +108,13 @@ namespace RoguePlateformer
                 if (_dashTimer > animDashDuration) {
                     _currentDashingSpeed = 0f;
                     _dashTimer = 0f;
-                    anim.SetBool("Dash" , false);
+                    anim.SetBool("Dash", false);
                 }
             }
         }
-        
+
         /// <summary>
-        /// Méthode gérant le saut et le double saut
+        /// Jump and double jump
         /// </summary>
         public void Jump() {
             //Jump 
@@ -157,50 +147,29 @@ namespace RoguePlateformer
         }
 
         /// <summary>
-        /// Reset la velocité associé au rigidbody du player en x
+        /// Reset player's rigidbody velocity in x
         /// </summary>
         private void ResetYVelocity() {
             rigidBody.velocity = new Vector2(rigidBody.velocity.x, 0);
         }
 
         /// <summary>
-        /// Reset la velocité associé au rigidbody du player en y
+        /// Reset player's rigidbody velocity in y
         /// </summary>
         private void ResetXVelocity() {
             rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
         }
 
-        public float GetRunSpeed()
-        {
-            return runSpeed;
-        }
+        public float GetRunSpeed() { return runSpeed; }
 
-        public void SetRunSpeed(float speedP)
-        {
-            runSpeed = speedP; 
-        }
+        public void SetRunSpeed(float speedP) { runSpeed = speedP; }
 
-        public float GetJumpSpeed ()
-        {
-            return jumpSpeed; 
-        }
+        public float GetJumpSpeed() { return jumpSpeed; }
 
-        public void SetJumpSpeed(float speedJumpP)
-        {
-            jumpSpeed = speedJumpP;  
-        }
+        public void SetJumpSpeed(float speedJumpP) { jumpSpeed = speedJumpP; }
 
-        public float GetDashSpeed()
-        {
-            return dashSpeed; 
-        }
+        public float GetDashSpeed() { return dashSpeed; }
 
-        public void SetDashSpeed (float dashSpeedP)
-        {
-            dashSpeed = dashSpeedP;
-        }
-
+        public void SetDashSpeed(float dashSpeedP) { dashSpeed = dashSpeedP; }
     }
-
-   
 }

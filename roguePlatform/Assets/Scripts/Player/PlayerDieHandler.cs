@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerDieHandler : DieHandler {
 
     /// <summary>
-    /// Appelle le comportement de la méthode virtuelle Die() de la classe DieHandler 
+    /// Call virtual method Die() from DieHandler class
     /// </summary>
 
     PlayerController playerController;
@@ -15,8 +15,7 @@ public class PlayerDieHandler : DieHandler {
     internal override void Die() {
         playerController = gameObject.GetComponent<PlayerController>();
         playerController.SetIsDead(true);
-        Debug.Log("Player is now Dead"); 
-  //    base.Die(); 
+        Debug.Log("Player is now Dead");  
     }
 
 }
