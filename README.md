@@ -1,11 +1,11 @@
 # RoguePlateform
 ## Prgrammeur
-Maëva Lauzier
-Jérémy Othenin
-Matthieu Eginard 
+- Maëva Lauzier
+- Jérémy Othenin
+- Matthieu Eginard 
 
 ## Level Designer
-Alfred 
-Rachid
-Nathan
-Loic
+- Alfred 
+- Rachid
+- Nathan
+- Loic
