@@ -33,7 +33,7 @@ public class MeleeController : MonoBehaviour {
         if (gameObject.CompareTag("Player")) {
 
 
-            if (Input.GetButtonDown("Fire2") && !attacking) {
+            if (Input.GetButtonDown("Fire2") && !attacking && GetComponent<ColorController>().GetColor() == 2) {
                 attacking = true;
                 attackTimer = attackCooldown;
 

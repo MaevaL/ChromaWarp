@@ -35,7 +35,7 @@ public class FireController : MonoBehaviour {
     /// Réalise l'action de tiré en fontion d'un input clavier et d'une direction de la souris
     /// </summary>
     private void Fire() {
-        if (Input.GetButtonDown("Fire") && canShoot) {
+        if (Input.GetButtonDown("Fire") && canShoot && GetComponent<ColorController>().GetColor() == 1) {
 
             Vector2 worldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 diff = (worldPos - (Vector2) _bulletSpawner.position).normalized;
