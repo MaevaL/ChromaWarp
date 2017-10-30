@@ -2,45 +2,37 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  Enemy Move controller
+///  Different move patern
+/// </summary>
 public class MoveController : MonoBehaviour {
 
     [SerializeField]
     private float speed = 2f;
     [SerializeField]
-    private float groundRadius;// 0.2f;
+    private float groundRadius;
     [SerializeField]
     private bool facingRight = true;
     [SerializeField]
-    public int type = 0;
+    public float rangeMax = 10f;
+
     private Rigidbody2D rigidBody;
-
     private bool isFlying;
-
-    private int nbJump;
-
     private Animator anim;
+    private Transform transfMove;
+    private float widthEnemy;
+    private float rangeMin = 1f;
+    private float distance;
+    private float hauteurMax;
+    private float hauteurMin;
+    private float rayonPatrol = 3f;
 
+    public int type = 0;
     public Transform groundCheck;
     public LayerMask whatIsGround;
-    private Vector3 _prevPos;
-
-    private Transform transfMove;
-    float widthEnemy;
-
     public Transform target;
-    float rotationSpeed = 3;
-    float rangeMin = 1f;
-    [SerializeField]
-    public float rangeMax = 10f;
-    float stop = 0f;
-    float distance;
     public bool isClose = false;
-
-    float hauteurMax;
-    float hauteurMin;
-    float rayonPatrol = 3f;
-
-    //Turret
     public bool lookingRight;
 
 
@@ -58,8 +50,6 @@ public class MoveController : MonoBehaviour {
     }
 
     public void FixedUpdate() {
-
-
         //Check if is on the ground 
         isFlying = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
         anim.SetBool("Ground", isFlying);
@@ -67,6 +57,7 @@ public class MoveController : MonoBehaviour {
         //Velocity Animation ... Idle, Walking, Running
         anim.SetFloat("vSpeed", rigidBody.velocity.y);
 
+        //Move Patern Assign
         switch (type) {
             case 0:
                 MoveOnPlatform();
@@ -125,9 +116,8 @@ public class MoveController : MonoBehaviour {
         }
     }
 
-
+    //Enemy walk in a direction
     void MoveEndlessFront() {
-        //Adjust the velocity
         float move = -1;
         rigidBody.velocity = new Vector2(move * speed, rigidBody.velocity.y);
         anim.SetFloat("Speed", Mathf.Abs(move));
@@ -135,73 +125,64 @@ public class MoveController : MonoBehaviour {
         if (move > 0 && !facingRight) { Flip(); } else if (move < 0 && facingRight) { Flip(); }
     }
 
+    //Enemy walk on a platform
     void MoveOnPlatform() {
         Vector2 lineCastPos = transfMove.position - transfMove.right * widthEnemy;
         bool isGrounded = Physics2D.Linecast(lineCastPos, lineCastPos - Vector2.up, whatIsGround);
-        Debug.DrawLine(lineCastPos, lineCastPos + Vector2.down);
-        Debug.DrawRay(lineCastPos, lineCastPos + Vector2.down);
         Vector2 transfMoveRight = transfMove.right * 0.02f;
-        // bool isBlocked = Physics2D.Linecast(lineCastPos, lineCastPos - transfMoveRight, whatIsGround);
 
         if (isGrounded) {
             Vector3 currRotate = transfMove.eulerAngles;
             currRotate.y += 180;
             transfMove.eulerAngles = currRotate;
         }
-
-
         rigidBody.velocity = new Vector2(transfMove.right.x * speed, rigidBody.velocity.y);
 
     }
 
+    //Enemy has a circle Range view and run after the player when he enter in it
     void MoveFollowPlayer() {
         Vector3 displacement = target.position - transform.position;
         displacement = displacement.normalized;
+        //When Player is in the range view of the Enemy
         if (Vector2.Distance(target.position, transform.position) > rangeMin && Vector2.Distance(target.position, transform.position) < rangeMax) {
             anim.SetTrigger("RunT");
             if (displacement.x > 0 && !facingRight) { Flip(); } else if (displacement.x < 0 && facingRight) { Flip(); }
             transform.position += (displacement * speed * Time.deltaTime);
-            isClose = false;
-
+            isClose = true;
         }
         else {
-            //do whatever the enemy has to do with the player
-            isClose = true;
+            isClose = false;
         }
     }
 
+    //Enemy with only vertical move and view to player position
     void MoveFlying() {
-        //this.transform.position.Set(this.transform.position.x, (this.transform.position.y + 1), this.transform.position.z);
-
         distance = Vector3.Distance(transform.position, target.transform.position);
 
-
+        //Flip to aim the Player
         if (target.transform.position.x > transform.position.x && facingRight) {
-            lookingRight = true;
             Flip();
-        }
-        if (target.transform.position.x < transform.position.x && !facingRight) {
-            lookingRight = false;
+        }else if (target.transform.position.x < transform.position.x && !facingRight) {
             Flip();
         }
 
+        //Move up or down when limit patrol reach
         if (transform.position.y >= hauteurMax) {
             speed = -speed;
         }
         if (transform.position.y < hauteurMin) {
             speed = -speed;
         }
-
         this.transform.Translate(new Vector3(0, speed, 0) * Time.deltaTime);
 
     }
 
+    //Static enemy aim the player in view field 
     void MoveTurret() {
-
         distance = Vector3.Distance(transform.position, target.transform.position);
 
-
-        if(target.transform.position.x > transform.position.x && !facingRight) {
+        if (target.transform.position.x > transform.position.x && !facingRight) {
             lookingRight = true;
             Flip();
         }
@@ -209,23 +190,14 @@ public class MoveController : MonoBehaviour {
             lookingRight = false;
             Flip();
         }
-
-
-        //float move = -1;
-        //rigidBody.velocity = new Vector2(move * speed, rigidBody.velocity.y);
-        //anim.SetFloat("Speed", Mathf.Abs(move));
-
-        //if (move > 0 && !facingRight) { Flip(); } else if (move < 0 && facingRight) { Flip(); }
     }
 
-    public float GetSpeed()
-    {
-        return speed; 
+    public float GetSpeed() {
+        return speed;
     }
 
-    public void SetSpeed(int speedP)
-    {
-        speed = speedP; 
+    public void SetSpeed(int speedP) {
+        speed = speedP;
     }
 
 
