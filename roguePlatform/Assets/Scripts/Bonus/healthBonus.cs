@@ -12,15 +12,8 @@ public class HealthBonus : MonoBehaviour {
         player.GetComponent<LifeController>().GainLife(arg);
     }
 
-    //private void OnCollisionEnter2D(Collision2D col) {
-    //    if (col.collider.CompareTag("Player")) {
-    //        SetBonus(1);
-    //        Destroy(gameObject);
-    //    }
-    //}
-
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Player")) {
+    private void OnCollisionEnter2D(Collision2D col) {
+        if (col.collider.CompareTag("Player")) {
             SetBonus(1);
             Destroy(gameObject);
         }
