@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  Enemy Die Handler
+/// </summary>
 public class EnemyDieHandler : DieHandler {
 
     public GameObject healthBonus;
     public GameObject goldBonus;
 
-    /// <summary>
-    /// Appelle le comportement de la méthode virtuelle Die() de la classe DieHandler
-    /// en ajoutant l'instantiation de bonus à la mort de l'ennemi
-    /// </summary>
+    // Call the virtual method Die() of DieHandler
+    // and instanciate an objet for the player
     internal override void Die() {
         base.Die();
 

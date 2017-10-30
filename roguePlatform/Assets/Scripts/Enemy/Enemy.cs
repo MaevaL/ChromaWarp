@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  Enemy controller
+///  Initialisation of Enemy
+/// </summary>
 public class Enemy : MonoBehaviour {
 
-
-    LifeController lifeController;
-    ColorController colorController;
-    MoveController moveController;
+    private LifeController lifeController;
+    private ColorController colorController;
+    private MoveController moveController;
     public int damageMelee = 1;
     public int damageProjectile = 1;
 
