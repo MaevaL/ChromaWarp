@@ -173,6 +173,18 @@ public class MoveController : MonoBehaviour {
     void MoveFlying() {
         //this.transform.position.Set(this.transform.position.x, (this.transform.position.y + 1), this.transform.position.z);
 
+        distance = Vector3.Distance(transform.position, target.transform.position);
+
+
+        if (target.transform.position.x > transform.position.x && facingRight) {
+            lookingRight = true;
+            Flip();
+        }
+        if (target.transform.position.x < transform.position.x && !facingRight) {
+            lookingRight = false;
+            Flip();
+        }
+
         if (transform.position.y >= hauteurMax) {
             speed = -speed;
         }
