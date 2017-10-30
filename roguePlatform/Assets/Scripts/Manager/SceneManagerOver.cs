@@ -11,7 +11,7 @@ public class SceneManagerOver : MonoBehaviour {
     
     private GameObject player; 
     private PlayerController playerController;
-
+ 
     private Scene activeScene; 
     private string previousScene = null;
     // Use this for initialization
@@ -22,7 +22,6 @@ public class SceneManagerOver : MonoBehaviour {
         else {
             GameObject.DontDestroyOnLoad(gameObject);
             gameManager = gameObject.GetComponent<GameManager>();
-            
             
             Instance = this;
         }
@@ -40,12 +39,17 @@ public class SceneManagerOver : MonoBehaviour {
         }
         
         activeScene = SceneManager.GetActiveScene();
-
-       
+     
+        
         
 
         if (player != null)
         {
+            if (playerController.GetEndLevel())
+            {
+                Load("Menu");
+            }
+
             if (playerController.GetIsDead())
             {
                 previousScene = SceneManager.GetActiveScene().name;

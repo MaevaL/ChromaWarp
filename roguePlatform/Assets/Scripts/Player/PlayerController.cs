@@ -5,7 +5,8 @@ using UnityEngine.UI;
 using System;
 
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     LifeController lifeController;
     public Text healthText;
@@ -16,43 +17,51 @@ public class PlayerController : MonoBehaviour {
     public GameObject healthBonus;
     ColorController colorController;
 
+
+
     [SerializeField]
     private int damageMelee = 1;
     [SerializeField]
     private int damageProjectile = 1;
 
     // All variables needed for SceneManager
-    private bool shopDisabled; 
-    private bool isDead; 
+    private bool endLevel;
+    private bool shopDisabled;
+    private bool isDead;
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
 
         objectManager = GameObject.FindGameObjectWithTag("GameManager");
         gameManager = objectManager.GetComponent<GameManager>();
         gameManager.InitialisationPlayer();
-
+        endLevel = false;
         isDead = false;
-        shopDisabled = false; 
+        shopDisabled = false;
         lifeController = gameObject.GetComponent<LifeController>();
         healthText = GameObject.Find("HealthText").GetComponent<Text>();
-        healthText.text = ": " + lifeController.GetLife() + " / " + lifeController.GetLifeMax() ;
+        healthText.text = ": " + lifeController.GetLife() + " / " + lifeController.GetLifeMax();
 
         goldController = gameObject.GetComponent<GoldController>();
         CoinText = GameObject.Find("CoinText").GetComponent<Text>();
-        CoinText.text = ": " + goldController.GetEnergy() +" / " + goldController.GetEnergyMax();
+        CoinText.text = ": " + goldController.GetEnergy() + " / " + goldController.GetEnergyMax();
 
         // Le player prend la couleur tweak dans unity
         colorController = gameObject.GetComponent<ColorController>();
-        if (colorController.GetColor() == 1) {
+        if (colorController.GetColor() == 1)
+        {
             this.GetComponent<SpriteRenderer>().color = new Color(0.4f, 0.4f, 1f, 1f);
-        } else {
+        }
+        else
+        {
             this.GetComponent<SpriteRenderer>().color = new Color(1f, 0.4f, 0.4f, 1f);
         }
 
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         Hud();
         SwapColor();
     }
@@ -60,7 +69,8 @@ public class PlayerController : MonoBehaviour {
     /// <summary>
     /// Affiche les informations hud
     /// </summary>
-    private void Hud() {
+    private void Hud()
+    {
         healthText.text = ": " + (lifeController.GetLife()) + " / " + lifeController.GetLifeMax();
         CoinText.text = ": " + goldController.GetEnergy() + " / " + goldController.GetEnergyMax();
     }
@@ -69,13 +79,18 @@ public class PlayerController : MonoBehaviour {
     /// Change le personnage de couleur (bleu ou rouge)
     /// Le mode bleu permet d'attaquer les ennemies bleu et inversement pour le mode rouge
     /// </summary>
-    private void SwapColor() {
+    private void SwapColor()
+    {
 
-        if (Input.GetButtonDown("SwapColor")) {
+        if (Input.GetButtonDown("SwapColor"))
+        {
             colorController.SwapColor();
-            if (colorController.GetColor() == 1) {
+            if (colorController.GetColor() == 1)
+            {
                 this.GetComponent<SpriteRenderer>().color = new Color(0.4f, 0.4f, 1f, 1f);
-            } else {
+            }
+            else
+            {
                 this.GetComponent<SpriteRenderer>().color = new Color(1f, 0.4f, 0.4f, 1f);
             }
         }
@@ -83,33 +98,34 @@ public class PlayerController : MonoBehaviour {
 
     public int GetDamageMelee()
     {
-        return damageMelee; 
+        return damageMelee;
     }
     public int GetDamageProjectile()
     {
-        return damageProjectile; 
+        return damageProjectile;
     }
 
     public void SetDamageMelee(int damage)
     {
-        if(damage>=0)
+        if (damage >= 0)
         {
             damageMelee = damage;
         }
-        
+
     }
 
-    public void SetDamageProjectile(int damage) {
-        if(damage>=0)
+    public void SetDamageProjectile(int damage)
+    {
+        if (damage >= 0)
         {
             damageProjectile = damage;
         }
-      
+
     }
 
     public bool GetIsDead()
     {
-        return isDead; 
+        return isDead;
     }
 
     public void SetIsDead(bool deadP)
@@ -119,11 +135,22 @@ public class PlayerController : MonoBehaviour {
 
     public void SetShopDisabled(bool shopDisabledP)
     {
-        shopDisabled = shopDisabledP; 
+        shopDisabled = shopDisabledP;
     }
 
     public bool GetShopDisabled()
     {
-        return shopDisabled; 
+        return shopDisabled;
+    }
+
+    public bool GetEndLevel()
+    {
+        return endLevel;
+    }
+
+    public void SetEndLevel(bool endLevelP)
+    {
+        endLevel = endLevelP;
     }
 }
+

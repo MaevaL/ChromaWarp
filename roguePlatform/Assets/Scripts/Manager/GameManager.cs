@@ -241,8 +241,9 @@ public class GameManager : MonoBehaviour {
         //Initialize Gold
         goldController.SetEnergy(energyCurrent);
         goldController.SetGoldMax(energyMax);
-       
+
         //Initialize MaxLife 
+        lifeController.SetLife(lifeMax); 
         lifeController.SetLifeMax(lifeMax);
         //Initialize FireProperties
         fireController.SetFireRate(projectileRate);

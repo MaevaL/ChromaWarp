@@ -4061,7 +4061,7 @@ MonoBehaviour:
   facteurUpgrade: 1.5
   costUpgrade: 10
   energyMax: 150
-  lifeMax: 10
+  lifeMax: 3
   projectileRate: 0.6
   cacRate: 0.3
   energyCurrent: 1
