@@ -10,7 +10,7 @@ using RoguePlateformer;
 /// </summary>
 public class GameManager : MonoBehaviour {
     
-    //All Variable needed for SaveGame //
+    //All Variable needed for SaveGame
     //Upgrade Values
     [SerializeField]
     private float facteurUpgrade = 1.5f; 
