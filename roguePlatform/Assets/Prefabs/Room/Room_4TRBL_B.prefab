@@ -3283,7 +3283,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1692259899479256}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.874783, y: -27.85548, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4894599998843172}
@@ -6729,13 +6729,13 @@ MonoBehaviour:
   speed: 0
   groundRadius: 0.2
   facingRight: 0
+  rangeMax: 20
   type: 4
   groundCheck: {fileID: 4369132248961382}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 20
   isClose: 0
   lookingRight: 0
 --- !u!114 &114085747476238002
@@ -6831,13 +6831,13 @@ MonoBehaviour:
   speed: 5
   groundRadius: 2
   facingRight: 0
+  rangeMax: 15
   type: 2
   groundCheck: {fileID: 4314967232209152}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 15
   isClose: 0
   lookingRight: 0
 --- !u!114 &114139581291449308
@@ -6996,13 +6996,13 @@ MonoBehaviour:
   speed: 3
   groundRadius: 2
   facingRight: 0
+  rangeMax: 10
   type: 3
   groundCheck: {fileID: 4461563583329708}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 10
   isClose: 0
   lookingRight: 0
 --- !u!114 &114222945951639660
@@ -7058,13 +7058,13 @@ MonoBehaviour:
   speed: 5
   groundRadius: 2
   facingRight: 0
+  rangeMax: 15
   type: 2
   groundCheck: {fileID: 4167588153591932}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 15
   isClose: 0
   lookingRight: 0
 --- !u!114 &114277981505681600
@@ -7081,13 +7081,13 @@ MonoBehaviour:
   speed: 3
   groundRadius: 2
   facingRight: 0
+  rangeMax: 10
   type: 3
   groundCheck: {fileID: 4100480767772986}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 10
   isClose: 0
   lookingRight: 0
 --- !u!114 &114279923697606422
@@ -7134,8 +7134,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.8
-  attackTrigger: {fileID: 61951571739531962}
   animShootDuration: 0
+  attackTrigger: {fileID: 61951571739531962}
 --- !u!114 &114290253558221558
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7240,8 +7240,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.8
-  attackTrigger: {fileID: 61584229391241692}
   animShootDuration: 0
+  attackTrigger: {fileID: 61584229391241692}
 --- !u!114 &114343011618982478
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7289,8 +7289,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.8
-  attackTrigger: {fileID: 61196828368699046}
   animShootDuration: 0
+  attackTrigger: {fileID: 61196828368699046}
 --- !u!114 &114384573329811406
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7519,13 +7519,13 @@ MonoBehaviour:
   speed: 3
   groundRadius: 2
   facingRight: 0
+  rangeMax: 10
   type: 3
   groundCheck: {fileID: 4880588114610842}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 10
   isClose: 0
   lookingRight: 0
 --- !u!114 &114569327946045842
@@ -7554,13 +7554,13 @@ MonoBehaviour:
   speed: 0
   groundRadius: 0.2
   facingRight: 0
+  rangeMax: 20
   type: 4
   groundCheck: {fileID: 4966113492828420}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 20
   isClose: 0
   lookingRight: 0
 --- !u!114 &114572619080620360
@@ -7591,8 +7591,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.8
-  attackTrigger: {fileID: 61902474744456434}
   animShootDuration: 0
+  attackTrigger: {fileID: 61902474744456434}
 --- !u!114 &114577702307188366
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7647,13 +7647,13 @@ MonoBehaviour:
   speed: 5
   groundRadius: 2
   facingRight: 0
+  rangeMax: 15
   type: 2
   groundCheck: {fileID: 4497401098093868}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 15
   isClose: 0
   lookingRight: 0
 --- !u!114 &114613186717748896
@@ -7670,13 +7670,13 @@ MonoBehaviour:
   speed: 5
   groundRadius: 2
   facingRight: 0
+  rangeMax: 15
   type: 2
   groundCheck: {fileID: 4204674071124200}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 15
   isClose: 0
   lookingRight: 0
 --- !u!114 &114627596980705370
@@ -7733,13 +7733,13 @@ MonoBehaviour:
   speed: 3
   groundRadius: 2
   facingRight: 0
+  rangeMax: 10
   type: 3
   groundCheck: {fileID: 4660139547388888}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 10
   isClose: 0
   lookingRight: 0
 --- !u!114 &114663040271057444
@@ -7816,13 +7816,13 @@ MonoBehaviour:
   speed: 5
   groundRadius: 2
   facingRight: 0
+  rangeMax: 15
   type: 2
   groundCheck: {fileID: 4580645604570446}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 15
   isClose: 0
   lookingRight: 0
 --- !u!114 &114768885550305696
@@ -7928,8 +7928,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 0.8
-  attackTrigger: {fileID: 61303948198689682}
   animShootDuration: 0
+  attackTrigger: {fileID: 61303948198689682}
 --- !u!114 &114926325347880140
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7944,13 +7944,13 @@ MonoBehaviour:
   speed: 0
   groundRadius: 0.2
   facingRight: 0
+  rangeMax: 20
   type: 4
   groundCheck: {fileID: 4191950757839872}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
   target: {fileID: 0}
-  rangeMax: 20
   isClose: 0
   lookingRight: 0
 --- !u!114 &114935763321211348
