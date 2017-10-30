@@ -425,6 +425,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 330058950}
+    - target: {fileID: 114256523288030482, guid: 8b2cd7d0023f67449b08fcba0a241e08,
+        type: 2}
+      propertyPath: OffSetMoveCamY
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8b2cd7d0023f67449b08fcba0a241e08, type: 2}
   m_IsPrefabParent: 0

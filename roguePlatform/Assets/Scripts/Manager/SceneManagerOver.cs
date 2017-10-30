@@ -41,6 +41,8 @@ public class SceneManagerOver : MonoBehaviour {
         activeScene = SceneManager.GetActiveScene();
 
        
+        
+
         if (player != null)
         {
             if (playerController.GetIsDead())
@@ -51,14 +53,15 @@ public class SceneManagerOver : MonoBehaviour {
                 Load("Shop");
             }
         }
-
-        //if(activeScene.name == "Menu")
+        
+        //if (activeScene.name == "Menu" && !hudInvisible)
         //{
         //    GameObject.Find("HUD").SetActive(false);
+           
         //}
 
-       
-        if(activeScene.name == "Shop" && playerController.GetShopDisabled())
+
+        if (activeScene.name == "Shop" && playerController.GetShopDisabled())
         {
             if (previousScene != null)
             {
