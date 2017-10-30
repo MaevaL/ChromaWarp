@@ -103,7 +103,7 @@ namespace RoguePlateformer {
 		private void GenerateMainPath(int mainPathLength) {
 			mainPath = new List<Vector2i>();
 			MapChunk curChunk = MapChunk.CreateMapChunk(startingRoom);
-			Grid.SetChunk(new Vector2i(0, 0), curChunk);
+			Grid.SetChunk(new Vector2i(0, 0), curChunk, "Start");
 			mainPath.Add(curChunk.FakePos);
 			Side nextSide = null;
 			bool stuck = false;
@@ -138,12 +138,12 @@ namespace RoguePlateformer {
 					break;
 				}
 				curChunk = MapChunk.CreateMapChunk(prefab);
-				Grid.SetChunk(nextSide.GetAdjacentPos(), curChunk);
+				Grid.SetChunk(nextSide.GetAdjacentPos(), curChunk, "Main");
 				mainPath.Add(curChunk.FakePos);
 			}
 			nextSide = curChunk.GetRandomOpenUnusedSide();
 			curChunk = MapChunk.CreateMapChunk(endingRoom);
-			Grid.SetChunk(nextSide.GetAdjacentPos(), curChunk);
+			Grid.SetChunk(nextSide.GetAdjacentPos(), curChunk, "End");
 			mainPath.Add(curChunk.FakePos);
 		}
 
@@ -162,7 +162,7 @@ namespace RoguePlateformer {
 						adjOpen = new List<Orientation>();
 					}
 					adjOpen.Add(unusedSide.Orient.GetOposite());
-					Grid.SetChunk(unusedSide.GetAdjacentPos(), MapChunk.CreateMapChunk(GetPrefabMatchingExactly(adjOpen)));
+					Grid.SetChunk(unusedSide.GetAdjacentPos(), MapChunk.CreateMapChunk(GetPrefabMatchingExactly(adjOpen)), "Side");
 				}
 			}
 		}
