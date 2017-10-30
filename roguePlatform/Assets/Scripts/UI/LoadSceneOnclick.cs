@@ -4,7 +4,14 @@ using UnityEngine.SceneManagement;
 
 public class LoadSceneOnclick : MonoBehaviour {
 
+    SceneManagerOver sceneManagerOver;
+
+    void Start() {
+
+        sceneManagerOver = GameObject.Find("NewGameManager").GetComponent<SceneManagerOver>();
+    }
+
 	public void LoadByIndex(int sceneIndex) {
-        SceneManager.LoadScene(sceneIndex);
+        sceneManagerOver.Load(sceneIndex);
     }
 }
