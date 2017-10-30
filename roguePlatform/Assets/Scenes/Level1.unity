@@ -383,12 +383,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114861957586186144, guid: 5b29a7b0b6b010b41bb3d09266f8d47d,
-        type: 2}
-      propertyPath: endingRoom.prefab
-      value: 
-      objectReference: {fileID: 1692259899479256, guid: 554f8be0ad0ea8e48becbc66a81b2928,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5b29a7b0b6b010b41bb3d09266f8d47d, type: 2}
   m_IsPrefabParent: 0
