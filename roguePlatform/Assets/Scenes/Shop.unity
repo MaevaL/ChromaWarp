@@ -495,6 +495,10 @@ Prefab:
       propertyPath: m_FontData.m_Alignment
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1858917775529652, guid: 08817a13d3f65fe458541653223c93d6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08817a13d3f65fe458541653223c93d6, type: 2}
   m_IsPrefabParent: 0
