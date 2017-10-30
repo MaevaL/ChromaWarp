@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneManagerOver : MonoBehaviour {
 
@@ -53,12 +54,6 @@ public class SceneManagerOver : MonoBehaviour {
                 Load("Shop");
             }
         }
-        
-        //if (activeScene.name == "Menu" && !hudInvisible)
-        //{
-        //    GameObject.Find("HUD").SetActive(false);
-           
-        //}
 
 
         if (activeScene.name == "Shop" && playerController.GetShopDisabled())
@@ -91,6 +86,23 @@ public class SceneManagerOver : MonoBehaviour {
 
 
     public void Load(int sceneIndex) {
+        string nameScene = SceneManager.GetSceneByBuildIndex(sceneIndex).name;
+        if (!(nameScene == "Menu" || nameScene == "Shop")) {
+            GameObject.Find("HUD").SetActive(true);
+            GameObject.Find("Heart").GetComponent<Mask>().showMaskGraphic = true;
+            GameObject.Find("HealthText").GetComponent<Mask>().showMaskGraphic = true;
+            GameObject.Find("Coin").GetComponent<Mask>().showMaskGraphic = true;
+            GameObject.Find("CoinText").GetComponent<Mask>().showMaskGraphic = true;
+            GameObject.Find("TimerText").GetComponent<Mask>().showMaskGraphic = true;
+        }
+        else {
+            GameObject.Find("HUD").SetActive(true);
+            GameObject.Find("Heart").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("HealthText").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("Coin").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("CoinText").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("TimerText").GetComponent<Mask>().showMaskGraphic = false;
+        }
 
         if (!SceneManager.GetSceneByBuildIndex(sceneIndex).isLoaded) {
             SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
@@ -104,6 +116,19 @@ public class SceneManagerOver : MonoBehaviour {
         gameManager.SaveLevelInfos();
         if (!(sceneName == "Menu" || sceneName == "Shop")) {
             GameObject.Find("HUD").SetActive(true);
+            GameObject.Find("Heart").GetComponent<Mask>().showMaskGraphic = true;
+            GameObject.Find("HealthText").GetComponent<Mask>().showMaskGraphic = true;
+            GameObject.Find("Coin").GetComponent<Mask>().showMaskGraphic = true;
+            GameObject.Find("CoinText").GetComponent<Mask>().showMaskGraphic = true;
+            GameObject.Find("TimerText").GetComponent<Mask>().showMaskGraphic = true;
+        }
+        else {
+            GameObject.Find("HUD").SetActive(true);
+            GameObject.Find("Heart").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("HealthText").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("Coin").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("CoinText").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("TimerText").GetComponent<Mask>().showMaskGraphic = false;
         }
 
         if (!SceneManager.GetSceneByName(sceneName).isLoaded) {
@@ -111,6 +136,8 @@ public class SceneManagerOver : MonoBehaviour {
         }
 
         gameManager.InitialisationPlayer();
+
+
 
     }
 
