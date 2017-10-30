@@ -1,5 +1,5 @@
 # RoguePlateform
-## Prgrammeur
+## Programmeur
 - Maëva Lauzier
 - Jérémy Othenin
 - Matthieu Eginard 
