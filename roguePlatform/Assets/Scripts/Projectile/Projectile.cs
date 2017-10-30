@@ -9,13 +9,12 @@ public abstract class Projectile : MonoBehaviour {
     public int color;
     public AudioClip projectileSound;
     public AudioClip projectileSoundNoImpact;
+
     void Start() {
-            
-        Destroy(gameObject , LifeTime);
+        Destroy(gameObject, LifeTime);
     }
 
     private void OnCollisionEnter2D(Collision2D col) {
-
         if (!(col.collider.CompareTag("Ground")
             || col.collider.CompareTag("Environment"))) {
 
@@ -26,9 +25,7 @@ public abstract class Projectile : MonoBehaviour {
         return;
     }
 
-    public void SetDamages(int param) {
-        Damages = param;
-    }
+    public void SetDamages(int param) { Damages = param; }
 
     protected abstract void SpecificCollision(LifeController lifeController, Collision2D col);
 }

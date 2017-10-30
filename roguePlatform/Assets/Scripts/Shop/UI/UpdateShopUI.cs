@@ -8,7 +8,7 @@ public class UpdateShopUI : MonoBehaviour {
     [SerializeField]
     private Text fireRate;
     [SerializeField]
-    private Text maxEnergy;  
+    private Text maxEnergy;
     [SerializeField]
     private Text neededEnergy;
     [SerializeField]
@@ -20,9 +20,15 @@ public class UpdateShopUI : MonoBehaviour {
     [SerializeField]
     private Text punchDamage;
     [SerializeField]
-    private Text punchRate; 
+    private Text punchRate;
+    //Other Graphics
+    [SerializeField]
+    private Button yourButton;
+    [SerializeField]
+    private Canvas hudUpgrade;
 
     public GameObject player;
+
     //Controller 
     private UpgradeController upgradeController;
     private GoldController goldController;
@@ -32,18 +38,12 @@ public class UpdateShopUI : MonoBehaviour {
     private PlayerController playerController;
     private MeleeController meleeController;
 
-    private bool shopDisabled; 
+    private bool shopDisabled;
 
-  //Other Graphics
-    [SerializeField]
-    private Button yourButton;
-    [SerializeField]
-    private Canvas hudUpgrade; 
-    // Use this for initialization
-    void Start()
-    {
+
+    void Start() {
         //Get All Controller 
-         
+
         player = GameObject.FindGameObjectWithTag("Player");
         upgradeController = player.GetComponent<UpgradeController>();
         goldController = player.GetComponent<GoldController>();
@@ -52,27 +52,20 @@ public class UpdateShopUI : MonoBehaviour {
         playerController = player.GetComponent<PlayerController>();
         meleeController = player.GetComponent<MeleeController>();
 
-        playerController.SetShopDisabled(false); 
-        //Initialize all text fields
-        Hud();
-        //neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
-        //currentEnergy.text = "Current Energy : " + goldController.GetGold() + "/" + goldController.GetGoldMax();
-        //maxLife.text = "" + lifeController.GetLifeMax();
-        //fireRate.text = "each " + fireController.fireRate + " sec";
-        //maxEnergy.text = "" + goldController.GetGoldMax();
-        //fireDamage.text = "Fire Damage" + attackTriggerController.GetDamageToEnemy();  
-    //Create Listener EXIT 
-    Button btn = yourButton.GetComponent<Button>();
-        btn.onClick.AddListener(Exit); 
+        playerController.SetShopDisabled(false);
 
+        Hud();
+  
+        //Create Listener EXIT 
+        Button btn = yourButton.GetComponent<Button>();
+        btn.onClick.AddListener(Exit);
     }
-	// Update is called once per frame
-	void Update () {
-        Hud(); 
-	}
-    
-    private void Hud()
-    {
+
+    void Update() {
+        Hud();
+    }
+
+    private void Hud() {
         //Update all text fields 
         neededEnergy.text = "Energy needed for next upgrade : " + upgradeController.GetCost();
         currentEnergy.text = "Current Energy : " + goldController.GetEnergy() + "/" + goldController.GetEnergyMax();
@@ -81,18 +74,13 @@ public class UpdateShopUI : MonoBehaviour {
         maxEnergy.text = "" + goldController.GetEnergyMax();
         fireDamage.text = "" + playerController.GetDamageProjectile();
         punchDamage.text = "" + playerController.GetDamageMelee();
-        punchRate.text = "each " + meleeController.GetAttackCooldown() + " sec"; 
+        punchRate.text = "each " + meleeController.GetAttackCooldown() + " sec";
     }
 
-    private void Exit()
-    {
+    private void Exit() {
         //Disable the HUD UPGRADE
         hudUpgrade.gameObject.SetActive(false);
         playerController.SetShopDisabled(true);
-        Debug.Log("Shop is now Disabled"); 
+        Debug.Log("Shop is now Disabled");
     }
-
-    
-        
-
 }

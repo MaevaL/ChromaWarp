@@ -5,25 +5,22 @@ using UnityEngine.UI;
 
 public class UpgradePunchDamage : Upgrade {
 
+    private PlayerController playerController;
 
-    public Button yourButton;
     [SerializeField]
     private int punchDamage;
-    private PlayerController playerController; 
 
-    protected override void Effect()
-    {
+    public Button yourButton;
+
+    protected override void Effect() {
         player = GameObject.FindGameObjectWithTag("Player");
         playerController = player.GetComponent<PlayerController>();
-        
-        playerController.SetDamageMelee(playerController.GetDamageMelee() + punchDamage); 
+
+        playerController.SetDamageMelee(playerController.GetDamageMelee() + punchDamage);
     }
 
-    // Use this for initialization
-    void Start () {
+    void Start() {
         Button btn = yourButton.GetComponent<Button>(); ;
         btn.onClick.AddListener(Temp);
     }
-
-  
 }

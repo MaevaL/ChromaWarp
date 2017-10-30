@@ -12,8 +12,7 @@ namespace RoguePlateformer {
             if (!(SceneManager.GetActiveScene().name == "Menu" || SceneManager.GetActiveScene().name == "Shop")) {
                 if (Input.GetButton("Map")) {
                     GameObject.Find("Minimap").GetComponent<Mask>().showMaskGraphic = true;
-                }
-                else {
+                } else {
                     GameObject.Find("Minimap").GetComponent<Mask>().showMaskGraphic = false;
                 }
             }
