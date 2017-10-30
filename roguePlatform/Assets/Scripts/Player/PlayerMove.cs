@@ -39,6 +39,8 @@ namespace RoguePlateformer
         public AnimationCurve dashSpeedAnim;
         public float animDashDuration;
 
+        private RaycastHit hit;
+
 
 
         public void Start() {
@@ -104,7 +106,7 @@ namespace RoguePlateformer
                         RaycastDirection *= -1;
                     }
 
-                    RaycastHit hit;
+                    
 
                     if (Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0), RaycastDirection, out hit, dist, MaskRayCast)) {
                         _dashTimer = animDashDuration + 1;

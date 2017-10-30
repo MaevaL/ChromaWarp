@@ -95,10 +95,10 @@ public class GameManager : MonoBehaviour {
 
     //This is called each time a scene is loaded.
     static private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1) {
-
+        
         //Create Controller 
-       
-       // instance.InitialisationPlayer();
+
+        // instance.InitialisationPlayer();
 
         // instance.level++;
         //instance.InitGame();
@@ -106,7 +106,12 @@ public class GameManager : MonoBehaviour {
     }
     void Start() {
 
-
+            GameObject.Find("HUD").SetActive(true);
+            GameObject.Find("Heart").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("HealthText").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("Coin").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("CoinText").GetComponent<Mask>().showMaskGraphic = false;
+            GameObject.Find("TimerText").GetComponent<Mask>().showMaskGraphic = false;
 
     }
 
@@ -118,6 +123,7 @@ public class GameManager : MonoBehaviour {
         //GameObject.Find("HUD").SetActive(false);
         timerText.text = "0:0";
         InvokeRepeating("IncrTimer", 0.0f, 1.0f);
+
 
         //While doingSetup is true the player can't move
         //doingSetup = true;
