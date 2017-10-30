@@ -6,32 +6,27 @@ using UnityEngine;
 /// Initialize a Cost and Facteur to increase 
 /// the global cost of all the upgrade
 /// </summary>
-public class UpgradeController : MonoBehaviour
-{
+public class UpgradeController : MonoBehaviour {
 
     [SerializeField]
     private int cost;
     [SerializeField]
-    private float facteur; 
+    private float facteur;
 
-    public int GetCost()
-    {
+    public int GetCost() {
         return cost;
     }
 
-    public float GetFacteur()
-    {
+    public float GetFacteur() {
         return facteur;
     }
 
-    public void SetCost(int costP)
-    {
-        cost = costP; 
+    public void SetCost(int costP) {
+        cost = costP;
     }
 
-    public void NewCost()
-    {
-        cost = (int) (cost * facteur);
+    public void NewCost() {
+        cost = (int)(cost * facteur);
     }
 }
 

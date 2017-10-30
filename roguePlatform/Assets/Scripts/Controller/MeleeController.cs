@@ -2,46 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+///  Melee controller
+///  Melee attack for Player and Enemy
+/// </summary>
 public class MeleeController : MonoBehaviour {
 
-    //Attack Melee
-    private bool attacking = false;
-    private float attackTimer = 0;
     [SerializeField]
     private float attackCooldown = 0.3f;
-    public Collider2D attackTrigger;
-
     [SerializeField]
     private float animShootDuration;
+
+    private bool attacking = false;
+    private float attackTimer = 0;
     private Animator anim;
 
+    public Collider2D attackTrigger;
 
-    // Use this for initialization
     void Start() {
         anim = GetComponent<Animator>();
         attackTrigger.enabled = false;
     }
 
-    // Update is called once per frame
     void Update() {
         MeleeAttack();
     }
 
-
     private void MeleeAttack() {
-
+        //When the Player attacks
         if (gameObject.CompareTag("Player")) {
-
-
+            //Player can only do a melee attack when his color is red(2)
             if (Input.GetButtonDown("Fire2") && !attacking && GetComponent<ColorController>().GetColor() == 2) {
                 attacking = true;
                 attackTimer = attackCooldown;
-
                 attackTrigger.enabled = true;
                 anim.SetTrigger("PunchT");
-
             }
-
+            //cooldown melee attack
             if (attacking) {
                 if (attackTimer > 0) {
                     attackTimer -= Time.deltaTime;
@@ -50,20 +47,18 @@ public class MeleeController : MonoBehaviour {
                     attacking = false;
                     attackTrigger.enabled = false;
                 }
-
             }
         }
         else {
-
-            if (!gameObject.GetComponent<MoveController>().isClose && !attacking) {
+        //When Enemy attacks
+            //Enemy attacks if it is close to the player
+            if (gameObject.GetComponent<MoveController>().isClose && !attacking) {
                 attacking = true;
                 attackTimer = attackCooldown;
-
                 attackTrigger.enabled = true;
                 anim.SetTrigger("PunchT");
-
             }
-
+            //cooldown melee attack
             if (attacking) {
                 if (attackTimer > 0) {
                     attackTimer -= Time.deltaTime;
@@ -72,22 +67,17 @@ public class MeleeController : MonoBehaviour {
                     attacking = false;
                     attackTrigger.enabled = false;
                 }
-
             }
-
         }
     }
 
-    public float GetAttackCooldown()
-    {
-        return attackCooldown; 
+    public float GetAttackCooldown() {
+        return attackCooldown;
     }
 
-    public void SetAttackCoolDown(float cooldown)
-    {
-        if(cooldown>=0)
-        {
+    public void SetAttackCoolDown(float cooldown) {
+        if (cooldown >= 0) {
             attackCooldown = cooldown;
-        } 
+        }
     }
 }

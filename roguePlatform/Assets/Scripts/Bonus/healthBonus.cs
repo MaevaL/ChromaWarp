@@ -9,6 +9,7 @@ public class HealthBonus : MonoBehaviour {
     private void Awake() {
         player = GameObject.FindGameObjectWithTag("Player");
     }
+
     public void SetBonus(int arg) {
         player.GetComponent<LifeController>().GainLife(arg);
     }
