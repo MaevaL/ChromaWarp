@@ -11,7 +11,8 @@ namespace RoguePlateformer {
 		}
 
 		public void LateUpdate() {
-            if(mainCam != null)
+
+            if (mainCam != null)
             {
                 minimapCam.transform.position = new Vector3(mainCam.position.x, mainCam.position.y, -20f);
                 //Vector3 fake = (Vector2) MapManager.I.Grid.GetChunkAtWorldPos(mainCam.position).FakePos;
