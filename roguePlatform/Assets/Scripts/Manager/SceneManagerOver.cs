@@ -4,17 +4,20 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+///  Scene Manager 
+///  Manage differents scenes of the game
+/// </summary>
 public class SceneManagerOver : MonoBehaviour {
 
-    public static SceneManagerOver Instance { set; get; }
     private GameManager gameManager;
-    
     private GameObject player; 
     private PlayerController playerController;
- 
     private Scene activeScene; 
     private string previousScene = null;
-    // Use this for initialization
+
+	public static SceneManagerOver Instance { set; get; }
+
     void Start() {
         if (Instance != null) {
             GameObject.Destroy(gameObject);
@@ -22,65 +25,39 @@ public class SceneManagerOver : MonoBehaviour {
         else {
             GameObject.DontDestroyOnLoad(gameObject);
             gameManager = gameObject.GetComponent<GameManager>();
-            
             Instance = this;
         }
     }
 
 
-    // Update is called once per frame
     void Update() {
-        //TEMPORAIRE
-        //TRIGGER FIN DE NIVEAU ICI
         player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
+        if (player != null) {
             playerController = player.GetComponent<PlayerController>();
         }
-        
         activeScene = SceneManager.GetActiveScene();
      
-        
-        
-
-        if (player != null)
-        {
-            if (playerController.GetEndLevel())
-            {
+        if (player != null) {
+            if (playerController.GetEndLevel()) {
+				//Load (SceneManager.GetActiveScene ().index);
                 Load("Menu");
             }
-
-            if (playerController.GetIsDead())
-            {
+            if (playerController.GetIsDead()) {
                 previousScene = SceneManager.GetActiveScene().name;
                 gameManager.SaveLevelInfos();
-                Debug.Log("PlayerDataSaved");
                 Load("Shop");
             }
         }
 
 
-        if (activeScene.name == "Shop" && playerController.GetShopDisabled())
-        {
-            if (previousScene != null)
-            {
+        if (activeScene.name == "Shop" && playerController.GetShopDisabled()) {
+            if (previousScene != null) {
                 Load(previousScene);   
             }
-            else
-            {
+            else {
                 Load("Menu");
             }
         }
-
-        //For TESTING PASSAGE LEVEL
-        //if (Input.GetKeyUp(KeyCode.Keypad1)) {
-        //    gameManager.SaveLevelInfos(); 
-        //    Load(1);
-        //}
-        //if (Input.GetKeyUp(KeyCode.Keypad2)) {
-        //    gameManager.SaveLevelInfos();
-        //    Load(2);
-        //}
 
         if (Input.GetKeyUp(KeyCode.Escape)) {
             gameManager.SaveLevelInfos();
@@ -88,7 +65,7 @@ public class SceneManagerOver : MonoBehaviour {
         }
     }
 
-
+	//Load scene by his index number
     public void Load(int sceneIndex) {
         string nameScene = SceneManager.GetSceneByBuildIndex(sceneIndex).name;
         if (!(nameScene == "Menu" || nameScene == "Shop")) {
@@ -100,6 +77,7 @@ public class SceneManagerOver : MonoBehaviour {
             GameObject.Find("TimerText").GetComponent<Mask>().showMaskGraphic = true;
         }
         else {
+			//Disable the HUD when or shop menu is loaded
             GameObject.Find("HUD").SetActive(true);
             GameObject.Find("Heart").GetComponent<Mask>().showMaskGraphic = false;
             GameObject.Find("HealthText").GetComponent<Mask>().showMaskGraphic = false;
@@ -110,12 +88,10 @@ public class SceneManagerOver : MonoBehaviour {
 
         if (!SceneManager.GetSceneByBuildIndex(sceneIndex).isLoaded) {
             SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
-            //PlayMusic(SceneManager.GetActiveScene().GetRootGameObjects().);
-
         }
-
     }
 
+	//Load scene by his name
     public void Load(string sceneName) {
         gameManager.SaveLevelInfos();
         if (!(sceneName == "Menu" || sceneName == "Shop")) {
@@ -127,6 +103,7 @@ public class SceneManagerOver : MonoBehaviour {
             GameObject.Find("TimerText").GetComponent<Mask>().showMaskGraphic = true;
         }
         else {
+			//Disable the HUD when menu is loaded
             GameObject.Find("HUD").SetActive(true);
             GameObject.Find("Heart").GetComponent<Mask>().showMaskGraphic = false;
             GameObject.Find("HealthText").GetComponent<Mask>().showMaskGraphic = false;
@@ -138,10 +115,7 @@ public class SceneManagerOver : MonoBehaviour {
         if (!SceneManager.GetSceneByName(sceneName).isLoaded) {
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
-
         gameManager.InitialisationPlayer();
-
-
 
     }
 
@@ -149,14 +123,12 @@ public class SceneManagerOver : MonoBehaviour {
         if (!SceneManager.GetSceneByName(sceneName).isLoaded) {
             SceneManager.UnloadSceneAsync(sceneName);
         }
-
     }
 
     public void Unload(int sceneIndex) {
         if (!SceneManager.GetSceneByBuildIndex(sceneIndex).isLoaded) {
             SceneManager.UnloadSceneAsync(sceneIndex);
         }
-
     }
 
 }
