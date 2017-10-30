@@ -8,6 +8,7 @@ public abstract class Upgrade : MonoBehaviour
     public GameObject player; 
     public string title;
     public string description;
+    public AudioClip soundClick;
    
     
     //public Button yourButton; 
@@ -33,7 +34,9 @@ public abstract class Upgrade : MonoBehaviour
         {
             playerCoins -= coins;
             player.GetComponent<GoldController>().SetEnergy(playerCoins);
-            player.GetComponent<UpgradeController>().NewCost(); 
+            player.GetComponent<UpgradeController>().NewCost();
+            //GameObject.Find("Sound")
+            SoundManager.instance.PlaySingle(soundClick);
             Effect();
         }
         //TODO Create else 
