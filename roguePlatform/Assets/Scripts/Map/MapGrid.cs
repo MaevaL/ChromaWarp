@@ -28,7 +28,7 @@ namespace RoguePlateformer {
 			realChunkHeight = realHeight;
 		}
 
-		public void SetChunk(Vector2i fakeGridPos, MapChunk chunk) {
+		public void SetChunk(Vector2i fakeGridPos, MapChunk chunk, string specialName) {
 			Vector2i gridPos = FakeToRealGridPos(fakeGridPos);
 			chunk.FakePos = fakeGridPos;
 			if (chunks[gridPos.x, gridPos.y] != null) {
@@ -42,6 +42,7 @@ namespace RoguePlateformer {
 			foreach (Orientation ori in chunk.GetAllOpenSidesOrientations()) {
 				chunk.name += ori.ToString()[0];
 			}
+			chunk.name += " " + specialName;
 			//chunk.gameObject.SetActive(false);
 			UpdateAdjacents(gridPos);
 		}

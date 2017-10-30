@@ -86,24 +86,24 @@ MonoBehaviour:
   chunksX: 20
   chunksY: 20
   seed: 456159
-  mainPathLength: 10
+  mainPathLength: 2
   mapRoot: {fileID: 4059865385857074}
   rotatedRoot: {fileID: 0}
   generateRotated: 0
   startingRoom:
-    type: 0
+    type: 4
     initTop: 1
-    initRight: 0
-    initBottom: 0
-    initLeft: 0
-    prefab: {fileID: 1803435962177268, guid: becd69f8f1c7fb54ba250f906b6a8b4b, type: 2}
-  endingRoom:
-    type: 0
-    initTop: 0
-    initRight: 0
-    initBottom: 0
+    initRight: 1
+    initBottom: 1
     initLeft: 1
-    prefab: {fileID: 1745140647463604, guid: 9a62b3df90f419f4cb209c5db6630cf3, type: 2}
+    prefab: {fileID: 1002778926917328, guid: 3dd4ec9bf8c6f1f499876bc7b5266870, type: 2}
+  endingRoom:
+    type: 4
+    initTop: 1
+    initRight: 1
+    initBottom: 1
+    initLeft: 1
+    prefab: {fileID: 1692259899479256, guid: b6477d04a9854014a9dbbfb08696f82f, type: 2}
   roomPrefabs:
   - type: 3
     initTop: 1
@@ -176,7 +176,7 @@ MonoBehaviour:
     initRight: 1
     initBottom: 1
     initLeft: 1
-    prefab: {fileID: 1407136321219918, guid: c1dc45858fabccc45b5b4bd924022595, type: 2}
+    prefab: {fileID: 1002778926917328, guid: 3dd4ec9bf8c6f1f499876bc7b5266870, type: 2}
   - type: 1
     initTop: 0
     initRight: 1
