@@ -1,6 +1,6 @@
 # Chroma_Warp
 
-Jeu réalisé en forma Game Jam dans le cadre de la formation Gamagora. Ce projet a été réalisé en collaboration entre les programmeurs et les levels designer de cette formation. Il s'est soldé par une présentation du prototype réalisé.
+Jeu réalisé en forma Game Jam dans le cadre de la formation Gamagora. Ce projet a été crée en collaboration entre les programmeurs et les levels designers de cette formation. Il s'est soldé par une présentation du prototype effectué.
 
 ## Le jeu 
 
