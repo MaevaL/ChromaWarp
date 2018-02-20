@@ -62,10 +62,11 @@ public class MeleeController : MonoBehaviour {
             if (attacking) {
                 if (attackTimer > 0) {
                     attackTimer -= Time.deltaTime;
+                    attackTrigger.enabled = false;
                 }
                 else {
                     attacking = false;
-                    attackTrigger.enabled = false;
+                    attackTrigger.enabled = true;
                 }
             }
         }
